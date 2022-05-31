@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[show edit update] do
-    resources :followers, only: %i[create new]
+    resources :followings, only: %i[create new]
   end
 
   resources :messages, only: :destroy
