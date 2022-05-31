@@ -10,9 +10,95 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_30_160646) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_111442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "expos", force: :cascade do |t|
+    t.integer "api_records_id"
+    t.date "api_updated_at"
+    t.string "title"
+    t.text "lead_text"
+    t.text "description"
+    t.string "tags", array: true
+    t.string "cover_url"
+    t.string "cover_alt"
+    t.string "cover_credit"
+    t.date "date_start"
+    t.date "date_end"
+    t.string "occurences", array: true
+    t.string "date_description"
+    t.string "price_type"
+    t.string "price_detail"
+    t.string "contact_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "place_id", null: false
+    t.index ["place_id"], name: "index_expos_on_place_id"
+  end
+
+  create_table "followers", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "friend_id", null: false
+    t.index ["friend_id"], name: "index_followers_on_friend_id"
+    t.index ["user_id"], name: "index_followers_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "proposal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proposal_id"], name: "index_messages_on_proposal_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "proposal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["proposal_id"], name: "index_participants_on_proposal_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "address_name"
+    t.string "address_street"
+    t.string "address_city"
+    t.string "address_zipcode"
+    t.float "lat"
+    t.float "lon"
+    t.string "access_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "proposals", force: :cascade do |t|
+    t.boolean "confirmed"
+    t.string "occurences", array: true
+    t.integer "max_participants"
+    t.bigint "user_id", null: false
+    t.bigint "expo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expo_id"], name: "index_proposals_on_expo_id"
+    t.index ["user_id"], name: "index_proposals_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "user_id", null: false
+    t.bigint "expo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expo_id"], name: "index_reviews_on_expo_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +108,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_30_160646) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "expo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expo_id"], name: "index_wishes_on_expo_id"
+    t.index ["user_id"], name: "index_wishes_on_user_id"
+  end
+
+  add_foreign_key "expos", "places"
+  add_foreign_key "followers", "users"
+  add_foreign_key "followers", "users", column: "friend_id"
+  add_foreign_key "messages", "proposals"
+  add_foreign_key "messages", "users"
+  add_foreign_key "participants", "proposals"
+  add_foreign_key "participants", "users"
+  add_foreign_key "proposals", "expos"
+  add_foreign_key "proposals", "users"
+  add_foreign_key "reviews", "expos"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "wishes", "expos"
+  add_foreign_key "wishes", "users"
 end
