@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_111442) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "friend_id"
+    t.bigint "friend_id", null: false
     t.index ["friend_id"], name: "index_followers_on_friend_id"
     t.index ["user_id"], name: "index_followers_on_user_id"
   end
@@ -125,6 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_111442) do
 
   add_foreign_key "expos", "places"
   add_foreign_key "followers", "users"
+  add_foreign_key "followers", "users", column: "friend_id"
   add_foreign_key "messages", "proposals"
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "proposals"
