@@ -5,4 +5,24 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :expos, only: %i[show index] do
+    resources :whishes, only: :create
+    resources :proposals, only: :create
+    resources :reviews, only: :create
+  end
+
+  resources :whishes, only: :destroy
+
+  resources :proposals, only: :destroy do
+    resources :messages, only: :create
+    resources :participants, only: :create
+  end
+
+  resources :users, only: %i[show edit update] do
+    resources :followers, only: %i[create new]
+  end
+
+  resources :messages, only: :destroy
+
+  get 'profile', to: 'profile#show', as: :profile
 end
