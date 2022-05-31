@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'followers/create'
+  get 'followers/new'
+  get 'messages/create'
+  get 'messages/destroy'
+  get 'reviews/create'
+  get 'proposals/create'
+  get 'wishes/create'
+  get 'profiles/show'
+  get 'expos/index'
+  get 'expos/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
