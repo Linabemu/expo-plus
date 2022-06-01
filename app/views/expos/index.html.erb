@@ -1,19 +1,17 @@
-<% console %>
-
-<div class="">
+<div class="container-index">
 
   <% @expos.each do |expo| %>
+
     <div class="card-index">
-      <%= cl_image_tag(expo.photo.key, width: 100, height: 100, quality: 50) %>
-      <h2><%= expo.title  %></h2>
-      <div>
+      <%= cl_image_tag(expo.photo.key, height: 292, quality: 100) %>
+      <h2 class="title"><%= expo.title  %></h2>
+      <div class="d-flex justify-content-between subtitle">
         <p><%= expo.place.address_name  %></p>
-          <div>
-            <p><%= expo.place.address_city  %></p>
-            <p><%= expo.place.address_zipcode.split(//).last(2).join %></p>
-          </div>
+        <p><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
       </div>
-      <p>Du <%= (l expo.date_start, format: "%d") %> <%= (l expo.date_start, format: "%B") %> <%= (l expo.date_start, format: "%Y") %> au <%= (l expo.date_end, format: "%d") %> <%= (l expo.date_end, format: "%B") %> <%= (l expo.date_end, format: "%Y") %></p>
+      <p class="subtitle">Du <%= (l expo.date_start, format: "%d") %> <%= (l expo.date_start, format: "%B") %> <%= (l expo.date_start, format: "%Y") %> au <%= (l expo.date_end, format: "%d") %> <%= (l expo.date_end, format: "%B") %> <%= (l expo.date_end, format: "%Y") %></p>
     </div>
+
   <% end %>
+
 </div>

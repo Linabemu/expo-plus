@@ -16,6 +16,9 @@ module ExpoPlus
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # Ajout Cyril Darcq pour avoir date en FR
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
