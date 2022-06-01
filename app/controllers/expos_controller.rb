@@ -18,7 +18,8 @@ class ExposController < ApplicationController
 
   def show
     @review = Booking.new()
-    @reviews = @offer.reviews
+    @reviews = @expo.reviews
+    @proposals = @expo.proposals
   end
 
   private
