@@ -1,3 +1,20 @@
-<h1>Expos#index</h1>
-<p>Find me in app/views/expos/index.html.erb</p>
 <% console %>
+
+<div class="">
+
+  <% @expos.each do |expo| %>
+    <div class="card-index">
+      <%= cl_image_tag(expo.photo.key, width: 100, height: 100, quality: 50) %>
+      <h2><%= expo.title  %></h2>
+      <div>
+        <p><%= expo.place.address_name  %></p>
+          <div>
+            <p><%= expo.place.address_city  %></p>
+            <p><%= expo.place.address_zipcode.split(//).last(2).join %></p>
+          </div>
+      </div>
+      <p>Du <%= (l expo.date_start, format: "%d") %> <%= (l expo.date_start, format: "%B") %> <%= (l expo.date_start, format: "%Y") %> au <%= (l expo.date_end, format: "%d") %> <%= (l expo.date_end, format: "%B") %> <%= (l expo.date_end, format: "%Y") %></p>
+
+    </div>
+  <% end %>
+</div>
