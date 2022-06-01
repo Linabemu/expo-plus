@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_142702) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_01_075210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,13 +65,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_142702) do
     t.index ["place_id"], name: "index_expos_on_place_id"
   end
 
-  create_table "followers", id: false, force: :cascade do |t|
+  create_table "followings", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "friend_id", null: false
-    t.index ["friend_id"], name: "index_followers_on_friend_id"
-    t.index ["user_id"], name: "index_followers_on_user_id"
+    t.bigint "receiver_id", null: false
+    t.index ["receiver_id"], name: "index_followings_on_receiver_id"
+    t.index ["user_id"], name: "index_followings_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -107,12 +107,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_142702) do
 
   create_table "proposals", force: :cascade do |t|
     t.boolean "confirmed"
-    t.string "occurences", array: true
     t.integer "max_participants"
     t.bigint "user_id", null: false
     t.bigint "expo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
+    t.date "date_proposale"
     t.index ["expo_id"], name: "index_proposals_on_expo_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end
@@ -154,8 +155,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_142702) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "expos", "places"
-  add_foreign_key "followers", "users"
-  add_foreign_key "followers", "users", column: "friend_id"
+  add_foreign_key "followings", "users"
+  add_foreign_key "followings", "users", column: "receiver_id"
   add_foreign_key "messages", "proposals"
   add_foreign_key "messages", "users"
   add_foreign_key "participants", "proposals"
