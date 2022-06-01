@@ -1,2 +1,26 @@
-<h1>Expos#show</h1>
-<p>Find me in app/views/expos/show.html.erb</p>
+<div class="m-5">
+  <h1>Expos#show</h1>
+
+  <h2><%= @expo.title %></h2>
+  <%= @expo.date_start %>
+  <%= @expo.date_end %>
+
+  <div>
+    <%= link_to "Programmer ma visite" %>
+  </div>
+
+  <%= @expo.description %>
+
+  <div>
+    <%= link_to "Ajouter un commentaire" %>
+  </div>
+  <div>
+  <% @expo.reviews.each do |review| %>
+    <%= cl_image_tag @user.photo.key, height:200, width:200, crop: :fill %>
+    <%=review.expo.title %>
+    <%=review.rating %>
+    <br>
+    <%=review.comment %>
+    <% end %>
+  </div>
+</div>
