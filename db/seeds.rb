@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'open-uri'
 require 'json'
+require 'open-uri'
 
 
 puts "Destroying all records ..."
@@ -32,29 +32,62 @@ puts "Users created"
 
 puts "Parsing of the API..."
 url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=200&facet=date_start&facet=date_end&facet=tags&facet=address_name&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=transport&facet=price_type&facet=access_type&facet=updated_at&facet=programs&refine.tags=Expo"
-records = JSON.parse(URI.open(url).read)["records"]
+serialized_records = URI.open(url).read
+records = JSON.parse(serialized_records)["records"]
 puts "API parsed"
 
 
-# puts "Creating expos…"
+puts "Creating expos…"
 
-# records.limit(20).each do |record|
+records.take(2).each do |record|
 
-#   Place.where(address_name:  ).take
+  expo = Expo.new(
+    api_records_id: record["fields"]["id"],
+    api_updated_at: record["fields"]["updated_at"],
+    title: record["fields"]["title"],
+    lead_text: record["fields"]["lead_text"],
+    description: record["fields"]["description"],
+    tags: record["fields"]["tags"],
+    cover_url: record["fields"]["cover_url"],
+    cover_alt: record["fields"]["cover_alt"],
+    cover_credit: record["fields"]["cover_credit"],
+    date_start: record["fields"]["date_start"],
+    date_end: record["fields"]["date_end"],
+    occurences: record["fields"]["occurrences"],
+    date_description: record["fields"]["date_description"],
+    price_type: record["fields"]["price_type"],
+    price_detail: record["fields"]["price_detail"],
+    contact_url: record["fields"]["contact_url"]
+    )
 
-#   expo = Expo.new(
-#     user: user1,
-#     name: 'I will stand in the line for you!',
-#     unit_price: 3500,
-#     overview: "At the mall, at Pôle Emploi or in any other long administration line, I will queue for you anywhere! Try me!",
-#     location: "40 Bd Haussmann, 75009 Paris",
-#     category: "Other",
-#     currency: 'EUR'
-#     )
-#   expo.photo.attach(
-#       io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpeg'),
-#       filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
-#       content_type: 'image/jpg'
-#       )
-#   expo.save!
-# end
+  expo.photo.attach(
+    io: URI.open("#{expo.cover_url}"),
+    filename: ["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
+    content_type: record["fields"]["image_couverture"]["mimetype"]
+    )
+
+  if Place.where(address_name: record["fields"]["address_name"]).take.nil?
+    place = Place.new(
+      address_name: record["fields"]["address_name"],
+      address_street: record["fields"]["address_street"],
+      address_city: record["fields"]["address_city"],
+      address_zipcode: record["fields"]["address_zipcode"],
+      lat: record["geometry"]["coordinates"][1],
+      lon: record["geometry"]["coordinates"][0],
+      access_link: record["fields"]["address_name"]
+      )
+
+    place.save!
+    puts "New place created : #{place.address_name}"
+  else
+    place = Place.where(address_name: record["fields"]["address_name"]).take
+  end
+
+  expo.place = place
+  expo.save!
+
+  puts "New expo created : #{expo.title}"
+
+end
+
+puts "Seed uploaded! Congrats!"
