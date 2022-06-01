@@ -1,23 +1,25 @@
 <div class="w-100">
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <%@expos.first(5).each_with_index do |top_five, index| %>
-      <div class="carousel-item <%= 'active' if index.zero? %>">
-        <%= cl_image_tag(top_five.photo.key, height: '292px', quality: 50) %>
-      </div>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <%@expos.first(5).each_with_index do |top_five, index| %>
+        <div class="carousel-item <%= 'active' if index.zero? %>">
+          <%= cl_image_tag(top_five.photo.key, height: '292px', quality: 50) %>
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <p class="title">EXPOS A VENIR</p>
+  <div class="d-flex">
+    <%@expos.last(5).each do |expo| %>
+      <%= cl_image_tag(expo.photo.key, height: '292px', quality: 50, class:'card-small') %>
     <% end %>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<p class="title">EXPOS A VENIR</p>
-<p class="subtitle">EXPOS A VENIR</p>
-<p class="paragraphe">EXPOS A VENIR</p>
-<p class="paragraphe">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil explicabo voluptatibus dolorem fuga, veniam dolor animi dolore ipsum amet soluta minus! Et dignissimos illo dolor blanditiis distinctio, ipsum eos fugiat?</p>
 </div>
