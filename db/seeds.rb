@@ -39,7 +39,7 @@ puts "API parsed"
 
 puts "Creating expos…"
 
-records.take(2).each do |record|
+records.take(20).each do |record|
 
   expo = Expo.new(
     api_records_id: record["fields"]["id"],
@@ -62,7 +62,7 @@ records.take(2).each do |record|
 
   expo.photo.attach(
     io: URI.open("#{expo.cover_url}"),
-    filename: ["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
+    filename: record["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
     content_type: record["fields"]["image_couverture"]["mimetype"]
     )
 
@@ -90,4 +90,4 @@ records.take(2).each do |record|
 
 end
 
-puts "Seed uploaded! Congrats!"
+puts "Seed uploaded! Congrats! You are a god !!!"
