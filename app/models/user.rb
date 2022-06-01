@@ -15,5 +15,6 @@ class User < ApplicationRecord
   has_many :reviews
 
   validates :email, uniqueness: true
+  validates :username, presence: true
   has_one_attached :photo
 end
