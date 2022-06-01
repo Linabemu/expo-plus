@@ -8,4 +8,6 @@ class Expo < ApplicationRecord
   validates :title, presence: true
   validates :date_start, presence: true
   validates :date_end, presence: true
+
+  has_one_attached :photo
 end
