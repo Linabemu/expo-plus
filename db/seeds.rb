@@ -30,8 +30,8 @@ user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'aze
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
 puts "Users created"
 
-puts "Parsing of the API..."
-url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=200&facet=date_start&facet=date_end&facet=tags&facet=address_name&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=transport&facet=price_type&facet=access_type&facet=updated_at&facet=programs&refine.tags=Expo"
+puts "Parsing the API..."
+url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=1000&facet=date_start&facet=date_end&facet=tags&facet=address_name&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=transport&facet=price_type&facet=access_type&facet=updated_at&facet=programs&refine.tags=Expo"
 serialized_records = URI.open(url).read
 records = JSON.parse(serialized_records)["records"]
 puts "API parsed"
