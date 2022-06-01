@@ -1,7 +1,9 @@
 <div class="m-5">
-  <h1>Expos#show</h1>
 
-  <h2><%= @expo.title %></h2>
+  <img src="<%= @expo.cover_url %>" alt="<%= @expo.cover_alt %>">
+  <img src="" alt="">
+  <h1><%= @expo.title %></h1>
+  <%# <%= @expo.address_name %>
   <%= @expo.date_start %>
   <%= @expo.date_end %>
 
@@ -16,8 +18,11 @@
   </div>
   <div>
   <% @expo.reviews.each do |review| %>
-    <%= cl_image_tag @user.photo.key, height:200, width:200, crop: :fill %>
-    <%=review.expo.title %>
+
+    <%= @user.photo.attached? ? cl_image_tag(@user.photo.key, height:200, width:200, crop: :fill) : image_tag("avatar_placeholder.png")%>
+    <%= @user.username %>
+    <%# affihchage user %>
+    <%=review.expo %>
     <%=review.rating %>
     <br>
     <%=review.comment %>
