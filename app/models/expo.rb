@@ -4,4 +4,8 @@ class Expo < ApplicationRecord
   has_many :wishes
   has_many :proposals
   has_many :users, through: :reviews
+
+  validates :title, presence: true
+  validates :date_start, presence: true
+  validates :date_end, presence: true
 end
