@@ -37,18 +37,24 @@ puts "API parsed"
 
 
 # puts "Creating expos…"
-# offer1 = Offer.new(
-#   user: user1,
-#   name: 'I will stand in the line for you!',
-#   unit_price: 3500,
-#   overview: "At the mall, at Pôle Emploi or in any other long administration line, I will queue for you anywhere! Try me!",
-#   location: "40 Bd Haussmann, 75009 Paris",
-#   category: "Other",
-#   currency: 'EUR'
-# )
-# offer1.photo.attach(
-#   io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpeg'),
-#   filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
-#   content_type: 'image/jpg'
-#   )
-# offer1.save!
+
+# records.limit(20).each do |record|
+
+#   Place.where(address_name:  ).take
+
+#   expo = Expo.new(
+#     user: user1,
+#     name: 'I will stand in the line for you!',
+#     unit_price: 3500,
+#     overview: "At the mall, at Pôle Emploi or in any other long administration line, I will queue for you anywhere! Try me!",
+#     location: "40 Bd Haussmann, 75009 Paris",
+#     category: "Other",
+#     currency: 'EUR'
+#     )
+#   expo.photo.attach(
+#       io: URI.open('https://static.needhelp.fr/photojobbing/88-1599661181.jpeg'),
+#       filename: 'anyname.jpg', # use the extension of the attached file here (found at the end of the url)
+#       content_type: 'image/jpg'
+#       )
+#   expo.save!
+# end
