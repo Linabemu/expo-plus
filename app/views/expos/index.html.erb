@@ -3,13 +3,22 @@
   <% @expos.each do |expo| %>
 
     <div class="card-index">
-      <%= cl_image_tag(expo.photo.key, height: 292, quality: 100) %>
+
+      <%= cl_image_tag(expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
+
       <h2 class="title"><%= expo.title  %></h2>
-      <div class="d-flex justify-content-between subtitle">
-        <p><%= expo.place.address_name  %></p>
-        <p><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+
+      <div class="d-flex justify-content-between">
+        <p class="subtitle"><%= expo.place.address_name  %></p>
+        <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
       </div>
-      <p class="subtitle">Du <%= (l expo.date_start, format: "%d") %> <%= (l expo.date_start, format: "%B") %> <%= (l expo.date_start, format: "%Y") %> au <%= (l expo.date_end, format: "%d") %> <%= (l expo.date_end, format: "%B") %> <%= (l expo.date_end, format: "%Y") %></p>
+
+      <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B %Y") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
+
+      <% expo.tags.each do |tag| %>
+       <div class="tag-index subtitle"><%= tag %></div>
+      <% end %>
+      <hr>
     </div>
 
   <% end %>
