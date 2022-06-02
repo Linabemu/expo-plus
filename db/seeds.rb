@@ -90,4 +90,24 @@ records.take(20).each do |record|
 
 end
 
-puts "Seed uploaded! Congrats! You are a god !!!"
+puts "Seed uploaded! Congrats!!!!"
+
+
+
+
+Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
+
+puts "Reviews OK"
