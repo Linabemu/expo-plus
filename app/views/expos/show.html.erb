@@ -1,2 +1,40 @@
-<h1>Expos#show</h1>
-<p>Find me in app/views/expos/show.html.erb</p>
+<div class="m-5">
+
+  <img src="<%= @expo.cover_url %>" alt="<%= @expo.cover_alt %>">
+  <div class="show_expo_details">
+    <h1><%= @expo.title %></h1>
+    <%# <%= @expo.address_name %>
+    <%= @expo.date_start %>
+    <%= @expo.date_end %>
+  </div>
+
+  <div>
+    <%# <%= link_to "Programmer ma visite", expo_proposals_path(@proposal) %>
+  </div>
+
+  <div>
+    <%# <%= @expo.tags.each do |tag| %>
+    <%# <%=tag = tag.chars
+
+    <%# <% end %>
+  </div>
+
+  <%= @expo.description %>
+
+  <div>
+    <%# <%= link_to "Ajouter un commentaire", expo_reviews(@review) %>
+  </div>
+
+  <div class="show_reviews">
+    <% @expo.reviews.each do |review| %>
+
+      <%= @user.photo.attached? ? cl_image_tag(@user.photo.key, height:200, width:200, crop: :fill) : image_tag("avatar_placeholder.png")%>
+      <%= @user.username %>
+      <%# affihchage user %>
+      <%=review.expo %>
+      <%=review.rating %>
+      <br>
+      <%=review.comment %>
+      <% end %>
+  </div>
+</div>
