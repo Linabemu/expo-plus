@@ -1,7 +1,7 @@
 <%= simple_form_for(@proposal) do |f| %>
-  <%= f.input :date_proposale, label: 'Choississez la date' %>
-  <%= f.input :description, label: 'Tapez la description' %>
-  <%= f.input :max_participants %>
+  <%= f.input :date_proposale, placeholder: 'Choississez la date' %>
+  <%= f.input :description, placeholder: 'Tapez la description' %>
+  <%= f.input :max_participants, collection: 1..5, %>
   <%= f.submit class: "" %>
   <br>
   <p>*Mandatory fields</p>
