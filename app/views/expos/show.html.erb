@@ -1,40 +1,50 @@
-<div class="m-5">
+<div class="container-show">
 
-  <img src="<%= @expo.cover_url %>" alt="<%= @expo.cover_alt %>">
+  <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
+
   <div class="show_expo_details">
-    <h1><%= @expo.title %></h1>
-    <%# <%= @expo.address_name %>
-    <%= @expo.date_start %>
-    <%= @expo.date_end %>
+    <h2 class="title"><%= @expo.title %></h1>
+    <div class="d-flex justify-content-between">
+      <p class="subtitle"><%= @expo.place.address_name  %></p>
+      <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
+    </div>
+
   </div>
 
-
-
-   <%= @expo.tags %>
-
   <div>
+    <h2>Programmer ma visite</h2>
     <%# <%= link_to "Programmer ma visite", expo_proposals_path(@proposal) %>
   </div>
 
-
-  <%= @expo.description %>
-
-
-
-  <h2>ajouter un commentaire</h2>
-   <div>
-    <%# <%= link_to "Ajouter un commentaire", expo_reviews(@review) %>
-  </div>
-
-  <div class="show_reviews">
-    <% @expo.reviews.each do |review| %>
-    <div>
-      <%= review.user.username %>
-      <%=review.rating %>
-      <%=review.created_at %>
-      <br>
-      <%=review.comment %>
-    </div>
+  <div>
+      <% @expo.tags.each do |tag| %>
+    <div class="tag-index subtitle"><%= tag %></div>
     <% end %>
+    <hr>
   </div>
+
+  <div class="paragraphe">
+    <%= @expo.description.html_safe %>
+  </div>
+
+  <div>
+
+    <div>
+    <h2>ajouter un commentaire</h2>
+      <%# <%= link_to "Ajouter un commentaire", expo_reviews(@review) %>
+    </div>
+
+    <div class="show_reviews">
+      <% @expo.reviews.each do |review| %>
+      <div>
+        <%= review.user.username %>
+        <%=review.rating %>
+        <%=review.created_at %>
+        <br>
+        <%=review.comment %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
