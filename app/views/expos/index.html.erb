@@ -6,6 +6,8 @@
 
       <%= cl_image_tag(expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
 
+      <i class="fa-solid fa-heart "></i>
+
       <h2 class="title"><%= expo.title  %></h2>
 
       <div class="d-flex justify-content-between">
@@ -13,12 +15,11 @@
         <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
       </div>
 
-      <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B %Y") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
+      <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
 
       <% expo.tags.each do |tag| %>
-       <div class="tag-index subtitle"><%= tag %></div>
+       <div class="tag-expo subtitle"><%= tag %></div>
       <% end %>
-      <hr>
     </div>
 
   <% end %>
