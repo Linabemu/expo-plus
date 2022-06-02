@@ -4,9 +4,20 @@
 
     <div class="card-index">
 
-      <%= cl_image_tag(expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
 
-      <i class="fa-solid fa-heart "></i>
+      <div class="image-box">
+
+        <%= cl_image_tag(expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
+
+        <%= link_to expo_path(expo) do %>
+          <div class="img-gradient"></div>
+        <% end %>
+
+        <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
+          <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
+        <% end %>
+
+      </div>
 
       <h2 class="title"><%= expo.title  %></h2>
 
@@ -21,8 +32,11 @@
        <div class="tag-expo subtitle"><%= tag %></div>
       <% end %>
       <hr>
+
     </div>
 
   <% end %>
 
 </div>
+
+<% console %>
