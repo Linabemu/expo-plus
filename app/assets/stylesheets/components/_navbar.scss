@@ -24,4 +24,26 @@
   bottom: 0;
   left: 0;
   right: 0;
+
+  .list-inline{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0px 30px;
+
+    .list-inline-item{
+      display: flex;
+      margin-right: 0px;
+      text-align: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    .navbar-icone i{
+      color: white;
+      width: 40px;
+    }
+
+  }
+
 }
