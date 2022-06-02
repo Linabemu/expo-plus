@@ -1,2 +1,23 @@
 // Import page-specific CSS files here.
 
+.container-index {
+padding: 30px;
+}
+
+.card-index {
+  margin-bottom: 22px;
+
+  .image-card-index {
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+
+  .tag-index {
+    background: #000000;
+    border-radius: 2px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 3px;
+  }
+
+}
