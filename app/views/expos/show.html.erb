@@ -28,11 +28,13 @@
 
   <div class="show_reviews">
     <% @expo.reviews.each do |review| %>
+    <div>
       <%= review.user.username %>
       <%=review.rating %>
       <%=review.created_at %>
       <br>
       <%=review.comment %>
-      <% end %>
+    </div>
+    <% end %>
   </div>
 </div>
