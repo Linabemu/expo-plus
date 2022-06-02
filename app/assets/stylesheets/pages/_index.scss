@@ -1,8 +1,9 @@
 // Import page-specific CSS files here.
 
 @import "scroll";
+@import "pages/home";
 
 .container-index {
-padding: 30px;
-}
 
+  padding: 30px;
+}
