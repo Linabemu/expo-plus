@@ -4,11 +4,22 @@ class PagesController < ApplicationController
 
   def home
     @expos = Expo.all
-    difference = []
+    @upcoming = []
+    @endend_soon = []
+
     @expos.each do |expo|
-      difference << (expo.date_start - Date.today) if expo.date_start > Date.today
+      @upcoming << expo if expo.date_start > Date.today
+      @endend_soon << expo if expo.date_start <= Date.today && (expo.date_end - Date.today).to_i < 15
     end
-    @next_expos = difference.min(5)
+
+    # @best_rated = []
+    # expositions = Expo.includes(:reviews).all
+    # expositions.each do |expo|
+    #   @best_rated << expo if expo.reviews.rating > 7
+    # end
+
+
+
   end
 
   private
