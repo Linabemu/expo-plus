@@ -1,0 +1,61 @@
+.mapboxgl-popup {
+  max-width: 100%;
+  // background-color: rgba(0, 0, 0, 1);
+}
+
+.mapboxgl-popup-content {
+  border-radius: 50px;
+  width: 300px;
+
+  .title {
+    font-size: 15px;
+    margin: 0;
+    line-height: normal;
+  }
+  .subtitle {
+    font-size: 10px;
+    margin: 0;
+    margin-top: 5px;
+    line-height: normal;
+  }
+
+  .card-map {
+    display: flex;
+    justify-content: space-between;
+
+
+    .arrondissement {
+      color:#797979;
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .image-box {
+      margin-bottom: 13px;
+      width: 100; height: 100;
+      position: relative;
+
+      .image-card-index {
+        width: 100px;
+      }
+
+      .img-gradient {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
+      }
+
+      .heart-icon-small {
+        position: absolute;
+        right: 1px;
+        bottom: 1px;
+      }
+    }
+  }
+
+}
+
+.expo-detail {
+  margin-left: 5px;
+}

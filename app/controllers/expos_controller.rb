@@ -15,10 +15,11 @@ class ExposController < ApplicationController
     #   @expos = policy_scope(Expo)
     # end
 
-      @markers = @expos.geocoded.map do |expo|
+    @markers = @expos.map do |expo|
         {
-          lat: expo.lat,
-          lng: expo.lon
+          lat: expo.place.lat,
+          lng: expo.place.lon,
+          info_window: render_to_string(partial: "info_window", locals: { expo: expo })
         }
       end
 
