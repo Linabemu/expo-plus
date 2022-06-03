@@ -22,7 +22,7 @@ class UpdateExpos
           api_updated_at: record["fields"]["updated_at"],
           title: record["fields"]["title"],
           lead_text: record["fields"]["lead_text"],
-          description: record["fields"]["description"],
+          description: record["fields"]["description"].gsub(/<img[^>]*?>.*<\/img>/,""),
           tags: record["fields"]["tags"].split(Regexp.union(["_",";"]))
           cover_url: record["fields"]["cover_url"],
           cover_alt: record["fields"]["cover_alt"],
