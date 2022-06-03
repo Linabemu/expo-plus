@@ -3,12 +3,22 @@
     <ul class="list-inline">
       <li class="list-inline-item">
         <%= link_to root_path, class: "navbar-icone" do %>
-          <i class="fa-solid fa-house"></i>
+          <i class="fa-solid fa-house" style="font-size: 28px"></i>
         <% end %>
       </li>
       <li class="list-inline-item">
         <%= link_to expos_path, class: "navbar-icone" do %>
-          <i class="fa-solid fa-user-group"></i>
+          <i class="fa-solid fa-list-ul" style="font-size: 30px"></i>
+        <% end %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to expos_path, class: "navbar-icone" do %>
+          <i class="fa-solid fa-user-group" style="font-size: 28px"></i>
+        <% end %>
+      </li>
+      <li class="list-inline-item">
+        <%= link_to expos_path, class: "navbar-icone" do %>
+           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered" %>
         <% end %>
       </li>
     </ul>
