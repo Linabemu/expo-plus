@@ -14,6 +14,14 @@ class ExposController < ApplicationController
     # else
     #   @expos = policy_scope(Expo)
     # end
+
+      @markers = @expos.geocoded.map do |expo|
+        {
+          lat: expo.lat,
+          lng: expo.lon
+        }
+      end
+
   end
 
   def show
