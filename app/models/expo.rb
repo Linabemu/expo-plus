@@ -10,4 +10,11 @@ class Expo < ApplicationRecord
   validates :date_end, presence: true
 
   has_one_attached :photo
+
+
+  def average_rating
+    reviews.average(:rating)
+  end
+
+
 end

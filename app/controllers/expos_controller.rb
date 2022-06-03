@@ -4,6 +4,15 @@ class ExposController < ApplicationController
 
   def index
     @expos = Expo.all
+    @expos = @expos.where(tags: params[:filters][:categories]) if params[:filters].present?
+
+    ####
+    # @tags = [params[:filters][:categories]]
+
+    # @expos = @expos.map do |expo|
+    #   expo unless (expo.tags & @tags).empty?
+    # end
+    ###
 
     # pour la search et les filtres on peut voir pour utiliser les formules ci-dessous mais en discuter avec Cyril si besoin car certaines ne fonctionneront pas forcément comme tel
     # ---------
