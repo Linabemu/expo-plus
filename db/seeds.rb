@@ -28,6 +28,14 @@ user1 = User.create!(email: 'test@test.com', username: 'Cyril', password: 'azert
 user2 = User.create!(email: 'test2@test.com', username: 'Jules', password: 'azerty')
 user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'azerty')
 user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
+
+user1.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/102356829?v=4"), filename: "#{user1.username}.png")
+user2.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/103044146?v=4"), filename: "#{user2.username}.png")
+user3.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/61592567?v=4"), filename: "#{user3.username}.png")
+user4.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/101411883?v=4"), filename: "#{user4.username}.png")
+
+
+
 puts "Users created"
 
 puts "Parsing the API..."

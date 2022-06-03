@@ -23,6 +23,15 @@ class ExposController < ApplicationController
     # else
     #   @expos = policy_scope(Expo)
     # end
+
+    @markers = @expos.map do |expo|
+        {
+          lat: expo.place.lat,
+          lng: expo.place.lon,
+          info_window: render_to_string(partial: "info_window", locals: { expo: expo })
+        }
+      end
+
   end
 
   def show
