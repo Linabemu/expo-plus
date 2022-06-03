@@ -1,7 +1,16 @@
 <div class="w-100">
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  filtre
+</button>
+
+<%= render "shared/filter_modal" %>
+
+
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <%@expos.first(5).each_with_index do |expo, index| %>
+      <%@best_rated.first(5).each_with_index do |expo, index| %>
         <div class="carousel-item <%= 'active' if index.zero? %>">
           <%= link_to expo_path(expo) do %>
             <%= cl_image_tag(expo.photo.key, height: '292px', quality: 50) %>
@@ -45,10 +54,5 @@
           </p>
         </div>
       <% end %>
-    </div>
-    <div class="button-container">
-      <div class="action-button">
-        <p>start</p>
-      </div>
     </div>
 </div>
