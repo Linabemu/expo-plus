@@ -17,7 +17,7 @@
 
 
 .navbar{
-  background-color: rgb(44, 78, 78);
+  background-color: #d5d5d5;
   height: 73px;
   width: 100%;
   position: fixed;
@@ -27,9 +27,17 @@
 
   .list-inline{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     margin: 0px 30px;
+
+    a{
+      color: black;
+    }
+
+    :current(i) {
+      color: red;
+    }
 
     .list-inline-item{
       display: flex;
@@ -40,9 +48,9 @@
     }
 
     .navbar-icone i{
-      color: white;
-      width: 40px;
+      color: black;
     }
+
 
   }
 
