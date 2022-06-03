@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :expos, only: %i[show index] do
     resources :wishes, only: :create
-    resources :proposals, only: :create
+    resources :proposals, only: %i[create index]
     resources :reviews, only: :create
   end
 

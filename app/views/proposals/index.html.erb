@@ -1,0 +1,43 @@
+<div class="display-show m-4">
+  <div><h3>search bar *** render !</h3></div>
+
+  <h2 class="title"><%= @expo.title %></h2>
+
+  <%= render "shared/form_proposal" %>
+
+
+
+  <h2 class="title">Autres Propositions</h2>
+  <hr>
+
+  <div>
+    <%= @proposals.each do |proposal| %>
+      <div>
+        <div class="d-flex">
+          <div class="pt-1 pe-3">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
+            <% else %>
+              <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
+            <% end %>
+          </div>
+          <div>
+            <span class="review_title-small"><%= proposal.user.username%></span>
+            <p class="paragraphe"><%=proposal.description %></p>
+            <div class="d-flex">
+              <span class="review_sub-small"><%=proposal.date_proposale("%Y/%^b/%d")%></span>
+              <span class="review_sub-small"><%=proposal.max_participants%></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-container">
+          <div class="action-button">
+              <p>Voir la proposition</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</div>
