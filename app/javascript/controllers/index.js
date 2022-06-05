@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import MapController from "./map_controller.js"
 application.register("map", MapController)
+
+import FlatpickrController from "./flatpickr_controller.js"
+application.register("flatpickr", FlatpickrController)
