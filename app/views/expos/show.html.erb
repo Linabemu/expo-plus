@@ -5,7 +5,7 @@
   <div class="container-show">
 
     <div class="card-show">
-      <h2 class="title"><%= @expo.title %></h1>
+      <h2 class="title"><%= @expo.title %></h2>
       <div class="d-flex justify-content-between">
         <p class="subtitle"><%= @expo.place.address_name  %></p>
         <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
@@ -50,7 +50,7 @@
                     <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
                   <% end %>
               </div>
-              <div class="show_review">
+              <div class="show_review flex-grow-1">
                 <span class="review_title-small"><%= review.user.username%></span>
                 <div class="d-flex justify-content-between">
                   <span class="review_sub-small"><%=review.created_at.strftime("%Y/%^b/%d")%></span>
