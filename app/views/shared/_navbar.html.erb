@@ -17,15 +17,29 @@
         <% end %>
       </li>
 
-      <% if user_signed_in? %>
-
-        <li class="list-inline-item">
-          <%= link_to expos_path, class: "navbar-icone" do %>
-            <%= render "shared/avatar" %>
+      <li class="list-inline-item dropup">
+          <% if current_user.nil? == false && current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "black_placeholder.jpg", class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
-        </li>
 
-      <% end %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+            <% if user_signed_in? %>
+
+              <%= link_to "LOG OUT", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "PROFILE", profile_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+
+            <% else %>
+
+              <%= link_to "LOG IN", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "SIGN UP", new_user_registration_path, class: "dropdown-item" %>
+
+            <% end %>
+          </div>
+      </li>
+
     </ul>
   </div>
 </div>
