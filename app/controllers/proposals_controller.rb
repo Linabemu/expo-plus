@@ -8,9 +8,10 @@ class ProposalsController < ApplicationController
   def create
     @expo = Expo.find(params[:expo_id])
     @proposal = Proposal.new(proposal_params)
+    @proposal.user = current_user
     @proposal.expo = @expo
     if @proposal.save
-      redirect_to
+      redirect_to expo_proposals_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,13 +26,13 @@ class ProposalsController < ApplicationController
   def destroy
     @proposal = Proposal.find(params[:id])
     @proposal.destroy
-    redirect_to
+    redirect_to expo_proposals_path
   end
 
 
   private
 
   def proposal_params
-    params.require(:proposal).permit(:description, :date)
+    params.require(:proposal).permit(:description, :date_proposale)
   end
 end
