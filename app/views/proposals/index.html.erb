@@ -2,11 +2,16 @@
 
   <h2 class="title"><%= @expo.title %></h2>
 
-  <%= render "shared/form_proposal" %>
+  <div data-controller="form-display">
+   <p class="caret-down proposal_action-button mt-2" data-action="click->form-display#revealContent"> Nouvelle Visite</p>
+    <span class="d-none" data-form-display-target="content">
+      <%= render "shared/form_proposal" %>
+    </span>
+  </div>
 
 
 
-  <h2 class="title mt-5">Autres Propositions</h2>
+  <h3 class="title mt-4">Autres Propositions</h3>
   <hr>
 
   <div>
@@ -23,8 +28,8 @@
           <div class="flex-grow-1">
             <span class="review_title-small"><%= proposal.user.username%></span>
             <p class="paragraphe mb-3"><%=proposal.description %></p>
-            <div class="d-flex flex-grow-1">
-              <span class="proposal_sub-smalll"><%=proposal.date_proposale.strftime("%Y/%^b/%d")%></span>
+            <div class="d-flex">
+              <span class="proposal_sub-small"><%=proposal.date_proposale.strftime("%Y/%^b/%d")%></span>
               <div>
                 <span class="proposal_sub-small"><%=proposal.max_participants%>/5</span>
                 <i class="fa-solid fa-user-group"></i>
