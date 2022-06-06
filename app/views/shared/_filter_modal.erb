@@ -10,7 +10,10 @@
       <%= simple_form_for :filters, url: expos_path, method: :get do |f| %>
         <%= f.input :categories,
           collection: ["Art contemporain", "Conférence", "Enfants", "Expo", "Histoire", "Peinture", "Photo", "Sciences"],
-          as: :check_boxes, label: "Quel type ?", include_hidden: false %>
+          as: :check_boxes,
+          label: "Quel type ?",
+          include_hidden: false,
+          checked: params[:filters][:categories] %>
         <%= f.submit "Go !", class:"action-button" %>
       <% end %>
 
