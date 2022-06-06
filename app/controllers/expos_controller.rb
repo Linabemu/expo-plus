@@ -3,7 +3,7 @@ class ExposController < ApplicationController
   # skip_before_action :authenticate_user!, only: [:index, :show]bn
 
   def index
-    @expos = Expo.all
+    # @expos = Expo.all
     # @expos = @expos.where(tags: params[:filters][:categories]) if params[:filters].present?
 
     ####
@@ -16,11 +16,12 @@ class ExposController < ApplicationController
     # pour la search et les filtres on peut voir pour utiliser les formules ci-dessous mais en discuter avec Cyril si besoin car certaines ne fonctionneront pas forcément comme tel
     # ---------
     if params[:query].present? && params[:query] != nil
-      sql_query = <<~SQL
-        expos.title ILIKE :mot
-        OR expos.description ILIKE :mot
-      SQL
-      @expos = Expo.where(sql_query, mot: "%#{params[:query]}%")
+      # sql_query = <<~SQL
+      #   expos.title ILIKE :mot
+      #   OR expos.description ILIKE :mot
+      # SQL
+      # @expos = Expo.where(sql_query, mot: "%#{params[:query]}%")
+      @expos = Expo.global_search(params["query"])
 
     elsif params[:filters].present?
       @expos = Expo.where("tags && ARRAY[?]::varchar[]", params[:filters][:categories])
