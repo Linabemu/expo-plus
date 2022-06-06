@@ -13,7 +13,7 @@ class ProposalsController < ApplicationController
     if @proposal.save
       redirect_to expo_proposals_path
     else
-      render :new, status: :unprocessable_entity
+      redirect_to expo_proposals_path, status: :unprocessable_entity
     end
   end
 
@@ -33,6 +33,6 @@ class ProposalsController < ApplicationController
   private
 
   def proposal_params
-    params.require(:proposal).permit(:description, :date_proposale)
+    params.require(:proposal).permit(:description, :date_proposale, :max_participants)
   end
 end
