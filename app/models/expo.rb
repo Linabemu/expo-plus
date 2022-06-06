@@ -11,6 +11,15 @@ class Expo < ApplicationRecord
 
   has_one_attached :photo
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :title, :tags, :price_type ],
+    associated_against: {
+      place: [ :address_name, :address_city, :address_zipcode ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def average_rating
     reviews.average(:rating)

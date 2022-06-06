@@ -2,7 +2,7 @@
   <% if params[:index] == "map" %>
     <!-- map  -->
 
-    <div class="map_style" style="width: 100%; height: calc(100vh - 132px) ;"
+    <div class="map_style" style="width: 100%; height: calc(100vh - 128px) ;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -51,4 +51,3 @@
   <% end  %>
 
 </div>
-<%= console %>

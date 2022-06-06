@@ -1,0 +1,39 @@
+
+.review-container{
+  margin-top: 24px;
+  hr {
+    border-width: 1px;
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+.review_title-small{
+  font-family: 'bebas-neue', sans-serif;
+  font-size: 23px;
+  align-items: center;
+  display: flex;
+  height: 27px;
+}
+
+.review_sub-small{
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.review-paragraphe-small{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+  margin: 0;
+}
+
+.review_avatar > img{
+  border-radius: 50%;
+  margin-right: 22px;
+}
