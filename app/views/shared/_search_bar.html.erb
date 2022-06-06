@@ -1,23 +1,41 @@
 <div class="search-bar-container">
 
-<%= simple_form_for :filters, url: expos_path, method: :get do |f| %>
+  <%= simple_form_for :filters, url: expos_path, method: :get do |f| %>
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel">QUEL TYPE D'EXPO CHERCHES-TU ?</h5>
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <%= f.input :categories,
-            collection: ["Art contemporain", "Conférence", "Enfants", "Expo", "Histoire", "Peinture", "Photo", "Sciences"],
-            as: :check_boxes,
-            include_hidden: false,
-            checked: params.dig(:filters, :categories) %>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" type="button">Open second modal</button>
+        <p class="title_modal">CATEGORIES</p>
+
+            <h5 class="modal-title mt-2" id="exampleModalToggleLabel">QUEL TYPE D'EXPO CHERCHES-TU ?</h5>
+
+        <div class="title-margin-left">
+          <hr>
+        </div>
+        <div class="modal-body">
+            <%= f.input :categories,
+              collection: Expo.tags,
+              as: :check_boxes,
+              input_html: { class: "tag-selector" },
+              item_wrapper_class: 'tag-item',
+              include_hidden: false,
+              checked: params.dig(:filters, :categories) %>
+        </div>
+        <div class="modal-footer">
+
+
+
+    <div class="button-container next-tag-container" id="next-tag-container">
+        <button class="action-button next-tag" id="next-tag" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" type="button">
+          <p>NEXT</p>
+        </button>
+
+    </div>
+
+
+
+
       </div>
     </div>
   </div>
@@ -25,20 +43,26 @@
 <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <p class="title_modal mt-2">BUDGET</p>
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalToggleLabel2">SOUHAITES-TU VOIR UNIQUEMENT LES EXPOSITIONS GRATUITES ?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+          <div class="title-margin-left">
+        <hr>
       </div>
       <div class="modal-body">
         <%= f.input :price_type,
-            collection: ["Gratuit", "Peu importe"],
+            collection: ["OUI, GRATUITES", "PEU IMPORTE"],
             as: :check_boxes,
+            input_html: { class: "tag-selector" },
+            item_wrapper_class: 'tag-item',
             include_hidden: false,
             checked: params.dig(:filters, :price_type) %>
 
       </div>
       <div class="modal-footer">
-        <%= f.submit "Go !", class:"action-button" %>
+        <%= f.submit "GO !", class:"action-button next-tag purple" %>
         <%# <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button> %>
       </div>
     </div>
@@ -46,6 +70,9 @@
 </div>
 <% end %>
 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Picto filtre</a>
+
+
+
 
   <form id="search-bar" action="/expos">
     <div class="submit-input">

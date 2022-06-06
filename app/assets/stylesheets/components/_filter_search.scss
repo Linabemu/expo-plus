@@ -1,0 +1,80 @@
+.tag-item {
+  display: inline-block;
+
+}
+
+
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+  vertical-align: middle;
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: flex;
+  padding: 0.1rem 0.5rem;
+  height: 160px;
+  width: 160px;
+  border-radius: 4px;
+  color: #797979;
+  border: 1px solid #797979;
+  justify-content: center;
+  text-align: center;
+}
+.tag-item {
+
+  display: inline-block;
+  font-size: 18px;
+  height: 160px;
+  width: 160px;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.4rem;
+  font-family: bc-sklonar, sans-serif;
+
+}
+
+.tag-selector:checked + label {
+
+  border: 2px solid #9747FF;
+}
+
+.title_modal {
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 43px;
+  color: #9747FF;
+  margin-bottom: 8px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.modal-title {
+  text-align: center;
+}
+
+.modal-header {
+  border: none;
+}
+
+.col-form-label {
+  display: none;
+}
+
+.modal-footer {
+  margin-bottom: 60px;
+  border: none;
+}
+
+.btn-close {
+  margin-left: 90%;
+  margin-top: 10px;
+}
+
+.purple {
+  color: #9747FF;
+  font-weight: bold;
+}

@@ -1,44 +1,39 @@
-.container-show{
-  padding: 30px;
-}
-
-.review_title-small{
-  font-family: 'bebas-neue', sans-serif;
-  font-size: 22px;
+body{
+  margin-bottom: 90px;
 }
 
 .review_sub-small{
   font-family: bc-sklonar, sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 500;
-}
-
-.review_avatar > img{
-  border-radius: 50%;
-}
-
-hr {
-  border-width: 1px;
-  width: 100%;
-}
-
-.tag-expo-show {
-  background: #000000;
-  border-radius: 4px;
-  color: #FFFFFF;
-  text-decoration: none;
-  padding: 0px 15px;
-  display: inline-block;
-  margin-top: 16px;
   font-size: 15px;
-  font-weight: 400;
+  }
+
+.container-show{
+  padding: 0px 30px;
+}
+
+.tag-container{
+  margin-top: 22px;
+  .tag-expo-show {
+    background: #000000;
+    border-radius: 4px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0px 15px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
 }
 
 .display-show > img{
   width: 100%;
   object-fit: cover;
+  padding-bottom: 17px;
+  height: 350px;
 }
+
+
 
 .action-button > a{
   color: black;
