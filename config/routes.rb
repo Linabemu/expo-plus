@@ -28,11 +28,12 @@ Rails.application.routes.draw do
     resources :participants, only: :create
   end
 
-  resources :users, only: %i[show edit update] do
+  resources :users, only: %i[show edit update index] do
     resources :followings, only: %i[create new]
+    member do
+      get :profile
+    end
   end
 
   resources :messages, only: :destroy
-
-  get 'profile', to: 'profiles#show', as: :profile
 end
