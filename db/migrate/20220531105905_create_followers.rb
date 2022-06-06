@@ -5,7 +5,7 @@ class CreateFollowers < ActiveRecord::Migration[7.0]
   # this link is also useful : https://kubilaycaglayan.medium.com/how-to-create-the-simplest-friendship-model-on-rails-de0ab51448ec
 
   def change
-    create_table :followers, id: false do |t|
+    create_table :followers do |t|
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

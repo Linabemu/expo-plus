@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_075210) do
     t.index ["place_id"], name: "index_expos_on_place_id"
   end
 
-  create_table "followings", id: false, force: :cascade do |t|
+  create_table "followings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
