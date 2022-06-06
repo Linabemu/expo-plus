@@ -12,3 +12,6 @@ application.register("map", MapController)
 
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
+
+import FormDisplayController from "./form_display_controller"
+application.register("form-display", FormDisplayController)
