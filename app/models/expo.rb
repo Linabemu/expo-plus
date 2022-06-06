@@ -16,5 +16,8 @@ class Expo < ApplicationRecord
     reviews.average(:rating)
   end
 
+  def self.tags
+    pluck(:tags).flatten.uniq.sort
+  end
 
 end
