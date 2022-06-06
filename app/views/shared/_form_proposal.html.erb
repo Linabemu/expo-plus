@@ -1,8 +1,8 @@
-<%= simple_form_for(@proposal) do |f| %>
+<%= simple_form_for([@expo,@proposal]) do |f| %>
   <%= f.input :date_proposale, placeholder: 'Choississez la date' %>
   <%= f.input :description, placeholder: 'Tapez la description' %>
-  <%= f.input :max_participants, collection: 1..5, %>
-  <%= f.submit class: "" %>
+  <%= f.input :max_participants, collection: 1..5 %>
+  <%= f.submit class: "action-button button-container" %>
   <br>
   <p>*Mandatory fields</p>
 <% end %>

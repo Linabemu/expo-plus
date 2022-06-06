@@ -14,13 +14,26 @@
       <li class="list-inline-item">
         <%= link_to expos_path(index: "map"), class: "navbar-icone" do %>
           <i class="fa-regular fa-map" style="font-size: 28px"></i>
+<<<<<<< HEAD
         <% end %>
       </li>
       <li class="list-inline-item">
         <%= link_to expos_path, class: "navbar-icone" do %>
            <%= render "shared/avatar" %>
+=======
+>>>>>>> master
         <% end %>
       </li>
+
+      <% if user_signed_in? %>
+
+        <li class="list-inline-item">
+          <%= link_to expos_path, class: "navbar-icone" do %>
+            <%= render "shared/avatar" %>
+          <% end %>
+        </li>
+
+      <% end %>
     </ul>
   </div>
 </div>
