@@ -31,14 +31,19 @@
       <%= @expo.description.html_safe %>
     </div>
 
-
+    <%= render "shared/form_review" %>
     <div class="button-container">
       <div class="action-button">
-      <%= link_to expo_reviews_path(@expo) do%>
-        <p>Ajouter un commentaire</p>
-      <% end %>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <%= link_to expo_reviews_path(current_user, @expo), data: {turbo_method: "post"} do%>
+          <p>Ajouter un commentaire</p>
+        <% end %>
+      </button>
+
+
       </div>
     </div>
+
 
 
     <div class="review-container">

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :expos, only: %i[show index] do
     resources :wishes, only: :create
     resources :proposals, only: %i[create index]
-    resources :reviews, only: :create
+    resources :reviews, only: %i[new create]
   end
 
   resources :wishes, only: :destroy
