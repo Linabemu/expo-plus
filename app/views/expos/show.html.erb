@@ -21,50 +21,51 @@
       </div>
     </div>
 
-    <div>
-        <% @expo.tags.each do |tag| %>
-      <div class="tag-expo-show subtitle"><%= tag %></div>
+    <div class="tag-container">
+      <% @expo.tags.each do |tag| %>
+        <div class="tag-expo-show subtitle"><%= tag %></div>
       <% end %>
     </div>
 
-    <div class="paragraphe mt-4">
+    <div class="paragraphe mt-3 mb-4">
       <%= @expo.description.html_safe %>
     </div>
 
-    <div>
-      <div class="button-container"></div>
-      <div class="action-button mb-4">
-       <%= link_to expo_reviews_path(@expo) do%>
+
+    <div class="button-container">
+      <div class="action-button">
+      <%= link_to expo_reviews_path(@expo) do%>
         <p>Ajouter un commentaire</p>
-       <% end %>
+      <% end %>
       </div>
+    </div>
 
 
-      <div>
-        <% @expo.reviews.each do |review| %>
-            <div class="d-flex">
-              <div class="review_avatar pt-1 pe-3">
-                <% if current_user.photo.attached? %>
-                    <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
-                  <% else %>
-                    <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
-                  <% end %>
-              </div>
-              <div class="show_review flex-grow-1">
-                <span class="review_title-small"><%= review.user.username%></span>
-                <div class="d-flex justify-content-between">
-                  <span class="review_sub-small"><%=review.created_at.strftime("%Y/%^b/%d")%></span>
-                  <span class="review_sub-small"><%=review.rating %>★</span>
-                </div>
-                <p class="paragraphe"><%=review.comment %></p>
-              </div>
+    <div class="review-container">
+      <% @expo.reviews.each do |review| %>
+          <div class="d-flex">
+            <div class="review_avatar">
+              <% if current_user.photo.attached? %>
+                  <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
+                <% else %>
+                  <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
+                <% end %>
             </div>
-        <hr>
-        <% end %>
-
-      </div>
+            <div class="show_review flex-grow-1">
+              <span class="review_title-small"><%= review.user.username%></span>
+              <div class="d-flex justify-content-between">
+                <span class="review_sub-small"><%=review.created_at.strftime("%Y/%^b/%d")%></span>
+                <span class="review_sub-small"><%=review.rating %><i class="fa-solid fa-star ms-1" style="font-size: 16px"></i></span>
+              </div>
+              <p class="review-paragraphe-small"><%=review.comment %></p>
+            </div>
+          </div>
+      <hr>
+      <% end %>
 
     </div>
+
+
 
   </div>
 </div>
