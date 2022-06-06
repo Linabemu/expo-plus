@@ -2,7 +2,7 @@
   <%= simple_form_for([@expo, @proposal], html: { data: { controller: "flatpickr" } }) do |f| %>
       <%= f.input :date_proposale, label: 'Date', as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: 'Choississez la date', class: "proposal_title-small" %>
       <%= f.input :description, placeholder: 'Tapez la description', class: "proposal_title-small" %>
-      <%= f.input :max_participants, label: 'Participants', class: "proposal_title-small", collection: 1..5 %>
-      <%= f.submit 'Créer ma proposition', class: "action-button button-container" %>
+      <%= f.input :max_participants, label: 'Participants', class: "proposal_title-small paragraphe", collection: 1..5 %>
+      <%= f.submit 'Créer', class: "proposal_action-button" %>
     <% end %>
 </div>

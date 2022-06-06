@@ -24,7 +24,9 @@
 
   <body>
     <%= render "shared/flashes" %>
-    <%= render "shared/search_bar" %>
+    <% unless current_page?(expo_path(params[:id] || 0)) %>
+      <%= render "shared/search_bar" %>
+    <% end %>
     <%= yield %>
     <%= render "shared/navbar" %>
   </body>

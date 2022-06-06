@@ -15,10 +15,10 @@ Place.destroy_all
 Expo.destroy_all
 Review.destroy_all
 Proposal.destroy_all
-User.destroy_all
 Message.destroy_all
 Wish.destroy_all
 Participant.destroy_all
+User.destroy_all
 Following.destroy_all
 puts "Destroyed DB"
 
@@ -33,10 +33,8 @@ user1.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/1023568
 user2.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/103044146?v=4"), filename: "#{user2.username}.png")
 user3.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/61592567?v=4"), filename: "#{user3.username}.png")
 user4.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/101411883?v=4"), filename: "#{user4.username}.png")
-
-
-
 puts "Users created"
+
 
 puts "Parsing the API..."
 url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=que-faire-a-paris-&q=&rows=1000&facet=date_start&facet=date_end&facet=tags&facet=address_name&facet=address_zipcode&facet=address_city&facet=pmr&facet=blind&facet=deaf&facet=transport&facet=price_type&facet=access_type&facet=updated_at&facet=programs&refine.tags=Expo"
@@ -68,54 +66,82 @@ records.take(20).each do |record|
     contact_url: record["fields"]["contact_url"]
     )
 
-  expo.photo.attach(
-    io: URI.open("#{expo.cover_url}"),
-    filename: record["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
-    content_type: record["fields"]["image_couverture"]["mimetype"]
-    )
+    expo.photo.attach(
+      io: URI.open("#{expo.cover_url}"),
+      filename: record["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
+      content_type: record["fields"]["image_couverture"]["mimetype"]
+      )
 
-  if Place.where(address_name: record["fields"]["address_name"]).take.nil?
-    place = Place.new(
-      address_name: record["fields"]["address_name"],
-      address_street: record["fields"]["address_street"],
-      address_city: record["fields"]["address_city"],
-      address_zipcode: record["fields"]["address_zipcode"],
+      if Place.where(address_name: record["fields"]["address_name"]).take.nil?
+        place = Place.new(
+          address_name: record["fields"]["address_name"],
+          address_street: record["fields"]["address_street"],
+          address_city: record["fields"]["address_city"],
+          address_zipcode: record["fields"]["address_zipcode"],
       lat: record["geometry"]["coordinates"][1],
       lon: record["geometry"]["coordinates"][0],
       access_link: record["fields"]["address_name"]
       )
 
-    place.save!
-    puts "New place created : #{place.address_name}"
-  else
-    place = Place.where(address_name: record["fields"]["address_name"]).take
+      place.save!
+      puts "New place created : #{place.address_name}"
+    else
+      place = Place.where(address_name: record["fields"]["address_name"]).take
+    end
+
+    expo.place = place
+    expo.save!
+
+    puts "New expo created : #{expo.title}"
   end
 
-  expo.place = place
-  expo.save!
+  Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+  Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
+puts "Reviews OK"
 
-  puts "New expo created : #{expo.title}"
+puts "Creating followings"
+Following.create!(user_id: user2.id, receiver_id: user1.id)
+Following.create!(user_id: user3.id, receiver_id: user1.id)
+Following.create!(user_id: user4.id, receiver_id: user1.id)
 
+Following.create!(user_id: user1.id, receiver_id: user2.id)
+Following.create!(user_id: user3.id, receiver_id: user2.id)
+Following.create!(user_id: user4.id, receiver_id: user2.id)
+
+Following.create!(user_id: user1.id, receiver_id: user3.id)
+Following.create!(user_id: user2.id, receiver_id: user3.id)
+Following.create!(user_id: user4.id, receiver_id: user3.id)
+
+Following.create!(user_id: user1.id, receiver_id: user4.id)
+Following.create!(user_id: user2.id, receiver_id: user4.id)
+Following.create!(user_id: user3.id, receiver_id: user4.id)
+puts "Followings created"
+
+puts "creating proposals and participants"
+
+
+User.all.each do |user|
+  date_seed = "2022-07-30".to_time
+  Proposal.create!(confirmed: false, max_participants: 4, user_id: user.id, expo_id: Expo.all.sample(1).first.id, description: "blablablablablablablabla puis aussi blablblablablabla I'm a god", date_proposale: date_seed)
 end
 
-puts "Seed uploaded! Congrats!!!!"
-
-
-
-
-Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
-
-puts "Reviews OK"
+User.all.each do |user|
+  i = 0
+  3.times do
+    Participant.create!(user_id: user.id, proposal_id: Proposal.all.where.not(user: user)[i].id )
+    i += 1
+  end
+end
+puts "Proposals and participants created"

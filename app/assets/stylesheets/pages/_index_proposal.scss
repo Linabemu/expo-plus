@@ -1,4 +1,54 @@
-.proposal_title-small{
+.form-label{
   font-family: 'bebas-neue', sans-serif;
   font-size: 22px;
+}
+
+.form-control{
+  font-family: 'Cormorant Garamond', serif;
+  border: 1px solid black;
+}
+
+.form-select{
+  border: 1px solid black;
+}
+
+.display-proposal{
+  padding: 30px;
+}
+
+.proposal_action-button{
+  width: 100%;
+  background-color: transparent;
+  justify-content: center;
+  text-align: center;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  margin-top: 22px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+}
+
+.title{
+  margin-bottom:22px;
+}
+
+input{
+
+}
+
+.proposal_sub-small{
+  font-family: bc-sklonar, sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
 }

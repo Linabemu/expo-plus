@@ -1,8 +1,8 @@
 class Expo < ApplicationRecord
   belongs_to :place
   has_many :reviews, dependent: :destroy
-  has_many :wishes
-  has_many :proposals
+  has_many :wishes, dependent: :destroy
+  has_many :proposals, dependent: :destroy
   has_many :users, through: :reviews
 
   validates :title, presence: true

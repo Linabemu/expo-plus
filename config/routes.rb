@@ -34,5 +34,5 @@ Rails.application.routes.draw do
 
   resources :messages, only: :destroy
 
-  get 'profile', to: 'profile#show', as: :profile
+  get 'profile', to: 'profiles#show', as: :profile
 end
