@@ -1,17 +1,17 @@
-class ProfilesController < ApplicationController
+class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
 
 
-  def show
+  def profile
     @user = current_user
     @followings = @user.followings.includes(:user)
-    @subscriptions = @user.subscriptions.includes(:user)
+    @followers = @user.followers.includes(:user)
     @wishes = @user.wishes.includes(:expo)
     @reviews = @user.reviews.includes(:expo)
     @proposals = @user.proposals.includes(:expo)
     @participations = @user.participations.includes(:proposal, :expo)
-
-
-
 
     # @rented_offers = @user.rented_offers
     # @booked_offers = @user.booked_offers #marche seulement car on a crée rented_offers in user model
