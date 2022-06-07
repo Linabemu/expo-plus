@@ -10,7 +10,7 @@
   </div>
 
   <div data-controller="description-display">
-    <p class="caret-down proposal_action-button mt-2" data-action="click->description-display#revealContent"> Détails de la visite</p>
+    <p class="caret-down proposal_action-button mt-3" data-action="click->description-display#revealContent"> Détails de la visite</p>
     <span class="d-none" data-description-display-target="content">
 
       <div class="d-flex">
@@ -35,5 +35,18 @@
       </div>
     </span>
   </div>
-  <h2 class="title">chat room!</h2>
+
+
+  <div class="" data-controller="proposal-subscription" data-proposal-subscription-proposal-id-value="<%= @proposal.id %>">
+    <h2 class="title mt-4">chatroom</h2>
+    <hr class="title m-0 mt-3 mb-4">
+
+    <div class="messages" data-proposal-subscription-target="messages">
+      <% @proposal.messages.each do |message| %>
+        <%= render "shared/message", message: message %>
+      <% end %>
+    </div>
+  <%= render "shared/messages_proposal" %>
+  </div>
+
 </div>
