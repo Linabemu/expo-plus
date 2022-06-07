@@ -26,7 +26,7 @@ class Expo < ApplicationRecord
   end
 
   def self.tags
-    pluck(:tags).flatten.uniq.sort.map(&:upcase)
+    pluck(:tags).flatten.uniq.sort
   end
 
 end

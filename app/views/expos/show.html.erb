@@ -1,5 +1,5 @@
 
-<div class="display-show">
+<div class="display-show" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
   <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
 
   <div class="container-show">
@@ -31,46 +31,27 @@
       <%= @expo.description.html_safe %>
     </div>
 
-    <%= render "shared/form_review" %>
+
+<div class="" >
+
     <div class="button-container">
-      <div class="action-button">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <%= link_to expo_reviews_path(current_user, @expo), data: {turbo_method: "post"} do%>
-          <p>Ajouter un commentaire</p>
-        <% end %>
-      </button>
-
-
-      </div>
+        <button type="button" class="action-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Laisser un commentaire
+        </button>
     </div>
+    <%= render "reviews/form", expo: @expo, review: @review %>
 
-
-
-    <div class="review-container">
+    <div class="review-container"  data-insert-in-list-target="items">
       <% @expo.reviews.each do |review| %>
           <div class="d-flex">
-            <div class="review_avatar">
-              <% if current_user.photo.attached? %>
-                  <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
-                <% else %>
-                  <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
-                <% end %>
-            </div>
-            <div class="show_review flex-grow-1">
-              <span class="review_title-small"><%= review.user.username%></span>
-              <div class="d-flex justify-content-between">
-                <span class="review_sub-small"><%=review.created_at.strftime("%Y/%^b/%d")%></span>
-                <span class="review_sub-small"><%=review.rating %><i class="fa-solid fa-star ms-1" style="font-size: 16px"></i></span>
-              </div>
-              <p class="review-paragraphe-small"><%=review.comment %></p>
-            </div>
+            <%= render 'review', review: review %>
           </div>
       <hr>
       <% end %>
 
     </div>
 
-
+</div>
 
   </div>
 </div>
