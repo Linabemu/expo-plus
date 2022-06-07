@@ -1,0 +1,48 @@
+<div class="container-profile">
+  <div class="d-flex justify-content-center">
+    <%= render "shared/avatar", css_class: "avatar-xl" %>
+  </div>
+  <hr>
+  <p class="paragraphe" style="font-size: 16px;"><%= @user.description %></p>
+  <hr>
+
+  <div class="d-flex justify-content-between">
+    <h1 class="subtitle">Mes abonnements - <%= @followings.count %></h1>
+    <%= link_to users_path do%>
+      <i class="fa-solid fa-plus subtitle" style="font-size: 50px;"></i>
+    <% end %>
+  </div>
+  <div class="horizontal-scroll d-flex">
+    <% @followings.each do |following| %>
+      <%= following.receiver.photo.attached? ? cl_image_tag(following.receiver.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
+    <% end %>
+  </div>
+
+  <hr class="my-3">
+
+  <div class="d-flex justify-content-between">
+    <h1 class="subtitle">Mes abonnés - <%= @followers.count %></h1>
+  </div>
+  <div class="horizontal-scroll d-flex">
+    <% @followers.each do |follower| %>
+      <%= follower.user.photo.attached? ? cl_image_tag(follower.user.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
+    <% end %>
+  </div>
+
+  <hr class="my-3">
+
+  <div class="d-flex justify-content-between">
+    <h1 class="subtitle">Ma wishlist - <%= @wishes.count %></h1>
+  </div>
+  <div class="horizontal-scroll d-flex">
+    <% @wishes.each do |wish| %>
+
+      <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(wish.expo.photo.key) %>">
+        <p><%= link_to wish.expo.title.upcase, expo_path(wish.expo) %></p>
+      </div>
+
+    <% end %>
+  </div>
+
+</div>
+<%  console %>
