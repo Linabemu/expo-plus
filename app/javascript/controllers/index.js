@@ -18,3 +18,6 @@ application.register("insert-in-list", InsertInListController)
 
 import MapController from "./map_controller.js"
 application.register("map", MapController)
+
+import DescriptionDisplayController from "./description_display_controller"
+application.register("description-display", DescriptionDisplayController)
