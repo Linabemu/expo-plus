@@ -2,11 +2,55 @@
   <% if params[:index] == "map" %>
     <!-- map  -->
 
-    <div class="map_style" style="width: 100%; height: calc(100vh - 128px) ;"
+    <div class="map_style" style="width: 100%; height: calc(100vh - 132px) ;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
+    <!-- modal map  -->
+
+    <% @expos.each do |expo| %>
+
+      <div class="modal fade" id="expo-<%=expo.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+
+              <div class="card-map">
+                <div class="image-box">
+                  <%= cl_image_tag(expo.photo.key, height: 100, width: 100, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
+                  <%= link_to expo_path(expo) do %>
+                    <div class="img-gradient"></div>
+                  <% end %>
+                  <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
+                    <i class="fa-solid fa-heart heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
+                  <% end %>
+                </div>
+
+                <div class="expo-detail">
+                  <h2 class="title"><%= expo.title  %></h2>
+                  <div class="d-flex justify-content-between">
+                    <p class="subtitle"><%= expo.place.address_name  %></p>
+                    <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+                  </div>
+                  <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
+                </div>
+
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+            </div>
+
+            <!-- <div class="modal-body">
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
 
   <% else  %>
     <!-- index  -->
@@ -29,21 +73,27 @@
           <% end %>
 
         </div>
+        <div class="info-index">
+          <%= link_to expo_path(expo), class: "text-decoration-none" do %>
 
-        <h2 class="title"><%= expo.title  %></h2>
+            <h2 class="title"><%= expo.title  %></h2>
 
-        <div class="d-flex justify-content-between">
-          <p class="subtitle"><%= expo.place.address_name  %></p>
-          <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+            <div class="d-flex justify-content-between">
+              <p class="subtitle"><%= expo.place.address_name  %></p>
+              <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+            </div>
+
+            <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
+
+            <div class="tag-container">
+              <% expo.tags.each do |tag| %>
+              <div class="tag-expo subtitle"><%= tag %></div>
+              <% end %>
+            </div>
+
+          <% end %>
+          <hr>
         </div>
-
-        <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
-
-        <% expo.tags.each do |tag| %>
-        <div class="tag-expo subtitle"><%= tag %></div>
-        <% end %>
-        <hr>
-
       </div>
 
     <% end %>
