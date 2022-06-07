@@ -73,25 +73,27 @@
           <% end %>
 
         </div>
+        <div class="info-index">
+          <%= link_to expo_path(expo), class: "text-decoration-none" do %>
 
-        <%= link_to expo_path(expo), class: "text-decoration-none" do %>
+            <h2 class="title"><%= expo.title  %></h2>
 
-          <h2 class="title"><%= expo.title  %></h2>
+            <div class="d-flex justify-content-between">
+              <p class="subtitle"><%= expo.place.address_name  %></p>
+              <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+            </div>
 
-          <div class="d-flex justify-content-between">
-            <p class="subtitle"><%= expo.place.address_name  %></p>
-            <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
-          </div>
+            <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
 
-          <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
+            <div class="tag-container">
+              <% expo.tags.each do |tag| %>
+              <div class="tag-expo subtitle"><%= tag %></div>
+              <% end %>
+            </div>
 
-          <% expo.tags.each do |tag| %>
-          <div class="tag-expo subtitle"><%= tag %></div>
           <% end %>
-
-        <% end %>
-        <hr>
-
+          <hr>
+        </div>
       </div>
 
     <% end %>
