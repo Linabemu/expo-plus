@@ -23,12 +23,23 @@ export default class extends Controller {
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
 
-
       const popup = new mapboxgl.Popup().setHTML(marker.info_window) // Add this
 
-      new mapboxgl.Marker()
+      // Create a HTML element for your custom marker
+      const customMarker = document.createElement("div")
+
+
+      customMarker.setAttribute('data-bs-toggle','modal') // ajout pour la modale
+      customMarker.setAttribute('data-bs-target',`#expo-${marker.id}`)  // ajout pour la modale
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "15px"
+      customMarker.style.height = "30px"
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup) // Add this
+        // .setPopup(popup) // Add this (a desactiver avec la modale)
         .addTo(this.map)
     })
   }
