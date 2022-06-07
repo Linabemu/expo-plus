@@ -1,4 +1,28 @@
 
+
+  <%# <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <%@expo.photo.each_with_index do |expo, index| %>
+        <%# <div class="carousel-item <%= 'active' if index.zero? %>
+          <%# <p>hello</p>
+          <%= link_to expo_path(expo) do %>
+            <%# <%= cl_image_tag(expo.photo.key, height: '292px', quality: 50) %>
+          <%# <% end %>
+        <%# </div>
+      <% end %>
+    <%# </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> %>
+
+
+
 <div class="display-show" data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
   <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
 
