@@ -13,11 +13,10 @@
     <% @expos.each do |expo| %>
 
       <div class="modal fade" id="expo-<%=expo.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog">
+        <div class="modal-dialog">
           <div class="modal-content">
 
             <div class="modal-header">
-
               <div class="card-map">
                 <div class="image-box">
                   <%= cl_image_tag(expo.photo.key, height: 100, width: 100, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
