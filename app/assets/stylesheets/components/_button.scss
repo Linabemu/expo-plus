@@ -1,6 +1,5 @@
 .button-container{
   margin: 14px 0px;
-
 }
 
 .action-button{
@@ -27,9 +26,16 @@
 
 .next-tag {
   border: 0;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
   font-family: bc-sklonar, sans-serif;
+  margin-bottom: 18px;
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #9747FF;
 
   p {
     color: #9747FF;
