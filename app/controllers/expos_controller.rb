@@ -39,7 +39,9 @@ class ExposController < ApplicationController
       {
         lat: expo.place.lat,
         lng: expo.place.lon,
-        info_window: render_to_string(partial: "info_window", locals: { expo: expo })
+        info_window: render_to_string(partial: "info_window", locals: { expo: expo }),
+        image_url: helpers.asset_url("pin_map.png"),
+        id: expo.id
       }
     end
   end
