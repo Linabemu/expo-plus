@@ -4,14 +4,17 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller.js"
-application.register("hello", HelloController)
-
-import MapController from "./map_controller.js"
-application.register("map", MapController)
-
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 
-import FormDisplayController from "./form_display_controller"
+import FormDisplayController from "./form_display_controller.js"
 application.register("form-display", FormDisplayController)
+
+import HelloController from "./hello_controller.js"
+application.register("hello", HelloController)
+
+import InsertInListController from "./insert_in_list_controller.js"
+application.register("insert-in-list", InsertInListController)
+
+import MapController from "./map_controller.js"
+application.register("map", MapController)

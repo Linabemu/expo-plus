@@ -7,14 +7,19 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @expo = Expo.find(params[:expo_id])
+    @review = Review.new(review_params)
     @review.user = current_user
     @review.expo = @expo
-    if @review.save
-      redirect_to expo_path(@expo)
-    else
-      render 'expos/show', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to expo_path(@expo) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "expos/show", status: :unprocessable_entity }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
   end
 
