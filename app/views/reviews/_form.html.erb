@@ -1,34 +1,34 @@
+<%= simple_form_for([expo, review],
+  data: {insert_in_list_target: "form",
+  action: "submit->insert-in-list#send"
+  }) do |f|
+%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <%# <div class="modal-header"> %>
+        <p class="title_modal">TON COMMENTAIRE</p>
+        <div class="title-margin-left">
+          <hr>
+        </div>
+        <%# <h5 class="modal-title" id="exampleModalLabel">TON COMMENTAIRE</h5> %>
+      <%# </div> %>
       <div class="modal-body">
-
-
-
-          <%= simple_form_for([expo, review],
-            data: {insert_in_list_target: "form",
-            action: "submit->insert-in-list#send"
-            }) do |f|
-          %>
-          <%= f.number_field :rating %>
-          <%= f.input :comment, as: :text %>
-          <%= f.button :submit %>
-          <% end %>
-
+        <%= f.input :rating, collection: (1..5).to_a, label: "Combien d'étoiles ?" %>
+        <%= f.input :comment, as: :text, label_html: { class: 'subtitle' }%>
       </div>
 
       <%# <%= link_to expo_reviews_path(current_user, @expo), data: {turbo_method: "post"} do%>
          <%# <p>Ajouter un commentaire</p>
-      <% end %> %> %>
+      <% end %>
 
       <div class="modal-footer">
+        <%= f.submit class: "action-button", value: "Valider", data: { bs_dismiss:"modal"} %>
         <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button> %>
       </div>
     </div>
   </div>
 </div>
+<% end %>

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DescriptionDisplayController from "./description_display_controller.js"
+application.register("description-display", DescriptionDisplayController)
+
 import FlatpickrController from "./flatpickr_controller.js"
 application.register("flatpickr", FlatpickrController)
 
@@ -19,5 +22,5 @@ application.register("insert-in-list", InsertInListController)
 import MapController from "./map_controller.js"
 application.register("map", MapController)
 
-import DescriptionDisplayController from "./description_display_controller"
-application.register("description-display", DescriptionDisplayController)
+import ProposalSubscriptionController from "./proposal_subscription_controller.js"
+application.register("proposal-subscription", ProposalSubscriptionController)

@@ -27,6 +27,7 @@ class Expo < ApplicationRecord
 
   def self.tags
     pluck(:tags).flatten.uniq.sort
+    # self.all.map(&:tags).tally
+    self.all.map(&:tags).flatten.tally.sort_by { |k, v| v }.reverse.first(6).map(&:first)
   end
-
 end
