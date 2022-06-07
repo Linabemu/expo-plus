@@ -1,0 +1,39 @@
+<div class="display-proposal">
+  <div class="card-show">
+      <h2 class="title"><%= @expo.title %></h2>
+
+      <div class="d-flex justify-content-between">
+        <p class="subtitle"><%= @expo.place.address_name  %></p>
+        <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
+      </div>
+      <p class="subtitle">Du <%= (l @expo.date_start, format: "%d %B") %> au <%= (l @expo.date_end, format: "%d %B %Y") %></p>
+  </div>
+
+  <div data-controller="description-display">
+    <p class="caret-down proposal_action-button mt-2" data-action="click->description-display#revealContent"> Détails de la visite</p>
+    <span class="d-none" data-description-display-target="content">
+
+      <div class="d-flex">
+        <div class="pt-1 pe-3">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
+          <% else %>
+            <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
+          <% end %>
+        </div>
+        <div class="flex-grow-1">
+          <span class="review_title-small"><%= @proposal.user.username%></span>
+          <p class="paragraphe mb-3"><%=@proposal.description %></p>
+          <div class="d-flex">
+            <span class="proposal_sub-small flex-grow-1"><%=@proposal.date_proposale.strftime("%Y/%^b/%d")%></span>
+            <div>
+              <span class="proposal_sub-small"><%=@proposal.max_participants%>/5</span>
+              <i class="fa-solid fa-user-group"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+  <h2 class="title">chat room!</h2>
+</div>

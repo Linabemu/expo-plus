@@ -15,3 +15,6 @@ application.register("flatpickr", FlatpickrController)
 
 import FormDisplayController from "./form_display_controller"
 application.register("form-display", FormDisplayController)
+
+import DescriptionDisplayController from "./description_display_controller"
+application.register("description-display", DescriptionDisplayController)

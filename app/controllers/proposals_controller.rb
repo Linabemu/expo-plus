@@ -20,7 +20,14 @@ class ProposalsController < ApplicationController
   def index
     @expo = Expo.find(params[:expo_id])
     @proposals = @expo.proposals
-    @proposal = Proposal.new
+    @proposal = Proposal.new()
+  end
+
+  def show
+    @expo = Expo.find(params[:expo_id])
+    @proposal = Proposal.find(params[:id])
+    @proposal.user = current_user
+    @proposal.expo = @expo
   end
 
   def destroy
