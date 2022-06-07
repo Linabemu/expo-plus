@@ -7,3 +7,13 @@
 .container-index {
   padding: 15px 15px 30px 15px;
 }
+
+
+// .modal-dialog {
+//   opacity: 0 !important;
+// }
+
+.fade.show {
+  background: rgba(0, 0, 0, 0.05); // example
+  opacity: 1; // example
+}

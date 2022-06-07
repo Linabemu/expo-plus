@@ -1,0 +1,31 @@
+.notif {
+  border-radius: 50%;
+  color: white;
+  background-color: $purple;
+  position: absolute;
+  line-height: 30px;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: center;
+  font-weight: bold;
+  top: 5px;
+
+  &.abonnements {
+    left: 170px;
+  }
+
+  &.favoris {
+    left: 95px;
+  }
+
+  &.sorties {
+    left: 200px;
+  }
+
+}
+
+.d-flex {
+  position: relative;
+}

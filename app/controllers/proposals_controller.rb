@@ -28,6 +28,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     @proposal.user = current_user
     @proposal.expo = @expo
+    @message = Message.new
   end
 
   def destroy

@@ -6,4 +6,5 @@ class Proposal < ApplicationRecord
   validates :description, presence: true
 
   has_many :participants, dependent: :destroy
+  has_many :messages
 end
