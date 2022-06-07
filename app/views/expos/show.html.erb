@@ -32,26 +32,21 @@
     </div>
 
 
-<div class="" >
-
-    <div class="button-container">
-        <button type="button" class="action-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Laisser un commentaire
-        </button>
-    </div>
     <%= render "reviews/form", expo: @expo, review: @review %>
+    <div class="button-container">
+      <button type="button" class="action-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Laisser un commentaire
+      </button>
+    </div>
 
     <div class="review-container"  data-insert-in-list-target="items">
       <% @expo.reviews.each do |review| %>
-          <div class="d-flex">
-            <%= render 'review', review: review %>
-          </div>
+        <div class="d-flex">
+          <%= render 'review', review: review %>
+        </div>
       <hr>
       <% end %>
-
     </div>
-
-</div>
 
   </div>
 </div>

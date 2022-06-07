@@ -29,7 +29,7 @@
             <span class="review_title-small"><%= proposal.user.username%></span>
             <p class="paragraphe mb-3"><%=proposal.description %></p>
             <div class="d-flex">
-              <span class="proposal_sub-small"><%=proposal.date_proposale.strftime("%Y/%^b/%d")%></span>
+              <span class="proposal_sub-small"><%=proposal.date_proposale.strftime("%d/%^b/%Y")%></span>
               <div>
                 <span class="proposal_sub-small"><%=proposal.max_participants%>/5</span>
                 <i class="fa-solid fa-user-group"></i>

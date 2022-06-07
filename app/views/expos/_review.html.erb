@@ -1,6 +1,6 @@
 <div class="review_avatar">
-  <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
+  <% if review.user.photo.attached? %>
+      <%= cl_image_tag review.user.photo.key, class: "avatar-xl" %>
     <% else %>
       <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
     <% end %>
