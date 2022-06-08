@@ -24,11 +24,13 @@
 
 
 <div class="display-show " data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
+
   <div class="display-show image-box-show">
     <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
     <i class="fa-solid fa-star star-icon-show"></i>
     <p class="average_rating subtitle pb-2"> <%= @expo.average_rating %></p>
   </div>
+
   <div class="container-show">
 
     <div class="card-show">
@@ -45,7 +47,7 @@
     <div class="button-container">
       <div class="action-button">
         <%= link_to expo_proposals_path(@expo) do %>
-          <p>Trouvez une sortie</p>
+          <p class="color">Trouvez une sortie</p>
         <% end %>
       </div>
     </div>
