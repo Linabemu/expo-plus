@@ -28,8 +28,6 @@ class ProposalsController < ApplicationController
   def show
     @expo = Expo.find(params[:expo_id])
     @proposal = Proposal.find(params[:id])
-    @proposal.user = current_user
-    @proposal.expo = @expo
     @message = Message.new
   end
 
