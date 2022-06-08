@@ -6,23 +6,39 @@
   </div>
   <div class="display-show-proposal">
     <div class="card-show">
-      <h2 class="title color"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
+      <div class="d-flex justify-content-between">
+        <h2 class="title color"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
+        <div class="mt-2">
+          <span class="title"><%=@proposal.max_participants%>/5</span>
+          <i class="fa-solid fa-user-group"></i>
+        </div>
+      </div>
       <h2 class="title"><%= @expo.title %></h2>
 
       <div class="d-flex justify-content-between">
         <p class="subtitle"><%= @expo.place.address_name.upcase  %></p>
         <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
       </div>
-      <div>
-        <span class="proposal_sub-small"><%=@proposal.max_participants%>/5</span>
-        <i class="fa-solid fa-user-group"></i>
-      </div>
     </div>
 
-    <!-- avatar participation-->
+    <!-- liste d'avatars participants-->
+    <div>
+        <ul>
+          <% @proposal.participants.each do |participant|  %>
+            <li class="list-inline">
+              <div class="pt-1 pe-2">
+                <% if participant.user.photo.attached? %>
+                  <%= cl_image_tag participant.user.photo.key, class: "avatar" %>
+                <% else %>
+                  <%= image_tag "avatar_placeholder.png", class: "avatar" %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+    </div>
 
-
-    <!-- button-->
+    <!-- bouton-->
     <div class="button-container mt-3">
       <div class="action-button">
           <p class="color" >Je participe</p>
@@ -36,6 +52,7 @@
 
       <div class="messages" data-proposal-subscription-target="messages">
 
+        <!-- Message description proposal-->
         <div class="d-flex">
           <div class="pt-1 pe-2">
             <% if current_user.photo.attached? %>
@@ -51,7 +68,7 @@
             <p><%=@proposal.description %></p>
           </div>
         </div>
-
+          <!-- New Messages-->
           <% @proposal.messages.each do |message| %>
             <%= render "shared/message", message: message, user: (message.user == current_user) %>
           <% end %>
