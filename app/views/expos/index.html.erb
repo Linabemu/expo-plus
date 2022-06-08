@@ -76,6 +76,8 @@
           <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
             <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
           <% end %>
+          <i class="fa-solid fa-star star-icon-index"></i>
+          <p class="average_rating subtitle"> <%= expo.average_rating %></p>
 
         </div>
         <div class="info-index">
