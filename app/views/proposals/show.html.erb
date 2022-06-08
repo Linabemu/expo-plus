@@ -1,59 +1,57 @@
-<div class="image_show-proposal">
-  <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
-</div>
-<div class="display-proposal">
-  <div class="card-show">
-      <h2 class="title"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
-      <h2 class="review_title-small"><%= @expo.title %></h2>
+<div class="container-show-proposal">
+  <div class="image_show-proposal">
+    <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
+  </div>
+  <div class="display-show-proposal">
+    <div class="card-show">
+        <h2 class="title color"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
+        <h2 class="title"><%= @expo.title %></h2>
 
+        <div class="d-flex justify-content-between">
+          <p class="subtitle"><%= @expo.place.address_name.upcase  %></p>
+          <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
+        </div>
+    </div>
 
-
-      <div class="d-flex justify-content-between">
-        <p class=""><%= @expo.place.address_name.upcase  %></p>
-        <p class=""><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
-      </div>
-      <p class="">Du <%= (l @expo.date_start, format: "%d %B") %> au <%= (l @expo.date_end, format: "%d %B %Y") %></p>
+  <div>
+    <span class="proposal_sub-small"><%=@proposal.max_participants%>/5</span>
+    <i class="fa-solid fa-user-group"></i>
   </div>
 
-  <div data-controller=""><%# description-display %>
-    <p class="caret-down proposal_action-button mt-3" data-action="click->description-display#revealContent"> Je participe</p>
-    <%# <span class="d-none" data-description-display-target="content"> %>
+  <div class="button-container mt-3">
+    <div class="action-button">
+        <p class="color" >Je participe</p>
+    </div>
+  </div>
+
+    <div class="" data-controller="proposal-subscription" data-proposal-subscription-proposal-id-value="<%= @proposal.id %>">
+      <h2 class="title mt-4">chatroom</h2>
+      <hr class="title m-0 mt-3 mb-4">
+
+      <div class="messages" data-proposal-subscription-target="messages">
 
       <div class="d-flex">
-        <div class="pt-1 pe-3">
+        <div class="pt-1 pe-2">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar-xl" %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar" %>
           <% else %>
-            <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
+            <%= image_tag "avatar_placeholder.png", class: "avatar" %>
           <% end %>
         </div>
-        <div class="flex-grow-1">
-          <span class="review_title-small"><%= @proposal.user.username%></span>
-          <p class="paragraphe mb-3"><%=@proposal.description %></p>
-          <div class="d-flex">
-            <span class="proposal_sub-small flex-grow-1"><%=@proposal.date_proposale.strftime("%Y/%^b/%d")%></span>
-            <div>
-              <span class="proposal_sub-small"><%=@proposal.max_participants%>/5</span>
-              <i class="fa-solid fa-user-group"></i>
-            </div>
-          </div>
+        <div>
+          <small>
+            <strong><%= @proposal.user.username%></strong>
+          </small>
+          <p><%=@proposal.description %></p>
         </div>
       </div>
-    </span>
-  </div>
 
-
-  <div class="" data-controller="proposal-subscription" data-proposal-subscription-proposal-id-value="<%= @proposal.id %>">
-    <h2 class="title mt-4">chatroom</h2>
-    <hr class="title m-0 mt-3 mb-4">
-
-    <div class="messages" data-proposal-subscription-target="messages">
-      <% @proposal.messages.each do |message| %>
-        <%= render "shared/message", message: message %>
-      <% end %>
+        <% @proposal.messages.each do |message| %>
+          <%= render "shared/message", message: message %>
+        <% end %>
+      </div>
+    <%= render "shared/messages_proposal" %>
     </div>
-  <%= render "shared/messages_proposal" %>
+<%= console %>
   </div>
-
 </div>
-<% console %>
