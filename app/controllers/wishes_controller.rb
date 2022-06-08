@@ -5,14 +5,19 @@ class WishesController < ApplicationController
     @wish = Wish.new()
     @wish.expo = @expo
     @wish.user = current_user
-    # @wish.status = 'pending'
-    # authorize @wish
-    if Wish.find_by(user_id: @wish.user.id, expo_id: @wish.expo.id)
-      destroy
-    else
-      @wish.save
-      redirect_to request.referer
+
+    respond_to do |format|
+      if Wish.find_by(user_id: @wish.user.id, expo_id: @wish.expo.id)
+        destroy
+        format.html { redirect_to request.referer }
+        format.json
+      else
+        @wish.save
+        format.html { redirect_to request.referer }
+        format.json
+      end
     end
+
   end
 
   def destroy
