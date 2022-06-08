@@ -1,0 +1,84 @@
+.image-box-show {
+  position: relative;
+}
+
+.average_rating {
+  position: absolute;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  bottom: 17px;
+  left: 69px;
+  color: white;
+  // letter-spacing: -0.05em;
+  text-shadow: 0px 1px 4px 0 0 0 0.2em black;
+
+}
+
+.average_rating-index {
+  position: absolute;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  bottom: 17px;
+  left: 59px;
+  color: white;
+  // letter-spacing: -0.05em;
+  text-shadow: 0px 1px 4px 0 0 0 0.2em black;
+}
+
+.average_rating-show {
+  position: absolute;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  bottom: 21px;
+  left: 59px;
+  color: white;
+  // letter-spacing: -0.05em;
+  text-shadow: 0px 1px 4px 0 0 0 0.2em black;
+}
+
+.average_rating-map {
+  position: absolute;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px !important;
+  bottom: 9px;
+  left: 48px;
+  color: white;
+  // letter-spacing: -0.05em;
+  text-shadow: 0px 1px 4px 0 0 0 0.2em black;
+}
+
+.star-icon-index {
+  position: absolute;
+  left: 14px;
+  bottom: 18px;
+  font-size: 32px;
+  color: white;
+  text-shadow: 0px 1px 4px 0 0 0 40% black !important;
+}
+
+.star-icon-show {
+  position: absolute;
+  left: 16px;
+  bottom: 30px;
+  font-size: xx-large;
+  color: white;
+  text-shadow: 0px 1px 4px 0 0 0 0.2em black;
+}
+
+.star-icon-map {
+  position: absolute;
+  left: 8px;
+  bottom: 9px;
+  font-size: 25px;
+  color: white;
+  text-shadow: 0px 1px 4px 0 0 0 40% black !important;
+  padding-left: 5px;
+}

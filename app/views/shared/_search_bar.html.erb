@@ -1,8 +1,11 @@
 
 <div class="search-bar-container">
+
+
   <div class="search-bar-body">
 
     <%= simple_form_for :filters, url: expos_path, method: :get do |f| %>
+
 
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
@@ -25,48 +28,88 @@
           </div>
           <div class="modal-footer">
 
-          <div class="filter-button-container next-tag-container" id="next-tag-container">
-            <button class="action-button next-tag" id="next-tag" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" type="button">
+            <div class="filter-button-container next-tag-container" id="next-tag-container">
+              <button class="action-button next-tag" id="next-tag" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" type="button">
+                <p>NEXT</p>
+              </button>
+              <button type="button" class="action-button next-tag opacity-0" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+                <p>BACK</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <p class="title_modal">BUDGET</p>
+          <div class="modal-question">
+            <h5 class="modal-subtitle" id="exampleModalToggleLabel2">SOUHAITES-TU VOIR UNIQUEMENT LES EXPOSITIONS GRATUITES ?</h5>
+            <hr>
+          </div>
+
+          <div class="modal-body">
+            <%= f.input :price_type,
+                collection: ["GRATUITES", "PEU IMPORTE"],
+                as: :check_boxes,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item',
+                include_hidden: false,
+                checked: params.dig(:filters, :price_type) %>
+          </div>
+          <div class="modal-footer">
+
+            <button class="action-button next-tag" id="next-tag" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal" type="button">
               <p>NEXT</p>
             </button>
-            <button type="button" class="action-button next-tag opacity-0" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+            <button type="button" class="action-button next-tag" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
               <p>BACK</p>
             </button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <p class="title_modal">BUDGET</p>
-        <div class="modal-question">
-          <h5 class="modal-subtitle" id="exampleModalToggleLabel2">SOUHAITES-TU VOIR UNIQUEMENT LES EXPOSITIONS GRATUITES ?</h5>
-          <hr>
-        </div>
 
-        <div class="modal-body">
-          <%= f.input :price_type,
-              collection: ["GRATUITES", "PEU IMPORTE"],
-              as: :check_boxes,
-              input_html: { class: "tag-selector" },
-              item_wrapper_class: 'tag-item',
-              include_hidden: false,
-              checked: params.dig(:filters, :price_type) %>
 
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "GO!", class:"action-button next-tag" %>
-          <button type="button" class="action-button next-tag" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-            <p>BACK</p>
-          </button>
-          <%# <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button> %>
+
+    <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <p class="title_modal">ACCESSIBILITE</p>
+          <div class="modal-question">
+            <h5 class="modal-subtitle" id="exampleModalToggleLabel2">SOUHAITES-TU DES CRITERES D'ACCESSIBILITE PARTICULIERS ?</h5>
+            <hr>
+          </div>
+
+          <div class="modal-body">
+            <%= f.input :price_type,
+                collection: ["JEUNE PUBLIC", "MOBILITE REDUITE", "MALENTENDANT", "PEU IMPORTE"],
+                as: :check_boxes,
+                input_html: { class: "tag-selector" },
+                item_wrapper_class: 'tag-item',
+                include_hidden: false,
+                checked: params.dig(:filters, :price_type) %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit "GO!", class:"action-button next-tag" %>
+            <button type="button" class="action-button next-tag" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">
+              <p>BACK</p>
+            </button>
+            <%# <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button> %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+
+
+
   <% end %>
 
 
