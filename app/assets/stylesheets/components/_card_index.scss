@@ -27,10 +27,18 @@
       right: 18px;
       bottom: 18px;
     }
+
+    .title {
+      position: absolute;
+      left: 0;
+      top: 120px;
+      color: white;
+      text-align: center;
+      justify-content: center;
+    }
   }
 
   .info-index{
     padding: 0px 15px;
   }
-
 }
