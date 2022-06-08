@@ -1,12 +1,13 @@
 <div class="container-profile">
 
   <!-- profile avatar -->
-  <div class="d-flex justify-content-between align-items-center">
-    <div></div>
+  <div class="d-flex justify-content-center align-items-center">
+
     <%= render "shared/avatar", user: @user, css_class: "avatar-xl" %>
+<% console %>
 
     <% if user_signed_in? && @user == current_user %>
-      <li class="list-inline-item dropup align-self-start">
+      <li class="list-inline-item dropup align-self-start button-top-profile">
         <i class="fa-solid fa-ellipsis-vertical dropdown" style="font-size: 25px;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -15,7 +16,23 @@
         </div>
       </li>
     <% else %>
-      <div></div>
+      <div class="button-top-profile">
+
+       <% if (current_user.followings.map {|e| e.receiver_id}).include?(@user.id) %>
+
+          <%= link_to profile_user_path(params[:id], cookie: "unfollow")  do%>
+            <i class="fa-solid fa-plug-circle-xmark logo-follow" style="font-size: 20px;"></i>
+          <% end %>
+
+        <% else %>
+
+          <%= link_to profile_user_path(params[:id], cookie: "follow"), 'data-turbo-method': :post do%>
+            <i class="fa-solid fa-plug-circle-plus logo-follow" style="font-size: 20px;"></i>
+          <% end %>
+
+        <% end %>
+
+      </div>
     <% end %>
   </div>
 
@@ -28,6 +45,39 @@
   <!-- profile description -->
   <% if @user.description != nil %>
     <p class="paragraphe" style="font-size: 16px;"><%= @user.description %></p>
+    <hr class="my-2">
+  <% end %>
+
+<!-- proposals -->
+  <% if @proposals.count  > 0  %>
+    <div class="d-flex justify-content-between">
+      <h1 class="title mb-2">Sorties prévues</h1>
+      <div class="notif subtitle sorties"><%= @proposals.count %></div>
+    </div>
+    <div class="horizontal-scroll d-flex">
+      <% @proposals.each do |proposal| %>
+        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(proposal.expo.photo.key) %>">
+          <p><%= link_to (l proposal.date_proposale, format: "%d %B %Y"), expo_proposal_path(proposal.expo, proposal) %></p>
+        </div>
+      <% end %>
+    </div>
+    <hr class="my-2">
+  <% end %>
+
+
+<!-- wishes -->
+  <% if @wishes.count  > 0  %>
+    <div class="d-flex justify-content-between">
+      <h1 class="title mb-2">Favoris</h1>
+      <div class="notif subtitle favoris"><%= @wishes.count %></div>
+    </div>
+    <div class="horizontal-scroll d-flex">
+      <% @wishes.each do |wish| %>
+        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(wish.expo.photo.key) %>">
+          <p><%= link_to wish.expo.title.upcase, expo_path(wish.expo) %></p>
+        </div>
+      <% end %>
+    </div>
     <hr class="my-2">
   <% end %>
 
@@ -47,7 +97,6 @@
         <% end %>
       <% end %>
     </div>
-    <hr class="my-2">
   <% end %>
 
   <!-- abonnés -->
@@ -61,34 +110,5 @@
     <% end %>
   </div>
   <hr class="my-2"> -->
-
-  <% if @wishes.count  > 0  %>
-    <div class="d-flex justify-content-between">
-      <h1 class="title mb-2">Favoris</h1>
-      <div class="notif subtitle favoris"><%= @wishes.count %></div>
-    </div>
-    <div class="horizontal-scroll d-flex">
-      <% @wishes.each do |wish| %>
-        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(wish.expo.photo.key) %>">
-          <p><%= link_to wish.expo.title.upcase, expo_path(wish.expo) %></p>
-        </div>
-      <% end %>
-    </div>
-    <hr class="my-2">
-  <% end %>
-
-  <% if @proposals.count  > 0  %>
-    <div class="d-flex justify-content-between">
-      <h1 class="title mb-2">Sorties prévues</h1>
-      <div class="notif subtitle sorties"><%= @proposals.count %></div>
-    </div>
-    <div class="horizontal-scroll d-flex">
-      <% @proposals.each do |proposal| %>
-        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(proposal.expo.photo.key) %>">
-          <p><%= link_to (l proposal.date_proposale, format: "%d %B %Y"), expo_proposal_path(proposal.expo, proposal) %></p>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 
 </div>

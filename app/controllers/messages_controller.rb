@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.proposal = @proposal
     @message.user = current_user
-    # @user_message = User.find(params["message"]["user_message_id"]) == current_user
     if @message.save
       ProposalChannel.broadcast_to(
         @proposal,
