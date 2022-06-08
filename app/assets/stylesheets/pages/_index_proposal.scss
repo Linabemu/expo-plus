@@ -13,7 +13,8 @@
 }
 
 .display-proposal{
-  padding: 30px;
+  padding: 0px 30px;
+  margin-top: 70px;
 }
 
 .proposal_action-button{
@@ -36,6 +37,8 @@
   margin-top: 22px;
   border-right-width: 0px;
   border-left-width: 0px;
+  color: $purple;
+  border-color: black;
 }
 
 .title{
