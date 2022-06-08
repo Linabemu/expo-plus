@@ -79,8 +79,8 @@
   margin: 0px;
   padding: 0px 12px;
   margin-bottom: 38px;
-  margin-top: 12px;
-  border: none;
+  margin-top: 15px;
+  border: none !important;
   height: 100px;
 }
 
@@ -102,11 +102,12 @@
 
 .modal-content{
   padding: 15px;
-  border-radius: 10px;
-  height: 818px;
+  border-radius: 2px;
+  height: 759px;
   width: 360px;
   top: 13px;
   position: fixed;
+  border: none;
 }
 
 .modal-body{
