@@ -16,6 +16,7 @@ class ExposController < ApplicationController
     # pour la search et les filtres on peut voir pour utiliser les formules ci-dessous mais en discuter avec Cyril si besoin car certaines ne fonctionneront pas forcément comme tel
     # ---------
     if params[:query].present? && params[:query] != nil
+
       # sql_query = <<~SQL
       #   expos.title ILIKE :mot
       #   OR expos.description ILIKE :mot
@@ -25,15 +26,20 @@ class ExposController < ApplicationController
 
     elsif params[:filters].present?
       @expos = Expo.where("tags && ARRAY[?]::varchar[]", params[:filters][:categories])
-
+      @queries = params[:filters][:categories]
+    elsif session[:current_expo_id].present?
+      @expos = Expo.where(id: session[:current_expo_id])
     else
     # elsif params[:commit].present?
     # @expos = policy_scope(Expo.where('category ILIKE ?', "%#{params[:commit]}"))
     # else
     # @expos = policy_scope(Expo)
       @expos = Expo.all
+      @queries = ['Toutes les meilleures expos']
     end
     # end
+    @all_filter_params = all_filter_params
+    session[:all_filter_params] = all_filter_params
 
     @markers = @expos.map do |expo|
       {
@@ -50,9 +56,23 @@ class ExposController < ApplicationController
     @review = Review.new()
     @reviews = @expo.reviews
     @proposals = @expo.proposals
+    session[:current_expo_id] = @expo.id
+  end
+
+  def display_filters
+    params[:query]
   end
 
   private
+
+  def all_filter_params
+    return {} unless params[:filters].present?
+
+    {
+      filters: params.require(:filters).permit(categories: [], price_type: []),
+      query: params.permit(:query)
+    }
+  end
 
   def set_expo
     @expo = Expo.find(params[:id])

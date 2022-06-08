@@ -6,9 +6,6 @@ export default class extends Controller {
   static values = { position: String }
 
   connect() {
-    console.log('hello')
-    console.log(this.items)
-    console.log(this.form)
     this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
   }
 
@@ -23,7 +20,7 @@ export default class extends Controller {
       .then((data) => {
         console.log(data)
         if (data.inserted_item) {
-          this.itemsTarget.insertAdjacentHTML(this.positionValue, `<div class="d-flex">${data.inserted_item}</div>`);
+          this.itemsTarget.insertAdjacentHTML('afterbegin', `<div class="show_review d-flex">${data.inserted_item}</div><hr>`);
         }
         this.formTarget.outerHTML = data.form
       })
