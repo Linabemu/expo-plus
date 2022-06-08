@@ -4,10 +4,12 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.proposal = @proposal
     @message.user = current_user
+    # @user_message = User.find(params["message"]["user_message_id"]) == current_user
     if @message.save
       ProposalChannel.broadcast_to(
         @proposal,
-        render_to_string(partial: "shared/message", locals: { message: @message })
+        message_html: render_to_string(partial: "shared/message", locals: { message: @message }),
+        author_id: current_user.id
       )
       head :ok
     else
