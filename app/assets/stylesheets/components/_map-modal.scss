@@ -1,0 +1,57 @@
+#modal-map{
+
+  .modal-dialog{
+    position:fixed;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom: 70px;
+
+  }
+
+  .image-card-map{
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .modal-card{
+
+    // padding: 15px;
+    border-radius: 10px;
+    width: 360px;
+    background-color: white;
+    margin-bottom: 15px;
+
+  }
+
+  .modal.fade.show {
+    background: rgba(0, 0, 0, 0.05); // example
+    opacity: 1; // example
+    height: 773px;
+  }
+
+}
+
+.modal-header .btn-close{
+
+  padding-right: 15px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.place{
+  margin-top: 2px;
+  margin-bottom: -1px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.i-close {
+  padding-right: 6px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  color: white;
+  font-size: 25px;
+}
