@@ -1,17 +1,23 @@
+<div class="image_show-proposal">
+  <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
+</div>
 <div class="display-proposal">
   <div class="card-show">
-      <h2 class="title"><%= @expo.title %></h2>
+      <h2 class="title"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
+      <h2 class="review_title-small"><%= @expo.title %></h2>
+
+
 
       <div class="d-flex justify-content-between">
-        <p class="subtitle"><%= @expo.place.address_name  %></p>
-        <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
+        <p class=""><%= @expo.place.address_name.upcase  %></p>
+        <p class=""><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
       </div>
-      <p class="subtitle">Du <%= (l @expo.date_start, format: "%d %B") %> au <%= (l @expo.date_end, format: "%d %B %Y") %></p>
+      <p class="">Du <%= (l @expo.date_start, format: "%d %B") %> au <%= (l @expo.date_end, format: "%d %B %Y") %></p>
   </div>
 
-  <div data-controller="description-display">
-    <p class="caret-down proposal_action-button mt-3" data-action="click->description-display#revealContent"> Détails de la visite</p>
-    <span class="d-none" data-description-display-target="content">
+  <div data-controller=""><%# description-display %>
+    <p class="caret-down proposal_action-button mt-3" data-action="click->description-display#revealContent"> Je participe</p>
+    <%# <span class="d-none" data-description-display-target="content"> %>
 
       <div class="d-flex">
         <div class="pt-1 pe-3">
