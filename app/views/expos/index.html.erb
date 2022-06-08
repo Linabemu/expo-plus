@@ -11,43 +11,44 @@
     <!-- modal map  -->
 
     <% @expos.each do |expo| %>
+      <div id="modal-map">
+        <div class="modal fade" id="expo-<%=expo.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-card">
 
-      <div class="modal fade" id="expo-<%=expo.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-
-            <div class="modal-header">
-              <div class="card-map">
-                <div class="image-box">
-                  <%= cl_image_tag(expo.photo.key, height: 100, width: 100, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
-                  <%= link_to expo_path(expo) do %>
-                    <div class="img-gradient"></div>
-                  <% end %>
-                  <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
-                    <i class="fa-solid fa-heart heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
-                  <% end %>
+              <div class="modal-header">
+                <div class="card-map">
+                  <div class="image-box">
+                    <%= cl_image_tag(expo.photo.key, height: 150, width: 360, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"crop", class: "image-card-map") %>
+                    <%= link_to expo_path(expo) do %>
+                      <div class="img-gradient"></div>
+                    <% end %>
+                    <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
+                      <i class="fa-solid fa-heart heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
+                    <% end %>
+                    <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
+                    <i class="fa-solid fa-xmark i-close" data-bs-dismiss="modal" aria-label="Close"></i>
+                  </div>
                 </div>
 
                 <div class="expo-detail">
-                  <h2 class="title"><%= expo.title  %></h2>
-                  <div class="d-flex justify-content-between">
-                    <p class="subtitle"><%= expo.place.address_name  %></p>
-                    <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+                    <h2 class="title"><%= expo.title  %></h2>
+                    <div class="place">
+                      <p class="subtitle"><%= expo.place.address_name  %></p>
+                      <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+                    </div>
+                    <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
                   </div>
-                  <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
-                </div>
 
-                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
               </div>
 
+              <!-- <div class="modal-body">
+              </div> -->
             </div>
-
-            <!-- <div class="modal-body">
-            </div> -->
           </div>
         </div>
       </div>
-
     <% end %>
 
 
@@ -76,6 +77,8 @@
           <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
             <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
           <% end %>
+          <i class="fa-solid fa-star star-icon-index"></i>
+          <p class="average_rating subtitle"> <%= expo.average_rating %></p>
 
         </div>
         <div class="info-index">

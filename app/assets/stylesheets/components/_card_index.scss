@@ -30,15 +30,20 @@
 
     .title {
       position: absolute;
-      left: 0;
-      top: 120px;
+      margin: 0;
+      width: 98%;
       color: white;
       text-align: center;
-      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
     }
+
   }
 
   .info-index{
     padding: 0px 15px;
   }
 }
+
