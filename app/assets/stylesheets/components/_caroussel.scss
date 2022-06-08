@@ -1,0 +1,30 @@
+.carrousel {
+  z-index: 0;
+}
+
+.text_carrousel {
+  position: absolute;
+  padding : 80px 30px 0 30px;
+  color: white;
+  // overflow-wrap: break-word;
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.title_carrousel {
+  position: absolute;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  padding : 30px 30px 0 30px;
+  // line-height: 43px;
+  color: white;
+  margin-bottom: 6px;
+  z-index: 1;
+}

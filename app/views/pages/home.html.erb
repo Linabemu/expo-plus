@@ -1,11 +1,13 @@
 <div class="w-100">
-
-
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<h2 class="title_carrousel">DÉCOUVREZ</h2>
     <div class="carousel-inner">
-      <%@best_rated.first(5).each_with_index do |expo, index| %>
+      <% @best_rated.first(5).each_with_index do |expo, index| %>
         <div class="carousel-item <%= 'active' if index.zero? %>">
-          <%= link_to expo_path(expo) do %>
+          <%= link_to expo_path(expo), class: "position-relative" do %>
+          <div class="text_carrousel">
+            <p> <%= expo.title.upcase %></p>
+          </div>
             <%= cl_image_tag(expo.photo.key, height: '292px', quality: 50) %>
           <% end %>
         </div>
@@ -20,6 +22,8 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+
   <div class="title-margin-left">
     <p class="title">EXPOS À VENIR</p>
     <hr>
