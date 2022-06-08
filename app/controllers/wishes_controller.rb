@@ -2,17 +2,36 @@ class WishesController < ApplicationController
   before_action :set_expo, only: [:create]
 
   def create
-    @wish = Wish.new()
-    @wish.expo = @expo
-    @wish.user = current_user
-    # @wish.status = 'pending'
-    # authorize @wish
-    if Wish.find_by(user_id: @wish.user.id, expo_id: @wish.expo.id)
-      destroy
+    if @wish = Wish.find_by(user_id: current_user.id, expo_id: @expo.id)
+      @wish.destroy
     else
+      @wish = Wish.new()
+      @wish.expo = @expo
+      @wish.user = current_user
       @wish.save
-      redirect_to request.referer
     end
+
+    respond_to do |format|
+      format.html { redirect_to request.referer }
+      format.json
+    end
+
+    # respond_to do |format|
+    #   if Wish.find_by(user_id: @wish.user.id, expo_id: @wish.expo.id)
+    #     destroy
+    #     format.html { redirect_to request.referer }
+    #     format.json
+    #   else
+    #     @wish = Wish.new()
+    #     @wish.expo = @expo
+    #     @wish.user = current_user
+
+    #     @wish.save
+    #     format.html { redirect_to request.referer }
+    #     format.json
+    #   end
+    # end
+
   end
 
   def destroy

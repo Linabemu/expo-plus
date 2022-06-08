@@ -24,3 +24,6 @@ application.register("map", MapController)
 
 import ProposalSubscriptionController from "./proposal_subscription_controller.js"
 application.register("proposal-subscription", ProposalSubscriptionController)
+
+import WishesController from "./wishes_controller.js"
+application.register("wishes", WishesController)
