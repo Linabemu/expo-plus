@@ -15,6 +15,8 @@ class ProposalsController < ApplicationController
     else
       redirect_to expo_proposals_path, status: :unprocessable_entity
     end
+    @participant = Participant.new(proposal_id: @proposal.id, user_id: current_user.id)
+    @participant.save
   end
 
   def index
