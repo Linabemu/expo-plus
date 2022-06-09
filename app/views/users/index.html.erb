@@ -1,18 +1,19 @@
 <div class="container-index">
 
-<% 10.times do %>
-  <% @users.each do |user| %>
-
-    <div class="card-index-user d-flex my-3 align-items-center">
-      <%= link_to profile_user_path(user) do %>
-        <%= user.photo.attached? ? cl_image_tag(user.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
-      <% end %>
-      <h1 class="subtitle ms-3"><%= user.username %></h1>
-      <div class="notif subtitle abonnés"><%= user.followers.count %></div>
-    </div>
-    <hr>
-  <% end %>
-<% end %>
+    <% @users.each do |user| %>
+      <div class="card-index-user d-flex my-3 align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <%= link_to profile_user_path(user) do %>
+            <%= user.photo.attached? ? cl_image_tag(user.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
+          <% end %>
+          <h1 class="subtitle ms-3"><%= user.username %></h1>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="notif subtitle abonnés"><%= user.followers.count %></div>
+          <h1 class="ms-2 title-abonnés">abonnés</h1>
+        </div>
+      </div>
+      <hr>
+    <% end %>
 
 </div>
-<% console %>
