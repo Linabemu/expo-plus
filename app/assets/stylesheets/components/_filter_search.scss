@@ -98,20 +98,27 @@
 
 .modal-dialog{
   margin: 0px 15px;
+  justify-content: center;
 }
 
 .modal-content{
   padding: 15px;
   border-radius: 10px;
-  height: 818px;
+  height: 85%;
   width: 360px;
-  top: 13px;
+  top: 70px;
   position: fixed;
+
+
 }
 
-.modal-body{
-  padding: 0px;
-  text-align: center;
+.modal-dialog-scrollable {
+
+  .modal-body{
+    padding: 0px;
+    text-align: center;
+    min-height: 60%;
+  }
 }
 
 .mb-3.check_boxes.required.filters_categories {
