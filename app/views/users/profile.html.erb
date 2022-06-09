@@ -103,6 +103,15 @@
         <% end %>
       <% end %>
     </div>
+  <% else %>
+    <div class="d-flex justify-content-between">
+      <h1 class="title">Abonnements</h1>
+      <%= link_to users_path do%>
+        <i class="fa-solid fa-plus subtitle" style="font-size: 40px;"></i>
+      <% end %>
+    </div>
+    <p class="paragraphe">Vous n'avez aucun abonnement. Retrouvez vos amis avec le bouton +</p>
+
   <% end %>
 
   <!-- abonnés -->
