@@ -22,7 +22,7 @@ export default class extends Controller {
         console.log(data)
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
-      }
+        }
         this.participantsCountTarget.innerHTML = data.participants_count
         this.formTarget.outerHTML = data.form
       })

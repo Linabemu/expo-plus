@@ -3,7 +3,9 @@ class ParticipantsController < ApplicationController
 
     @proposal = Proposal.find(params[:proposal_id])
 
-    @participant = Participant.where(proposal: @proposal, user: current_user).first_or_create
+    @participant = Participant.where(proposal: @proposal, user: current_user).first_or_initialize
+    @already_exists = @participant.persisted?
+    @participant.save
     # @participant.proposal = @proposal
     # @participant.user = current_user
     # @participant.save
