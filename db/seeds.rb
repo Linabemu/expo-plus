@@ -9,7 +9,6 @@
 require 'json'
 require 'open-uri'
 
-
   puts "Destroying all records ..."
   Message.destroy_all
   Place.destroy_all

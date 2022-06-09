@@ -1,81 +1,89 @@
-// .mapboxgl-popup {
-//   max-width: 100%;
+// // .mapboxgl-popup {
+// //   max-width: 100%;
+// // }
+
+// // .mapboxgl-popup-content {
+// //   border-radius: 50px;
+// //   width: 300px;
+// // }
+
+// .modal-header {
+//   padding: 0px;
+
+//   .title {
+//     font-size: 23px;
+//     margin: 0;
+//     line-height: 28px;
+//     margin-bottom: 4px;
+//   }
+//   .subtitle {
+//     font-size: 12.5px;
+//     margin: 0;
+//     // margin-top: 4px;
+//     line-height: 20px;
+//     min-width: 55px;
+//   }
+
+//   .card-map {
+//     display: flex;
+//     justify-content: space-between;
+//     height: 150px;
+
+
+//     .arrondissement {
+//       color:#797979;
+//       min-width: 60px;
+//       text-align: right;
+//       white-space: nowrap;
+//     }
+
+//     .image-box {
+//       width: 100%;
+//       height: 100;
+//       position: relative;
+
+//       .image-card-index {
+//         width: 100px;
+//       }
+
+//       .img-gradient {
+//         position: absolute;
+//         left: 0; top: 0;
+//         width: 100%; height: 100%;
+//         background: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
+//         border-radius: 10px 10px 0px 0px;
+//       }
+
+
+//       .heart-icon-small {
+//         position: absolute;
+//         right: 8px;
+//         bottom: 8px;
+//         padding-right: 5px;
+//         font-size: 25px;
+//       }
+//     }
+//   }
+
+//   .btn-close {
+//     padding-right: 15px;
+//   }
+
 // }
 
-// .mapboxgl-popup-content {
-//   border-radius: 50px;
-//   width: 300px;
+
+// .expo-detail {
+//   margin: 9px 15px;
+//   padding-bottom: 12px;
 // }
 
-.modal-header {
-  padding: 0px;
 
-  .title {
-    font-size: 23px;
-    margin: 0;
-    line-height: 28px;
-    margin-bottom: 4px;
-  }
-  .subtitle {
-    font-size: 12.5px;
-    margin: 0;
-    // margin-top: 4px;
-    line-height: 20px;
-    min-width: 55px;
-  }
-
-  .card-map {
-    display: flex;
-    justify-content: space-between;
-    height: 150px;
+//.mapboxgl-ctrl-logo{
+//  opacity: 0;
+//}
 
 
-    .arrondissement {
-      color:#797979;
-      min-width: 60px;
-      text-align: right;
-      white-space: nowrap;
-    }
+// .map_style {
+//   margin-top: 70px;
 
-    .image-box {
-      width: 100%;
-      height: 100;
-      position: relative;
-
-      .image-card-index {
-        width: 100px;
-      }
-
-      .img-gradient {
-        position: absolute;
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
-        border-radius: 10px 10px 0px 0px;
-      }
-
-      .heart-icon-small {
-        position: absolute;
-        right: 8px;
-        bottom: 8px;
-        padding-right: 5px;
-        font-size: 25px;
-      }
-    }
-  }
-
-  .btn-close {
-    padding-right: 15px;
-  }
-
-}
-
-.expo-detail {
-  margin: 9px 15px;
-  padding-bottom: 12px;
-}
-
-.map_style {
-  margin-top: 70px;
-
-}
+// }

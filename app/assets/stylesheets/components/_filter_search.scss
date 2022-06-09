@@ -1,3 +1,4 @@
+.modal-search {
 
 .tag-selector {
   position: absolute;
@@ -17,6 +18,15 @@
   justify-content: center;
   text-align: center;
 }
+
+.filters_categories, .filters_price_type{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .tag-item {
 
   display: inline-block;
@@ -26,6 +36,12 @@
   font-family: bc-sklonar, sans-serif;
   text-transform: uppercase;
   margin: 4px;
+
+  // label {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
 
 }
 
@@ -48,8 +64,6 @@
   }
 
 }
-
-
 
 .title_modal {
   font-family: 'bebas-neue', sans-serif;
@@ -79,8 +93,8 @@
   margin: 0px;
   padding: 0px 12px;
   margin-bottom: 38px;
-  margin-top: 12px;
-  border: none;
+  margin-top: 15px;
+  border: none !important;
   height: 100px;
 }
 
@@ -96,24 +110,32 @@
 }
 
 
-.modal-dialog{
-  margin: 0px 15px;
-}
+  .modal-content{
+    padding: 20px 15px 15px 15px;
+    border-radius: 2px;
+    height: 85%;
+    width: 360px;
+    top: 70px;
+    position: fixed;
+    border: none;
+  }
 
-.modal-content{
-  padding: 15px;
-  border-radius: 10px;
-  height: 818px;
-  width: 360px;
-  top: 13px;
-  position: fixed;
-}
 
-.modal-body{
-  padding: 0px;
-  text-align: center;
+
+  .modal-body{
+    padding: 0px;
+    text-align: center;
+    min-height: 60%;
+  }
+
+
 }
 
 .mb-3.check_boxes.required.filters_categories {
   margin-bottom: 0 !important;
+}
+
+.modal-search{
+  margin: 0px 15px;
+  justify-content: center;
 }
