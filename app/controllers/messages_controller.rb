@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
     if @message.save
       ProposalChannel.broadcast_to(
         @proposal,
-        render_to_string(partial: "shared/message", locals: { message: @message })
+        message_html: render_to_string(partial: "shared/message", locals: { message: @message }),
+        author_id: current_user.id
       )
       head :ok
     else

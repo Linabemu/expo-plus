@@ -37,7 +37,6 @@ class ProposalsController < ApplicationController
     redirect_to expo_proposals_path
   end
 
-
   private
 
   def proposal_params

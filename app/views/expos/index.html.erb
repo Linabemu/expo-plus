@@ -8,9 +8,11 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
+<% console %>
     <!-- modal map  -->
 
     <% @expos.each do |expo| %>
+
       <div id="modal-map">
         <div class="modal fade" id="expo-<%=expo.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -68,19 +70,24 @@
 
       <div class="card-index">
 
-        <div class="image-box">
+        <div class="image-box" data-controller="wishes" data-wishes-path-value="<%= expo_wishes_path(expo, user_id: current_user.id) %>"> <!-- controller -->
 
-          <%= cl_image_tag(expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-index") %>
+          <%= cl_image_tag(expo.photo.key, height: 292, width: 384, :quality=>"auto", :fetch_format=>:auto, gravity:"faces", :crop=>"fill", class: "image-card-index") %>
 
           <%= link_to expo_path(expo) do %>
             <div class="img-gradient"></div>
           <% end %>
+          
+            <!-- <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
+              <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>" data-wishes-target="hearts" data-action="click->wishes#like" ></i>
+            <% end %> -->
 
-          <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
-            <i class="fa-solid fa-bookmark heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
-          <% end %>
-          <i class="fa-solid fa-star-of-life star-icon-index"></i>
+
+          <%= render "wishes/heart", wish: current_user.wishes.find_by(expo_id: expo.id) %>
+          <i class="fa-solid fa-star star-icon-index"></i>
+
           <p class="average_rating-index subtitle"> <%= expo.average_rating %></p>
+
 
         </div>
         <div class="info-index">
