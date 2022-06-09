@@ -64,15 +64,6 @@ class ExposController < ApplicationController
     params[:query]
   end
 
-  # def carrousel_title(el)
-  #   if el.title.count > 10
-  #     mots = el.split
-  #     el = "#{mots[O]}\n#{mots.slice(1..-1)}"
-  #   else
-  #     el = title.title
-  #   end
-  #   return el
-  # end
 
   private
 
