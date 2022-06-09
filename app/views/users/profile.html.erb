@@ -26,7 +26,7 @@
 
         <% else %>
 
-          <%= link_to profile_user_path(params[:id], cookie: "follow"), 'data-turbo-method': :post do%>
+          <%= link_to profile_user_path(params[:id], cookie: "follow") do %>
             <i class="fa-solid fa-plug-circle-plus logo-follow" style="font-size: 20px;"></i>
           <% end %>
 
@@ -107,7 +107,7 @@
 
   <!-- abonnés -->
 
-  <div class="d-flex justify-content-between">
+  <!-- <div class="d-flex justify-content-between">
     <h1 class="title mb-2">Mes abonnés - <%= @followers.count %></h1>
   </div>
   <div class="horizontal-scroll d-flex">
@@ -117,4 +117,4 @@
   </div>
   <hr class="my-2">
 
-</div>
+</div> -->
