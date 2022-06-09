@@ -35,9 +35,7 @@
 
   }
 
-  .modal.fade.show {
-    background: rgba(0, 0, 0, 0.5);
-  }
+
 
   .modal-content .btn-close{
     padding-right: 15px;
@@ -146,3 +144,7 @@
 .mapboxgl-ctrl-attrib-button {
   display: none;
 }
+
+  .modal-backdrop {
+    opacity:0.1 !important;
+  }
