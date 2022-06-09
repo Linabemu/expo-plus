@@ -1,25 +1,37 @@
 #modal-map{
 
+  padding: 0px;
+
   .modal-dialog{
     position:fixed;
     top:auto;
     right:auto;
     left:auto;
     bottom: 70px;
-
-  }
-
-  .image-card-map{
+    width: 96%;
     border-radius: 3px 3px 0px 0px;
   }
 
-  .modal-card{
+  .modal-body {
+    padding: 0;
+    width: 100%;
+    border-radius: 3px 3px 0px 0px;
+  }
 
+  .image-card-map{
+
+    border-radius: 3px 3px 0px 0px;
+    width: 100%;
+    object-fit: cover;
+
+  }
+
+  .modal-card{
     // padding: 15px;
     border-radius: 3px;
-    width: 360px;
+    width: 100%;
     background-color: white;
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
 
   }
 
@@ -27,29 +39,110 @@
     background: rgba(0, 0, 0, 0.5);
   }
 
+  .modal-content .btn-close{
+    padding-right: 15px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+
+  .modal-content {
+    background-color: rgba(0, 0, 0, 0.0);
+    border-radius: 3px 3px 0px 0px;
+  }
+
+
+  .place{
+    margin-top: 2px;
+    margin-bottom: -1px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .i-close {
+    padding-right: 6px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    color: white;
+    font-size: 25px;
+  }
+
+  .title {
+    font-size: 23px;
+    margin: 0;
+    line-height: 28px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    font-size: 12.5px;
+    margin: 0;
+    // margin-top: 4px;
+    line-height: 20px;
+    min-width: 55px;
+  }
+
+  .card-map {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    width: 100%;
+    border-radius: 3px 3px 0px 0px;
+
+
+    .arrondissement {
+      color:#797979;
+      min-width: 60px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .image-box {
+      width: 100%;
+      height: 100;
+      position: relative;
+      border-radius: 3px 3px 0px 0px;
+
+      .image-card-index {
+        width: 100px;
+      }
+
+      .img-gradient {
+        position: absolute;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1));
+        border-radius: 3px 3px 0px 0px;
+      }
+
+      .heart-icon-small {
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        padding-right: 5px;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .expo-detail {
+    padding: 9px 15px;
+    padding-bottom: 12px;
+  }
+
 }
 
-.modal-header .btn-close{
+.map_style {
+  margin-top: 70px;
 
-  padding-right: 15px;
-  position: absolute;
-  right: 8px;
-  top: 8px;
 }
 
-.place{
-  margin-top: 2px;
-  margin-bottom: -1px;
-  display: flex;
-  justify-content: space-between;
+.mapboxgl-ctrl {
+  display: none;
+  opacity: 0;
 }
 
-
-.i-close {
-  padding-right: 6px;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  color: white;
-  font-size: 25px;
+.mapboxgl-ctrl-attrib-button {
+  display: none;
 }
