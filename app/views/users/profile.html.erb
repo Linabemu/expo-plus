@@ -4,7 +4,7 @@
   <div class="d-flex justify-content-center align-items-center">
 
     <%= render "shared/avatar", user: @user, css_class: "avatar-xl" %>
-<% console %>
+
 
     <% if user_signed_in? && @user == current_user %>
       <li class="list-inline-item dropup align-self-start button-top-profile">
@@ -106,7 +106,7 @@
   <% end %>
 
   <!-- abonnés -->
-  <!--
+
   <div class="d-flex justify-content-between">
     <h1 class="title mb-2">Mes abonnés - <%= @followers.count %></h1>
   </div>
@@ -115,6 +115,6 @@
       <%= follower.user.photo.attached? ? cl_image_tag(follower.user.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
     <% end %>
   </div>
-  <hr class="my-2"> -->
+  <hr class="my-2">
 
 </div>
