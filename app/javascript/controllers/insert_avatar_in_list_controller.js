@@ -2,10 +2,11 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="insert-avatar-in-list"
 export default class extends Controller {
-  static targets = ["items", "form"]
+  static targets = ["items", "form", "participantsCount"]
   static values = { position: String }
 
   connect() {
+    console.log(this.participantsCountTarget);
     this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
   }
 
@@ -22,6 +23,7 @@ export default class extends Controller {
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
       }
+        this.participantsCountTarget.innerHTML = data.participants_count
         this.formTarget.outerHTML = data.form
       })
 
