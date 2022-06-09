@@ -15,7 +15,7 @@ class PagesController < ApplicationController
     @best_rated = []
     expositions = Expo.includes(:reviews).all
     expositions.each do |expo|
-      @best_rated << expo if  expo.average_rating && (expo.average_rating > 7)
+      @best_rated << expo if  expo.average_rating && (expo.average_rating > 4)
     end
     session[:all_filter_params] = nil
   end
