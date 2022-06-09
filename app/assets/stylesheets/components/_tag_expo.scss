@@ -9,14 +9,29 @@
     margin-top: 8px;
     margin-right: 1px;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
   }
 
-  .tag-query{
-    background: white;
-    border: solid 1px #9747FF;
+  .tag-actif{
+    background: #9747FF;
+    border: solid 1px ;
     border-radius: 4px;
-    color: #9747FF;
+    color: white;
+    text-decoration: none;
+    padding: 1px 15px 0px 15px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 1px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+
+  .tag-query{
+    background: #9747FF;
+    border: solid 1px ;
+    border-radius: 4px;
+    color: white;
     text-decoration: none;
     padding: 1px 15px 0px 15px;
     display: inline-block;
@@ -25,7 +40,6 @@
     margin-right: 1px;
     font-size: 15px;
     font-weight: 500;
-
   }
 
   .tag-container{
