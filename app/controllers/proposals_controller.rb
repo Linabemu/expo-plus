@@ -29,6 +29,7 @@ class ProposalsController < ApplicationController
     @expo = Expo.find(params[:expo_id])
     @proposal = Proposal.find(params[:id])
     @message = Message.new
+    @participant = Participant.new
   end
 
   def destroy

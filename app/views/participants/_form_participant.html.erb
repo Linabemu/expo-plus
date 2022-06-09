@@ -1,0 +1,7 @@
+<%= simple_form_for([@proposal, @participant],
+  data: { insert_avatar_in_list_target: "form", action: "submit->insert-avatar-in-list#send"
+   }) do |f|%>
+  <%= f.input :content, as: :text %>
+  <%= f.button :submit, label: 'Je participe' class: "proposal_action-button color" %>
+  <%# <%= f.submit 'Je participe', class: "proposal_action-button color" %>
+<%= end %>

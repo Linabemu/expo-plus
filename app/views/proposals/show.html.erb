@@ -22,7 +22,8 @@
     </div>
 
     <!-- liste d'avatars participants-->
-    <div>
+    <div data-controller="insert-avatar-in-list" data-insert-avatar-in-list-position-value="beforeend">
+      <div data-insert-avatar-in-list-target="items">
         <ul>
           <% @proposal.participants.each do |participant|  %>
             <li class="list-inline d-flex">
@@ -38,12 +39,13 @@
             </li>
           <% end %>
         </ul>
-    </div>
+      </div>
 
-    <!-- bouton-->
-    <div class="button-container mt-3">
-      <div class="action-button">
-          <p class="color" >Je participe</p>
+      <!-- bouton submit: je participe-->
+      <div class="button-container mt-3">
+        <div class="action-button">
+          <%# <% participant.submit %>
+        </div>
       </div>
     </div>
 
