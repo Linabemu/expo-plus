@@ -22,15 +22,19 @@ require 'open-uri'
   puts "Destroyed DB"
 
   puts "Creating users…"
-  user1 = User.create!(email: 'test@test.com', username: 'Cyril', password: 'azerty')
+  user1 = User.create!(email: 'test@test.com', username: 'Cyril', password: 'azerty', description: `Passionné par la photo, j'adore shiner de nouveaux vernissages le weekend`)
   user2 = User.create!(email: 'test2@test.com', username: 'Jules', password: 'azerty')
   user3 = User.create!(email: 'test3@test.com', username: 'Marine', password: 'azerty')
   user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
+  user5 = User.create!(email: 'test5@test.com', username: 'Naomi', password: 'azerty', description: `L'art illumine ma vie depuis toujours. Abonnez-vous pour suivre les meilleures tendances à Paris`)
+  user6 = User.create!(email: 'test6@test.com', username: 'Tanguy', password: 'azerty', description: `Je suis quelqu'un de très gentil qui aime faire de nouvelle rencontre pendant une expo. Alors la prochaine fois viens, tu vas voir, on sera bien, même bien bien bien ;)`)
 
   user1.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/102356829?v=4"), filename: "#{user1.username}.png")
   user2.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/103044146?v=4"), filename: "#{user2.username}.png")
   user3.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/61592567?v=4"), filename: "#{user3.username}.png")
   user4.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/101411883?v=4"), filename: "#{user4.username}.png")
+  user5.photo.attach(io: URI.open("https://static.wikia.nocookie.net/lemondededisney/images/a/a5/Naomi_Scott.jpg/revision/latest?cb=20200328144051&path-prefix=fr"), filename: "#{user3.username}.png")
+  user6.photo.attach(io: URI.open("https://media.istockphoto.com/photos/smiling-businessman-looking-into-camera-picture-id503344335?k=20&m=503344335&s=612x612&w=0&h=DNdR9YcFjq0HgHaJnU3dlGIzqKFpocl4D7Bbtf8Z1vU="), filename: "#{user4.username}.png")
   puts "Users created"
 
 
