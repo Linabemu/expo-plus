@@ -4,7 +4,7 @@
 
 .text_carrousel {
   position: absolute;
-  padding : 80px 30px 0 30px;
+  padding : 30px 30px 0 30px;
   color: white;
   // overflow-wrap: break-word;
   font-family: bc-sklonar, sans-serif;
@@ -27,4 +27,30 @@
   color: white;
   margin-bottom: 6px;
   z-index: 1;
+}
+
+.title_expo_carrousel {
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 14px;
+  color: $purple;
+  margin-bottom: 6px;
+  text-align: right;
+}
+
+.title_expo_carrousel_position {
+  position: absolute;
+  right: 100px;
+  padding : 39px 0 0 30px;
+  color: white;
+  // overflow-wrap: break-word;
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  text-transform: uppercase;
+  margin: 0;
 }
