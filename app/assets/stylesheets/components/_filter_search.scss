@@ -17,6 +17,15 @@
   justify-content: center;
   text-align: center;
 }
+
+.filters_categories, .filters_price_type{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .tag-item {
 
   display: inline-block;
@@ -26,6 +35,12 @@
   font-family: bc-sklonar, sans-serif;
   text-transform: uppercase;
   margin: 4px;
+
+  // label {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
 
 }
 
@@ -104,9 +119,6 @@
   padding: 15px;
   border-radius: 2px;
   height: 759px;
-  width: 360px;
-  top: 13px;
-  position: fixed;
   border: none;
 }
 

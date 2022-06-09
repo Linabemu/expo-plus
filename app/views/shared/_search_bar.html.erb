@@ -20,6 +20,7 @@
               as: :check_boxes,
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item',
+              label_method: lambda { |tag| render 'shared/filter_tag', tag: tag },
               include_hidden: false,
               checked: params.dig(:filters, :categories) %>
           </div>
@@ -53,6 +54,7 @@
               as: :check_boxes,
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item',
+              label_method: lambda { |tag| render 'shared/filter_tag', tag: tag },
               include_hidden: false,
               checked: params.dig(:filters, :price_type) %>
         </div>

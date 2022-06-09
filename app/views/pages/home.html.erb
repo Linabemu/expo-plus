@@ -31,7 +31,7 @@
 
    <div class="horizontal-scroll d-flex">
       <%@upcoming.each do |expo| %>
-        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(expo.photo.key) %>">
+        <div class="card-small subtitle-bold"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(expo.photo.key) %>">
           <p>
             <%= link_to expo.title.upcase, expo_path(expo) %>
           </p>
@@ -45,7 +45,7 @@
   </div>
     <div class="horizontal-scroll d-flex flex-nowrap">
       <%@endend_soon.each do |expo| %>
-        <div class="card-small subtitle" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(expo.photo.key) %>">
+        <div class="card-small subtitle-bold" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(expo.photo.key) %>">
           <p>
             <%= link_to expo.title.upcase, expo_path(expo) %>
           </p>
