@@ -1,5 +1,5 @@
   <% if user.photo.attached? %>
-    <%= cl_image_tag user.photo.key, class: "avatar #{css_class}" %>
+    <%= cl_image_tag(user.photo.key, height: 100, width: 100, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "avatar #{css_class}") %>
   <% else %>
     <%= image_tag "avatar_placeholder.png", class: "avatar #{css_class}" %>
   <% end %>
