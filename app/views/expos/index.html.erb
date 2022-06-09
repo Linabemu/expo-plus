@@ -8,7 +8,7 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-<% console %>
+
     <!-- modal map  -->
 
     <% @expos.each do |expo| %>
@@ -77,7 +77,7 @@
           <%= link_to expo_path(expo) do %>
             <div class="img-gradient"></div>
           <% end %>
-          
+
             <!-- <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
               <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>" data-wishes-target="hearts" data-action="click->wishes#like" ></i>
             <% end %> -->

@@ -10,11 +10,11 @@ require 'json'
 require 'open-uri'
 
 puts "Destroying all records ..."
+Message.destroy_all
 Place.destroy_all
 Expo.destroy_all
 Review.destroy_all
 Proposal.destroy_all
-Message.destroy_all
 Wish.destroy_all
 Participant.destroy_all
 User.destroy_all
