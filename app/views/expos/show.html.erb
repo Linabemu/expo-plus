@@ -25,10 +25,11 @@
 
 <div class="display-show " data-controller="insert-in-list" data-insert-in-list-position-value="beforeend">
 
-  <div class="display-show image-box-show">
+  <div class="display-show image-box-show" data-controller="wishes" data-wishes-path-value="<%= expo_wishes_path(@expo, user_id: current_user.id) %>">
     <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
     <i class="fa-solid fa-star star-icon-show"></i>
     <p class="average_rating subtitle pb-2"> <%= @expo.average_rating %></p>
+    <%= render "wishes/heart", wish: current_user.wishes.find_by(expo_id: @expo.id) %>
   </div>
 
   <div class="container-show">
