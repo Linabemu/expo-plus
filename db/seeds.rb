@@ -97,21 +97,6 @@ require 'open-uri'
     puts "New expo created : #{expo.title}"
   end
 
-  Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
-  Review.create(rating: 7, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 10, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 1, comment: "nul nul nul", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 9, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 7, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 9, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-  Review.create!(rating: 4, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
-  puts "Reviews OK"
 
   puts "Creating followings"
   Following.create!(user_id: user2.id, receiver_id: user1.id)
@@ -293,3 +278,50 @@ expo_thirty.update!(title: "L'Aventure Champollion",
 
 expo_thirty_one.update!(title: "Garo 1964-1974",
                         tags: ["voyages", "beaux-arts"])
+
+
+
+
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 2, comment: "Je n'ai pas aimé du tout :(", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super, magnifique ! Bravo à toute l'équipe !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 1, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "Waouh, des étoiles plein les yeux", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "C'était top", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
+Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: Expo.all.sample)
+puts "Reviews OK"
