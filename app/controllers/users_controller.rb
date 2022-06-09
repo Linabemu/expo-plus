@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+
+    if params[:cookie].present?
+      if params[:cookie] == "follow"
+        Following.new(user_id: current_user.id, receiver_id: User.find(params[:user])).save
+      elsif params[:cookie] == "unfollow"
+        current_user.followings.find_by(receiver_id: User.find(params[:user])).destroy
+      end
+    end
   end
 
 

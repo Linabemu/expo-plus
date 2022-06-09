@@ -1,4 +1,4 @@
-<div class="container-index">
+<div class="container-index-user">
 
     <% @users.each do |user| %>
       <div class="card-index-user d-flex my-3 align-items-center justify-content-between">
@@ -6,14 +6,33 @@
           <%= link_to profile_user_path(user) do %>
             <%= user.photo.attached? ? cl_image_tag(user.photo.key, height: 100, width: 100, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
           <% end %>
-          <h1 class="subtitle ms-3"><%= user.username %></h1>
+          <h1 class="subtitle ms-2"><%= user.username %></h1>
         </div>
         <div class="d-flex align-items-center">
-          <div class="notif subtitle abonnés"><%= user.followers.count %></div>
-          <h1 class="ms-2 title-abonnés">abonnés</h1>
+          <%= link_to profile_user_path(user) do %>
+            <i class="fa-solid fa-eye voir-logo"></i>
+          <% end %>
+          <% if (current_user.followings.map {|e| e.receiver_id}).include?(user.id) %>
+
+            <%= link_to users_path(params[:id], cookie: "unfollow", user: user)  do%>
+              <!-- <i class="fa-solid fa-plug-circle-xmark logo-follow" style="font-size: 20px;"></i> -->
+              <span class="material-symbols-outlined logo-follow">do_not_disturb_on</span>
+            <% end %>
+
+          <% else %>
+
+            <%= link_to users_path(params[:id], cookie: "follow", user: user) do %>
+              <!-- <i class="fa-solid fa-plug-circle-plus logo-follow" style="font-size: 20px;"></i> -->
+              <span class="material-symbols-outlined logo-follow">person_add</span>
+            <% end %>
+
+          <% end %>
+
         </div>
       </div>
       <hr>
     <% end %>
 
 </div>
+
+<% console %>
