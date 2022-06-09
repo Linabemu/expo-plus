@@ -4,13 +4,13 @@
   <div class="image_show-proposal">
     <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
   </div>
-  <div class="display-show-proposal">
+  <div class="display-show-proposal" data-controller="insert-avatar-in-list" data-insert-avatar-in-list-position-value="beforeend">
     <div class="card-show">
       <div class="d-flex justify-content-between">
         <h2 class="title color"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
         <div class="">
           <i class="fa-solid fa-user-group color picto-size"></i>
-          <span class="title color"><%=@proposal.participants.count%>/<%=@proposal.max_participants%></span>
+          <span data-insert-avatar-in-list-target="participantsCount" class="title color"><%=@proposal.participants.count%></span><span class="title color">/<%=@proposal.max_participants%></span>
         </div>
       </div>
       <h2 class="title"><%= @expo.title %></h2>
@@ -22,21 +22,11 @@
     </div>
 
     <!-- liste d'avatars participants-->
-    <div data-controller="insert-avatar-in-list" data-insert-avatar-in-list-position-value="beforeend">
-      <div data-insert-avatar-in-list-target="items">
-        <ul>
+    <div>
+      <div>
+        <ul class="d-flex" data-insert-avatar-in-list-target="items">
           <% @proposal.participants.each do |participant|  %>
-            <li class="list-inline d-flex">
-              <div class="mt-2">
-                <%= link_to profile_user_path(participant.user) do%>
-                  <% if participant.user.photo.attached? %>
-                    <%= cl_image_tag participant.user.photo.key, class: "avatar-large" %>
-                  <% else %>
-                    <%= image_tag "avatar2_placeholder.png", class: "avatar-large" %>
-                  <% end %>
-                <% end %>
-              </div>
-            </li>
+           <%= render "participants/avatar_photo", participant: participant %>
           <% end %>
         </ul>
       </div>
@@ -44,7 +34,7 @@
       <!-- bouton submit: je participe-->
       <div class="button-container mt-3">
         <div class="action-button">
-          <%# <% participant.submit %>
+         <%= render "participants/form_participant", participant: @participant, proposal: @proposal %>
         </div>
       </div>
     </div>
@@ -59,8 +49,8 @@
         <!-- Message description proposal-->
         <div class="d-flex">
           <div class="pt-1 pe-2">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+            <% if @proposal.user.photo.attached? %>
+              <%= cl_image_tag @proposal.user.photo.key, class: "avatar" %>
             <% else %>
               <%= image_tag "avatar_placeholder.png", class: "avatar" %>
             <% end %>

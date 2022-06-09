@@ -1,10 +1,12 @@
-<div class="review_avatar">
-  <% if review.user.photo.attached? %>
+  <%= link_to profile_user_path(review.user) do %>
+  <div class="review_avatar">
+    <% if review.user.photo.attached? %>
       <%= cl_image_tag review.user.photo.key, class: "avatar-xl" %>
     <% else %>
       <%= image_tag "avatar_placeholder.png", class: "avatar-xl" %>
     <% end %>
-</div>
+  </div>
+<% end  %>
 <div class="show_review flex-grow-1">
   <span class="review_title-small"><%= review.user.username%></span>
   <div class="d-flex justify-content-between">

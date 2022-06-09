@@ -2,8 +2,8 @@
   <div class="float-end" id="message<%= message.id %>" data-proposal-subscription-target="message">
     <div class="d-flex">
       <div class="pt-1 pe-2">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <% if message.user.photo.attached? %>
+          <%= cl_image_tag message.user.photo.key, class: "avatar" %>
         <% else %>
           <%= image_tag "avatar_placeholder.png", class: "avatar" %>
         <% end %>
@@ -20,8 +20,8 @@
   <div class="float-start" id="message<%= message.id %>" data-proposal-subscription-target="message">
     <div class="d-flex">
       <div class="pt-1 pe-2">
-        <% if current_user.photo.attached? %>
-          <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+        <% if message.user.photo.attached? %>
+          <%= cl_image_tag message.user.photo.key, class: "avatar" %>
         <% else %>
           <%= image_tag "avatar_placeholder.png", class: "avatar" %>
         <% end %>
