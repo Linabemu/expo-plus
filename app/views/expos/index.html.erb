@@ -89,7 +89,11 @@
             <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
             <div class="tag-container">
               <% expo.tags.each do |tag| %>
-                <div class="tag-expo subtitle"><%= tag %></div>
+                <% if @queries.include?(tag) %>
+                  <div class="tag-actif subtitle"><%= tag %></div>
+                <% else %>
+                  <div class="tag-expo subtitle"><%= tag %></div>
+                <% end %>
               <% end %>
             </div>
           <% end %>
