@@ -23,6 +23,7 @@ class ExposController < ApplicationController
       # SQL
       # @expos = Expo.where(sql_query, mot: "%#{params[:query]}%")
       @expos = Expo.global_search(params["query"])
+      @queries = @expos.all.map(&:tags).flatten
 
     elsif params[:filters].present?
       @expos = Expo.where("tags && ARRAY[?]::varchar[]", params[:filters][:categories])
