@@ -23,6 +23,7 @@
               as: :check_boxes,
               input_html: { class: "tag-selector" },
               item_wrapper_class: 'tag-item',
+              label_method: lambda { |tag| render 'shared/filter_tag', tag: tag },
               include_hidden: false,
               checked: params.dig(:filters, :categories) %>
           </div>
@@ -74,6 +75,23 @@
         </div>
       </div>
     </div>
+
+        <div class="modal-body">
+          <%= f.input :price_type,
+              collection: ["GRATUITES", "PEU IMPORTE"],
+              as: :check_boxes,
+              input_html: { class: "tag-selector" },
+              item_wrapper_class: 'tag-item',
+              label_method: lambda { |tag| render 'shared/filter_tag', tag: tag },
+              include_hidden: false,
+              checked: params.dig(:filters, :price_type) %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "GO!", class:"action-button next-tag" %>
+          <button type="button" class="action-button next-tag" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+            <p>BACK</p>
+          </button>
+          <%# <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button> %>
 
 
 
