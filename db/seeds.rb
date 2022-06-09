@@ -69,7 +69,7 @@ require 'open-uri'
     )
 
     expo.photo.attach(
-      io: URI.open(expo.cover_url),
+      io: URI.open('https://res.cloudinary.com/dpaxgliqd/image/upload/v1653056924/sample.jpg'),
       filename: record["fields"]["image_couverture"]["filename"], # use the extension of the attached file here (found at the end of the url)
       content_type: record["fields"]["image_couverture"]["mimetype"]
     )

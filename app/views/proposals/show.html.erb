@@ -49,8 +49,8 @@
         <!-- Message description proposal-->
         <div class="d-flex">
           <div class="pt-1 pe-2">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+            <% if @proposal.user.photo.attached? %>
+              <%= cl_image_tag @proposal.user.photo.key, class: "avatar" %>
             <% else %>
               <%= image_tag "avatar_placeholder.png", class: "avatar" %>
             <% end %>
