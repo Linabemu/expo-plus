@@ -16,6 +16,9 @@ application.register("form-display", FormDisplayController)
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import InsertAvatarInListController from "./insert_avatar_in_list_controller.js"
+application.register("insert-avatar-in-list", InsertAvatarInListController)
+
 import InsertInListController from "./insert_in_list_controller.js"
 application.register("insert-in-list", InsertInListController)
 
