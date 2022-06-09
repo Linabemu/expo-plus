@@ -17,17 +17,17 @@
               <div class="modal-card">
                 <div class="card-map">
                   <div class="image-box">
-                    <%= cl_image_tag(expo.photo.key, height: 150, width: 400, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-map") %>
+                    <%= cl_image_tag(expo.photo.key, height: 180, width: 400, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill", class: "image-card-map") %>
 
                     <%= link_to expo_path(expo) do %>
                       <div class="img-gradient"></div>
                     <% end %>
 
                     <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
-                      <i class="fa-solid fa-heart heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
+                      <i class="fa-solid fa-bookmark heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
                     <% end %>
 
-                    <i class="fa-solid fa-star star-icon-map"></i>
+                    <i class="fa-solid fa-star-of-life star-icon-map"></i>
                     <p class="average_rating-map subtitle"> <%= expo.average_rating %></p>
 
                     <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
