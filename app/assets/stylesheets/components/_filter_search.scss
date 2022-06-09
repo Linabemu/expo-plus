@@ -1,3 +1,4 @@
+.modal-search {
 
 .tag-selector {
   position: absolute;
@@ -49,8 +50,6 @@
 
 }
 
-
-
 .title_modal {
   font-family: 'bebas-neue', sans-serif;
   font-style: normal;
@@ -96,31 +95,31 @@
 }
 
 
-.modal-dialog{
-  margin: 0px 15px;
-  justify-content: center;
-}
+  .modal-content{
+    padding: 15px;
+    border-radius: 10px;
+    height: 85%;
+    width: 360px;
+    top: 70px;
+    position: fixed;
 
-.modal-content{
-  padding: 15px;
-  border-radius: 10px;
-  height: 85%;
-  width: 360px;
-  top: 70px;
-  position: fixed;
+  }
 
 
-}
-
-.modal-dialog-scrollable {
 
   .modal-body{
     padding: 0px;
     text-align: center;
     min-height: 60%;
   }
+
 }
 
 .mb-3.check_boxes.required.filters_categories {
   margin-bottom: 0 !important;
+}
+
+.modal-search{
+  margin: 0px 15px;
+  justify-content: center;
 }
