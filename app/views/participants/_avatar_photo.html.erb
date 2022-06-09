@@ -1,9 +1,11 @@
-<div class="mt-2">
-  <%= link_to profile_user_path(participant.user) do%>
-    <% if participant.user.photo.attached? %>
-      <%= cl_image_tag participant.user.photo.key, class: "avatar-large" %>
-    <% else %>
-      <%= image_tag "avatar2_placeholder.png", class: "avatar-large" %>
+ <li class="list-inline d-flex">
+  <div class="mt-2">
+    <%= link_to profile_user_path(participant.user) do%>
+      <% if participant.user.photo.attached? %>
+        <%= cl_image_tag participant.user.photo.key, class: "avatar-large" %>
+      <% else %>
+        <%= image_tag "avatar2_placeholder.png", class: "avatar-large" %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+</li>
