@@ -70,8 +70,10 @@
           <!-- <%= link_to expo_wishes_path(expo, user_id: current_user.id), 'data-turbo-method': :post do %>
               <i class="fa-solid fa-heart heart-icon <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>" data-wishes-target="hearts" data-action="click->wishes#like" ></i>
             <% end %> -->
+
           <%= render "wishes/heart", wish: current_user.wishes.find_by(expo_id: expo.id) %>
           <i class="fa-solid fa-star star-icon-index"></i>
+
           <p class="average_rating-index subtitle"> <%= expo.average_rating %></p>
         </div>
         <div class="info-index">
@@ -79,7 +81,7 @@
             <h2 class="title"><%= expo.title  %></h2>
             <div class="d-flex justify-content-between">
               <p class="subtitle"><%= expo.place.address_name  %></p>
-              <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+              <p class="subtitle arrondissement color"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
             </div>
             <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
             <div class="tag-container">
