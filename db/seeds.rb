@@ -143,3 +143,38 @@ User.all.each do |user|
   end
 end
 puts "Proposals and participants created"
+
+
+
+
+# New Seed
+Place.create!(address_name: 'Musée de la Vie romantique, Hôtel Scheffer-Renan',
+              address_street: '16 rue Chaptal',
+              address_city: 'Paris',
+              address_zipcode: '75009',
+              lat: 48.8810988,
+              lon: 2.33344769999997,
+              access_link: 'mobilité réduite'
+              )
+
+Expo.create!(# api_records_id: '',
+            # api_updated_at: '',
+            title: 'Héroïnes romantiques',
+            lead_text: 'Grâce à une sélection d’une centaine d’œuvres - peintures, sculptures, manuscrits et objets d’art - l’exposition du musée de la Vie romantique explore ces questions en invitant le public à découvrir des héroïnes revisitées ou inventées par les artistes de l’époque. Le parcours en trois temps présente successivement les héroïnes du passé, les héroïnes de fiction et les héroïnes en scène. L’exposition Héroïnes romantiques tisse par ailleurs des liens entre les Beaux-arts, la littérature et les arts de la scène qui jouent au XIXe siècle un rôle majeur dans la diffusion d’un héroïsme féminin aux accents tragiques.',
+          #  description: '' ,
+            tags: ['Peinture', 'Sculpture'],
+            #  cover_url: '',
+            #  cover_alt: '',
+            #  cover_credit: '',
+            date_start: '',
+            date_end: '',
+          #  occurences: '',
+            date_description: '',
+            price_type: '',
+            #  price_detail: '',
+            #  contact_url: '',
+            place_id: '',
+
+
+
+            )
