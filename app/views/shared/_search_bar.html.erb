@@ -90,14 +90,14 @@
             </div>
 
             <div class="modal-body">
-              <%= f.input :price_type,
+              <%= f.input :target,
                   collection: ["JEUNE PUBLIC", "MOBILITE REDUITE", "MALENTENDANT", "PEU IMPORTE"],
                   as: :check_boxes,
                   input_html: { class: "tag-selector" },
                   item_wrapper_class: 'tag-item',
                   label_method: lambda { |tag| render 'shared/filter_tag', tag: tag },
                   include_hidden: false,
-                  checked: params.dig(:filters, :price_type) %>
+                  checked: params.dig(:filters, :target) %>
             </div>
 
             <div class="modal-footer">
