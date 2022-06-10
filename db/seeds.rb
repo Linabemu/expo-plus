@@ -323,7 +323,7 @@ expo_eighteen&.photo&.attach(
 puts '21'
 expo_twenty_one&.update!(title: "Vivien Roussel",
                         tags: ["art contemporain"])
-                        https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808345/Maison_Eliza_Porcelaine_ja1kqh.jpg&.photo&.attach(
+expo_twenty_one&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808202/vivian-roussel_b5_dzs5t9.jpg"),
   filename: expo_twenty_one.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
