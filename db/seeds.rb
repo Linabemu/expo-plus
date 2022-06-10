@@ -30,9 +30,9 @@ require 'open-uri'
 
   user4 = User.create!(email: 'test4@test.com', username: 'Lina', password: 'azerty')
 
-  user5 = User.create!(email: 'test5@test.com', username: 'Naomi', password: 'azerty', description: "L'art illumine ma vie depuis toujours. Abonnez-vous pour suivre les meilleures tendances à Paris")
+  user5 = User.create!(email: 'test5@test.com', username: 'Naomi', password: 'azerty', description: "L'art illumine ma vie depuis toujours. Abonnez-vous pour suivre les meilleures tendances à Paris !")
 
-  user6 = User.create!(email: 'test6@test.com', username: 'Tanguy', password: 'azerty', description: "Je suis quelqu'un de très gentil qui aime faire de nouvelle rencontre pendant une expo. Alors la prochaine fois viens, tu vas voir, on sera bien, même bien bien bien ;)")
+  user6 = User.create!(email: 'test6@test.com', username: 'Tanguy', password: 'azerty', description: "Je suis quelqu'un de très gentil qui aime faire de nouvelle rencontre pendant une expo.")
 
 
   user1.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/102356829?v=4"), filename: "#{user1.username}.png")
@@ -45,7 +45,7 @@ require 'open-uri'
 
   user5.photo.attach(io: URI.open("https://i.pinimg.com/originals/6b/89/06/6b89060747fefd42e1fabe3176ba2494.jpg"), filename: "#{user3.username}.png")
 
-  user6.photo.attach(io: URI.open("https://media.istockphoto.com/photos/smiling-businessman-looking-into-camera-picture-id503344335?k=20&m=503344335&s=612x612&w=0&h=DNdR9YcFjq0HgHaJnU3dlGIzqKFpocl4D7Bbtf8Z1vU="), filename: "#{user4.username}.png")
+  user6.photo.attach(io: URI.open("https://umanclinique.com/media/1258/homme-mature_contenu.jpg"), filename: "#{user4.username}.png")
 
   puts "Users created"
 
@@ -115,39 +115,11 @@ require 'open-uri'
 
 
   puts "Creating followings"
-  Following.create!(user_id: user2.id, receiver_id: user1.id)
-  Following.create!(user_id: user3.id, receiver_id: user1.id)
-  Following.create!(user_id: user4.id, receiver_id: user1.id)
-
-  Following.create!(user_id: user1.id, receiver_id: user2.id)
-  Following.create!(user_id: user3.id, receiver_id: user2.id)
-  Following.create!(user_id: user4.id, receiver_id: user2.id)
-
-  Following.create!(user_id: user1.id, receiver_id: user3.id)
-  Following.create!(user_id: user2.id, receiver_id: user3.id)
-  Following.create!(user_id: user4.id, receiver_id: user3.id)
-
-  Following.create!(user_id: user1.id, receiver_id: user4.id)
-  Following.create!(user_id: user2.id, receiver_id: user4.id)
-  Following.create!(user_id: user3.id, receiver_id: user4.id)
+  Following.create!(user_id: user5.id, receiver_id: user2.id)
+  Following.create!(user_id: user5.id, receiver_id: user3.id)
+  Following.create!(user_id: user5.id, receiver_id: user4.id)
   puts "Followings created"
 
-  puts "creating proposals and participants"
-
-
-  User.all.each do |user|
-    date_seed = "2022-07-30".to_time
-    Proposal.create!(confirmed: false, max_participants: 4, user_id: user.id, expo_id: Expo.all.sample(1).first.id, description: "blablablablablablablabla puis aussi blablblablablabla I'm a god", date_proposale: date_seed)
-  end
-
-  User.all.each do |user|
-    i = 0
-    3.times do
-      Participant.create!(user_id: user.id, proposal_id: Proposal.all.where.not(user: user)[i].id)
-      i += 1
-    end
-  end
-  puts "Proposals and participants created"
 
 
 expo_one = Expo.all.find_by(title: 'CINÉMA MON AMOUR - LES ANNÉES STUDIO')
@@ -423,51 +395,97 @@ expo_thirty_one&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808318/garo-couv-2_vedegw.jpg"),
   filename: expo_thirty_one.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
-)
+  )
 
 
 
+  other_expo = Expo.all.select { |e| e.title != "Les ressources du Grand Paris" && e.title != "Charwei Tsai" ? e : nil }
 
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 2, comment: "Je n'ai pas aimé du tout :(", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super, magnifique ! Bravo à toute l'équipe !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 1, comment: "Pas terrible", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "Waouh, des étoiles plein les yeux", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "C'était top", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: Expo.all.sample)
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.sample)
-Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: Expo.all.sample)
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[0])
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[1])
+Review.create!(rating: 2, comment: "Je n'ai pas aimé du tout :(", user: User.all.sample, expo: other_expo[2])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[3])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[4])
+Review.create!(rating: 3, comment: "Super, magnifique ! Bravo à toute l'équipe !", user: User.all.sample, expo: other_expo[5])
+Review.create!(rating: 1, comment: "Pas terrible", user: User.all.sample, expo: other_expo[6])
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[7])
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[8])
+Review.create!(rating: 5, comment: "Waouh, des étoiles plein les yeux", user: User.all.sample, expo: other_expo[9])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[10])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[11])
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_expo[12])
+Review.create!(rating: 3, comment: "C'était top", user: User.all.sample, expo: other_expo[13])
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[14])
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[15])
+Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: other_expo[16])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[17])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[18])
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_expo[19])
+Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: other_expo[20])
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[6])
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[21])
+Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: other_expo[22])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[23])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[24])
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_expo[25])
+Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: other_expo[23])
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[5])
+Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[22])
+Review.create!(rating: 3, comment: "Bonne expo", user: User.all.sample, expo: other_expo[0])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[1])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[2])
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_expo[3])
+Review.create!(rating: 5, comment: "Waouh", user: User.all.sample, expo: other_expo[4])
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[5])
+Review.create!(rating: 4, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[8])
+Review.create!(rating: 5, comment: "C'était magique <3", user: User.all.sample, expo: other_expo[9])
+Review.create!(rating: 5, comment: "j'ai adoré", user: User.all.sample, expo: other_expo[10])
+Review.create!(rating: 4, comment: "Bravo !", user: User.all.sample, expo: other_expo[11])
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_expo[12])
+Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: other_expo[13])
 puts "Reviews OK"
+
+Review.create!(rating: 5, comment: "Waouh", user: user2, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+Review.create(rating: 4, comment: "la meilleure expo de l'année", user: user3, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+Review.create!(rating: 5, comment: "trop beau !!!", user: user4, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+
+Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
+Review.create!(rating: 4, comment: "Bravo", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
+puts "Reviews OK"
+
+
+puts "creating proposals and participants"
+# User.all.each do |user|
+#   date_seed = "2022-07-30".to_time
+#   Proposal.create!(confirmed: false, max_participants: 4, user_id: user.id, expo_id: Expo.all.sample(1).first.id, description: "blablablablablablablabla puis aussi blablblablablabla I'm a god", date_proposale: date_seed)
+# end
+
+# User.all.each do |user|
+#   i = 0
+#   3.times do
+#     Participant.create!(user_id: user.id, proposal_id: Proposal.all.where.not(user: user)[i].id)
+#     i += 1
+#   end
+# end
+
+
+  date_tanguy = "2022-06-11".to_time
+  date_naomi = "2022-06-12".to_time
+  date_naomi_july = "2022-07-22".to_time
+
+  prop1 = Proposal.create!(confirmed: false, max_participants: 4, user_id: user6.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Bonjour, avec ma femme nous allons à cette exposition samedi prochain autour de 10h. Soyez les bienvenus !", date_proposale: date_tanguy)
+
+  prop2 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi)
+
+   prop3 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "L'Aventure Champollion").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
+
+  prop4 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Dé(s)compositions Alchimiques").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
+
+
+  Wish.create!(user_id: user5.id, expo_id: other_expo[1].id)
+  Wish.create!(user_id: user5.id, expo_id: other_expo[2].id)
+  Wish.create!(user_id: user5.id, expo_id: other_expo[3].id)
+  Wish.create!(user_id: user5.id, expo_id: other_expo[4].id)
+  Wish.create!(user_id: user5.id, expo_id: other_expo[5].id)
+
+puts "Proposals and participants created"
