@@ -14,14 +14,14 @@
           <% end %>
           <% if (current_user.followings.map {|e| e.receiver_id}).include?(user.id) %>
 
-            <%= link_to users_path(params[:id], cookie: "unfollow", user: user)  do%>
+            <%= link_to users_path(params[:id], cookie: "unfollow", user: user.id)  do%>
               <!-- <i class="fa-solid fa-plug-circle-xmark logo-follow" style="font-size: 20px;"></i> -->
               <span class="material-symbols-outlined logo-follow">do_not_disturb_on</span>
             <% end %>
 
           <% else %>
 
-            <%= link_to users_path(params[:id], cookie: "follow", user: user) do %>
+            <%= link_to users_path(params[:id], cookie: "follow", user: user.id) do %>
               <!-- <i class="fa-solid fa-plug-circle-plus logo-follow" style="font-size: 20px;"></i> -->
               <span class="material-symbols-outlined logo-follow">person_add</span>
             <% end %>
