@@ -8,7 +8,7 @@
 
     <% if user_signed_in? && @user == current_user %>
       <li class="list-inline-item dropup align-self-start button-top-profile">
-        <i class="fa-solid fa-ellipsis-vertical dropdown" style="font-size: 25px;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <i class="fa-solid fa-ellipsis-vertical dropdown profile-dropdown-icon" style="font-size: 25px;" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <%= link_to "LOG OUT", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
@@ -95,7 +95,7 @@
          <div class="text-notif"><%= @followings.count %></div>
       </div>
       <%= link_to users_path do%>
-        <i class="fa-solid fa-plus subtitle" style="font-size: 40px;"></i>
+        <i class="fa-solid fa-plus bouton-abonnements" ></i>
       <% end %>
     </div>
     <div class="profil-horizontal-scroll d-flex">
@@ -109,7 +109,7 @@
     <div class="d-flex justify-content-between">
       <h1 class="title">Abonnements</h1>
       <%= link_to users_path do%>
-        <i class="fa-solid fa-plus subtitle" style="font-size: 40px;"></i>
+        <i class="fa-solid fa-plus bouton-abonnements" ></i>
       <% end %>
     </div>
     <p class="paragraphe">Vous n'avez aucun abonnement. Retrouvez vos amis avec le bouton +</p>

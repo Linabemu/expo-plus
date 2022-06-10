@@ -43,7 +43,7 @@ require 'open-uri'
 
   user4.photo.attach(io: URI.open("https://avatars.githubusercontent.com/u/101411883?v=4"), filename: "#{user4.username}.png")
 
-  user5.photo.attach(io: URI.open("https://static.wikia.nocookie.net/lemondededisney/images/a/a5/Naomi_Scott.jpg/revision/latest?cb=20200328144051&path-prefix=fr"), filename: "#{user3.username}.png")
+  user5.photo.attach(io: URI.open("https://i.pinimg.com/originals/6b/89/06/6b89060747fefd42e1fabe3176ba2494.jpg"), filename: "#{user3.username}.png")
 
   user6.photo.attach(io: URI.open("https://media.istockphoto.com/photos/smiling-businessman-looking-into-camera-picture-id503344335?k=20&m=503344335&s=612x612&w=0&h=DNdR9YcFjq0HgHaJnU3dlGIzqKFpocl4D7Bbtf8Z1vU="), filename: "#{user4.username}.png")
 
