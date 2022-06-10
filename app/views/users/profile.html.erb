@@ -39,14 +39,14 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <h1 class="review_title-small mb-0 mt-2"><%= @user.username %></h1>
+    <h1 class="review_title-small mb-0 mt-3"><%= @user.username %></h1>
   </div>
 
   <hr class="filet-profil">
 
   <!-- profile description -->
   <% if @user.description != nil %>
-    <p class="paragraphe" style="text-align: center; font-size: 16px; line-height: 20px;margin-top: 1px;margin-bottom: 12px;"><%= @user.description %></p>
+    <p class="paragraphe" style="text-align: center; font-size: 20px; line-height: 24px; margin-top: 1px; margin-bottom: 14px;"><%= @user.description %></p>
     <hr class="filet-profil">
   <% end %>
 
@@ -60,7 +60,7 @@
     </div>
     <div class="profil-horizontal-scroll d-flex">
       <% @proposals.each do |proposal| %>
-        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(proposal.expo.photo.key) %>">
+        <div class="card-small subtitle-bold "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(proposal.expo.photo.key) %>">
           <p><%= link_to (l proposal.date_proposale, format: "%d %B %Y"), expo_proposal_path(proposal.expo, proposal) %></p>
         </div>
       <% end %>
@@ -77,7 +77,7 @@
          <div class="text-notif"><%= @wishes.count %></div>
       </div>
     </div>
-    <div class="profil-horizontal-scroll d-flex">
+    <div class="profil-horizontal-scroll d-flex mt-1">
       <% @wishes.each do |wish| %>
         <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(wish.expo.photo.key) %>">
           <p><%= link_to wish.expo.title.upcase, expo_path(wish.expo) %></p>
@@ -98,7 +98,7 @@
         <i class="fa-solid fa-plus bouton-abonnements" ></i>
       <% end %>
     </div>
-    <div class="profil-horizontal-scroll d-flex">
+    <div class="profil-horizontal-scroll d-flex mt-1">
       <% @followings.each do |following| %>
         <%= link_to profile_user_path(following.receiver) do %>
           <%= following.receiver.photo.attached? ? cl_image_tag(following.receiver.photo.key, class: "avatar-large mx-1") : image_tag('black_placeholder.jpg', class: "avatar-large mx-1") %>
