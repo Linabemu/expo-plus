@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 36px;
-  padding : 30px 30px 0 30px;
+  padding : 30px 30px 0 25px;
   // line-height: 43px;
   color: white;
   margin-bottom: 6px;
@@ -42,7 +42,7 @@
 
 .title_expo_carrousel_position {
   position: absolute;
-  right: 100px;
+  right: 25px;
   padding : 37px 0 0 30px;
   color: white;
   // overflow-wrap: break-word;
@@ -53,4 +53,22 @@
   line-height: 26px;
   text-transform: uppercase;
   margin: 0;
+}
+
+.image-container-carroussel {
+  width: 100%;
+  height: 292px;
+  background-position: center;
+  background-size: cover;
+  // position: relative;
+  // background: linear-gradient(45deg black red);
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   top: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   left: 0;
+  //
+  // }
 }
