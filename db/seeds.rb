@@ -191,7 +191,7 @@ puts '2'
 expo_two&.update!(title: "les éditions Maison Eliza",
                 tags: ["photo"])
 expo_two&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808349/Maison_Eliza_Vignette-italie2_bwjxzz.jpg"),
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808345/Maison_Eliza_Porcelaine_ja1kqh.jpg"),
   filename: expo_two.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
@@ -323,9 +323,9 @@ expo_eighteen&.photo&.attach(
 puts '21'
 expo_twenty_one&.update!(title: "Vivien Roussel",
                         tags: ["art contemporain"])
-expo_twenty_one&.photo&.attach(
+                        https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808345/Maison_Eliza_Porcelaine_ja1kqh.jpg&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808202/vivian-roussel_b5_dzs5t9.jpg"),
-  filename: twenty_one.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_one.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -334,7 +334,7 @@ expo_twenty_two&.update!(title: "Soupe Primordiale",
                         tags: ["art contemporain"])
 expo_twenty_two&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808212/soupe_primordiale-3_bdksaz.jpg"),
-  filename: twenty_two.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_two.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -343,7 +343,7 @@ expo_twenty_three&.update!(title: "Radio Daisy",
                            tags: ["art contemporain", "beaux-arts"])
   expo_twenty_three&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808389/radio-daisy_WEB_ekentt.webp"),
-  filename: twenty_three.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_three.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -352,7 +352,7 @@ expo_twenty_four&.update!(title: "Taste Korea 2022",
                          tags: ["art contemporain", "voyages"])
   expo_twenty_four&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808245/korea_xcvz4m.png"),
-  filename: twenty_four.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_four.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -361,7 +361,7 @@ expo_twenty_five&.update!(title: "Charwei Tsai",
                         tags: ["art contemporain", "beaux-arts"])
 expo_twenty_five&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808285/Charwei-Tsai-Lotus-Mantra-II-2-1024x652_ujjykf.jpg"),
-  filename: twenty_five.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_five.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -370,7 +370,7 @@ expo_twenty_six&.update!(title: "L’horizon de Khéops",
                         tags: ["histoire", "beaux-arts"])
 expo_twenty_six&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808330/hor_wub9hl.jpg"),
-  filename: twenty_six.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_six.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -379,7 +379,7 @@ expo_twenty_seven&.update!(title: "Invitation au voyage",
                           tags: ["art contemporain", "voyages"])
 expo_twenty_seven&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808347/invit_voyage_mg_0054_bey1ma.jpg"),
-  filename: twenty_seven.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_seven.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -387,7 +387,7 @@ expo_twenty_eight&.update!(title: "Dé(s)compositions Alchimiques",
                           tags: ["art contemporain", "sciences et techniques"])
 expo_twenty_eight&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808328/descompositions_alchimiques1lyfxc7_qetyg8.jpg"),
-  filename: twenty_eight.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_twenty_eight.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -397,7 +397,7 @@ expo_thirty&.update!(title: "L'Aventure Champollion",
                     tags: ["histoire", "beaux-arts"])
 expo_thirty&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808295/Champollion_7vzy3g_pj3ot6.jpg"),
-  filename: twenty_thirty.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_thirty.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
@@ -405,7 +405,7 @@ expo_thirty_one&.update!(title: "Garo 1964-1974",
                         tags: ["voyages", "beaux-arts"])
 expo_thirty_one&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808318/garo-couv-2_vedegw.jpg"),
-  filename: twenty_thirty_one.title, # use the extension of the attached file here (found at the end of the url)
+  filename: expo_thirty_one.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
