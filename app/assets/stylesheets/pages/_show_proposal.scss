@@ -1,24 +1,126 @@
-.container-show-proposal{
-  margin-top: 70px;
+.wrapper-show-proposal{
+
+  padding: 0px 15px 12px 15px;
+
+
+  .display-show-proposal{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .picto-size{
+    font-size: 28px;
+  }
+
+  ul{
+    padding-left: 0px !important;
+  }
+
+
 }
 
-.image_show-proposal > img {
-  margin: 15px;
+.float-end .message-author {
+  color: $purple;
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#chatroom-title{
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+
+.image_show-proposal {
+  margin: 0px 15px 12px 15px;
+  text-align: center;
+  img{
+    width: 100% !important;
+  }
+
+}
+
+.container-show-proposal{
+  margin-top: 70px;
 }
 
 .display-show-proposal{
   padding-left: 30px;
   padding-right: 30px;
-}
 
-.float-end .message-author {
-  color: #9747FF;
-}
+  .form-control{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid black;
+    outline: none;
+  }
 
-.picto-size{
-  font-size: 28px;
 }
 
 ul{
-  padding-left: 0px;
+  padding-left: 0px !important;
+  margin-bottom: 17px;
+  margin-top: 10px;
+
+}
+
+
+.titre-proposal {
+
+    h2{
+      font-family: 'bebas-neue', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 43px;
+      color: black;
+      margin-bottom: 3px;
+  }
+
+}
+
+.filet-proposal{
+  margin: 14px 0;
+
+}
+
+.filet-chat{
+  margin: 13px 0px 16px 0px;
+}
+
+.message-user-name{
+  font-family: 'bebas-neue', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+#chat-message{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+#chat-time{
+  font-family: bc-sklonar, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #8B8982;
+}
+
+.fa-user-group{
+  font-size: 40px;
+  font-size: 23px;
+  position: absolute;
+  top: 11px;
+  right: 50px;
+  color: black;
 }

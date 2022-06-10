@@ -1,10 +1,10 @@
- <li class="list-inline d-flex">
-  <div class="mt-2">
+ <li class="list-inline d-flex mx-1">
+  <div>
     <%= link_to profile_user_path(participant.user) do%>
       <% if participant.user.photo.attached? %>
         <%= cl_image_tag participant.user.photo.key, class: "avatar-large" %>
       <% else %>
-        <%= image_tag "avatar_placeholder.png", class: "avatar-large" %>
+        <%= image_tag "avatar_placeholder.png", class: "avatar-large"%>
       <% end %>
     <% end %>
   </div>

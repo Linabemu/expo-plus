@@ -1,4 +1,6 @@
 <%= simple_form_for [@proposal,@message], html: { data: { action: "turbo:submit-end->proposal-subscription#resetForm" }, class: "" } do |f| %>
   <%= f.input :content, label: false, placeholder: "Votre message...", wrapper_html: {class: "flex-grow-1"} %>
-  <%= f.submit "Envoyer", class: "proposal_action-button mb-3" %>
+  <div class="button-container">
+    <%= f.submit "Envoyer", class: "action-button subtitle" %>
+  </div>
 <% end %>

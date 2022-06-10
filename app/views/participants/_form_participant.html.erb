@@ -1,8 +1,8 @@
 <% if current_user.in? proposal.users %>
-  <button class="proposal_action-button color">Je ne participe plus</button>
+  <button class="action-button next-tag color">Je ne participe plus</button>
 <% else %>
   <%= simple_form_for([proposal, participant],
     data: { insert_avatar_in_list_target: "form", action: "submit->insert-avatar-in-list#send"}) do |f| %>
-    <%= f.submit 'Je participe', class: "proposal_action-button color" %>
+    <%= f.submit 'Je participe', class: "action-button next-tag color" %>
   <% end %>
 <% end %>
