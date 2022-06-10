@@ -205,7 +205,7 @@ puts '4'
 expo_four&.update!(title: "Les ressources du Grand Paris",
                   tags: ["art contemporain"])
 expo_four&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808366/pav_arsenal_ressources-1_584ec_fjshhy.jpg"),
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/pav_arsenal_ressources-0a294_ktom0y.jpg"),
   filename: expo_four.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
@@ -316,8 +316,19 @@ expo_eighteen&.photo&.attach(
 
 # puts '19'
 # expo_nineteen.destroy
+expo_nineteen&.photo&.attach(
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/MEP_0220421-12835-1c6wtt0_tu0obb.jpg"),
+  filename: expo_nineteen.title, # use the extension of the attached file here (found at the end of the url)
+  content_type: "jpg"
+)
 
-# puts '20'
+puts '20'
+expo_twenty&.photo&.attach(
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808376/Cernuschi_ryicr5.jpg"),
+  filename: expo_twenty.title, # use the extension of the attached file here (found at the end of the url)
+  content_type: "jpg"
+)
+
 # expo_twenty.destroy
 
 puts '21'
@@ -360,7 +371,7 @@ puts '25'
 expo_twenty_five&.update!(title: "Charwei Tsai",
                         tags: ["art contemporain", "beaux-arts"])
 expo_twenty_five&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808285/Charwei-Tsai-Lotus-Mantra-II-2-1024x652_ujjykf.jpg"),
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808283/Charwei-Tsai_dvrfe8.jpg"),
   filename: expo_twenty_five.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
@@ -392,6 +403,11 @@ expo_twenty_eight&.photo&.attach(
 )
 
 # expo_twenty_nine.destroy
+expo_twenty_nine&.photo&.attach(
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808277/assemblage_paysage_kevbtc.jpg"),
+  filename: expo_twenty_nine.title, # use the extension of the attached file here (found at the end of the url)
+  content_type: "jpg"
+)
 
 expo_thirty&.update!(title: "L'Aventure Champollion",
                     tags: ["histoire", "beaux-arts"])
