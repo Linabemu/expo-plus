@@ -27,8 +27,8 @@
                       <i class="fa-solid fa-bookmark heart-icon-small <%= current_user.wishes.where(expo_id: expo.id).empty? ? "" : "wish" %>"></i>
                     <% end %>
 
-                    <i class="fa-solid fa-star star-icon-map"></i>
-                    <p class="average_rating-map subtitle"> <%= expo.average_rating.round(1) %></p>
+                    <i class="fa-solid fa-star-of-life star-icon-map"></i>
+                    <p class="average_rating-map subtitle"> <%= expo.average_rating&.round %></p>
 
                     <%# <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> %>
 
@@ -103,3 +103,5 @@
     <% end %>
   <% end  %>
 </div>
+
+<% console %>
