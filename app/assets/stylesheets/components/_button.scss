@@ -10,8 +10,11 @@
   height: 40px;
   align-items: center;
   display: flex;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  border-right: 0px;
+  border-left: 0px;
+  color: $purple;
 
   p{
     font-family: bc-sklonar, sans-serif;

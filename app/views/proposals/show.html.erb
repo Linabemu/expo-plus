@@ -1,73 +1,74 @@
-<div class="container-show-proposal">
 
-  <!-- proposal-->
-  <div class="image_show-proposal">
-    <%=cl_image_tag(@expo.photo.key, height: 292, width: 368, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
-  </div>
-  <div class="display-show-proposal" data-controller="insert-avatar-in-list" data-insert-avatar-in-list-position-value="beforeend">
-    <div class="card-show">
-      <div class="d-flex justify-content-between">
-        <h2 class="title color"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
-        <div class="">
-          <i class="fa-solid fa-user-group color picto-size"></i>
-          <span data-insert-avatar-in-list-target="participantsCount" class="title color"><%=@proposal.participants.count%></span><span class="title color">/<%=@proposal.max_participants%></span>
+<div class="wrapper-shop-proposal">
+  <div class="container-show-proposal">
+
+    <!-- proposal-->
+    <div class="image_show-proposal">
+      <%=cl_image_tag(@expo.photo.key, height: 292, :quality=>"auto", :fetch_format=>:auto, gravity:"faces" , :crop=>"fill")%>
+    </div>
+    <div class="display-show-proposal" data-controller="insert-avatar-in-list" data-insert-avatar-in-list-position-value="beforeend">
+      <div class="card-show">
+        <div class="d-flex justify-content-between">
+          <h2 class="title color" style="height: 62px;"><%=@proposal.date_proposale.strftime("%d/%^b/%Y")%></h2>
+          <div class="">
+            <i class="fa-solid fa-user-group color picto-size"></i>
+            <span data-insert-avatar-in-list-target="participantsCount" class="title color"><%=@proposal.participants.count%></span><span class="title color">/<%=@proposal.max_participants%></span>
+          </div>
+        </div>
+        <h2 class="title"><%= @expo.title %></h2>
+
+        <div class="d-flex justify-content-between">
+          <p class="subtitle"><%= @expo.place.address_name.upcase  %></p>
+          <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
         </div>
       </div>
-      <h2 class="title"><%= @expo.title %></h2>
-
-      <div class="d-flex justify-content-between">
-        <p class="subtitle"><%= @expo.place.address_name.upcase  %></p>
-        <p class="subtitle arrondissement"><%= @expo.place.address_city  %> <%= @expo.place.address_zipcode.split(//).last(2).join %></p>
-      </div>
-    </div>
-
-    <!-- liste d'avatars participants-->
-    <div>
+      <hr class="filet-proposal">
+      <!-- liste d'avatars participants-->
       <div>
-        <ul class="d-flex" data-insert-avatar-in-list-target="items">
-          <% @proposal.participants.each do |participant|  %>
-           <%= render "participants/avatar_photo", participant: participant %>
-          <% end %>
-        </ul>
-      </div>
+        <div class="avatar-list">
+          <ul class="d-flex" data-insert-avatar-in-list-target="items">
+            <% @proposal.participants.each do |participant|  %>
+            <%= render "participants/avatar_photo", participant: participant %>
+            <% end %>
+          </ul>
+        </div>
 
-      <!-- bouton submit: je participe-->
-      <div class="button-container mt-3">
-        <div class="action-button">
-         <%= render "participants/form_participant", participant: @participant, proposal: @proposal %>
+        <!-- bouton submit: je participe-->
+        <div class="button-container">
+          <%= render "participants/form_participant", participant: @participant, proposal: @proposal %>
         </div>
       </div>
-    </div>
 
-    <!-- Chatroom-->
-    <div class="" data-controller="proposal-subscription" data-proposal-subscription-proposal-id-value="<%= @proposal.id %>" data-proposal-subscription-current-user-id-value="<%= current_user.id %>">
-      <h2 class="title mt-4">chatroom</h2>
-      <hr class="title m-0 mt-3 mb-4">
+      <!-- Chatroom-->
+      <div class="" data-controller="proposal-subscription" data-proposal-subscription-proposal-id-value="<%= @proposal.id %>" data-proposal-subscription-current-user-id-value="<%= current_user.id %>">
+        <h2 class="title" id="chatroom-title">chatroom</h2>
+        <hr class="filet-chat">
 
-      <div class="messages" data-proposal-subscription-target="messages">
+        <div class="messages" data-proposal-subscription-target="messages">
 
-        <!-- Message description proposal-->
-        <div class="d-flex">
-          <div class="pt-1 pe-2">
-            <% if @proposal.user.photo.attached? %>
-              <%= cl_image_tag @proposal.user.photo.key, class: "avatar" %>
-            <% else %>
-              <%= image_tag "avatar_placeholder.png", class: "avatar" %>
+          <!-- Message description proposal-->
+          <div class="d-flex">
+            <div class="pt-1 pe-2">
+              <% if @proposal.user.photo.attached? %>
+                <%= cl_image_tag @proposal.user.photo.key, class: "avatar" %>
+              <% else %>
+                <%= image_tag "avatar_placeholder.png", class: "avatar" %>
+              <% end %>
+            </div>
+            <div>
+              <small class="message-user-name">
+                <strong><%= @proposal.user.username%></strong>
+              </small>
+              <p id="chat-message"><%=@proposal.description %></p>
+            </div>
+          </div>
+            <!-- New Messages-->
+            <% @proposal.messages.each do |message| %>
+              <%= render "shared/message", message: message, user: (message.user == current_user) %>
             <% end %>
           </div>
-          <div>
-            <small>
-              <strong><%= @proposal.user.username%></strong>
-            </small>
-            <p><%=@proposal.description %></p>
-          </div>
-        </div>
-          <!-- New Messages-->
-          <% @proposal.messages.each do |message| %>
-            <%= render "shared/message", message: message, user: (message.user == current_user) %>
-          <% end %>
-        </div>
-      <%= render "shared/messages_proposal" %>
+        <%= render "shared/messages_proposal" %>
+      </div>
     </div>
   </div>
 </div>

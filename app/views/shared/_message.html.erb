@@ -11,9 +11,9 @@
       <div>
         <small>
           <strong class="message-author"><%= message.user.username %></strong>
-            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+            <i id="chat-time"><%= message.created_at.strftime("%l:%M%p") %></i>
         </small>
-        <p><%= message.content %></p>
+        <p id="chat-message"><%= message.content %></p>
       </div>
     </div>
 <% else %>
@@ -29,7 +29,7 @@
       <div>
         <small>
           <strong class="message-author"><%= message.user.username %></strong>
-            <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+            <i id="chat-time"><%= message.created_at.strftime("%l:%M%p") %></i>
         </small>
         <p><%= message.content %></p>
       </div>

@@ -1,53 +1,130 @@
-.form-label{
-  font-family: 'bebas-neue', sans-serif;
-  font-size: 22px;
-}
-
-.form-control{
-  font-family: 'Cormorant Garamond', serif;
-  border: 1px solid black;
-}
-
-.form-select{
-  border: 1px solid black;
-}
-
 .display-proposal{
-  padding: 0px 30px;
+  padding: 0px 15px;
   margin-top: 70px;
-}
 
-.proposal_action-button{
-  width: 100%;
-  background-color: transparent;
-  justify-content: center;
-  text-align: center;
-  height: 40px;
-  align-items: center;
-  display: flex;
-  border-top: solid 1px black;
-  border-bottom: solid 1px black;
-  font-family: bc-sklonar, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 28px;
-  text-transform: uppercase;
-  margin-bottom: 22px;
-  margin-top: 22px;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  color: #9747FF;
-  border-color: black;
-}
+  .image-box{
+    margin-bottom: -7px;
+  }
 
-.title{
-  margin-bottom: 6px;
-}
+  .arrondissement {
+    color: #9747FF;
+    min-width: 120px;
+    text-align: right;
+  }
 
-.proposal_sub-small{
-  font-family: bc-sklonar, sans-serif;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 500;
+  .form-label{
+    font-family: 'bebas-neue', sans-serif;
+    font-size: 22px;
+  }
+
+  .selected{
+    color: $purple;
+  }
+
+  .proposal_popup{
+    text-align: center;
+    display: flex;
+  }
+
+  .form-control{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: 3px;
+    background-color: white;
+    border: 1px solid black;
+    outline: none;
+  }
+
+  .form-select{
+    font-family: bc-sklonar, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid black;
+    outline: none;
+  }
+
+  .display-proposal-info{
+    padding: 0px 15px
+  }
+
+  .filet-line{
+    margin: 21px 0px 13px 0px;
+  }
+
+  .proposal_action-button{
+    width: 100%;
+    background-color: transparent;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    font-family: bc-sklonar, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    margin-top: 22px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    color: #9747FF;
+    border-color: black;
+  }
+
+  .title{
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .proposal_date_proposale{
+    margin-bottom: 22px !important;
+  }
+
+  // .proposal_max_participants{
+  //   margin-bottom: 22px !important;
+  // }
+
+  #submit-proposal{
+    margin-top: 23px;
+  }
+
+
+  .proposal_description{
+    margin-bottom: 22px !important;
+  }
+
+  .paragraphe{
+    text-align: center;
+  }
+
+  .proposal_sub-small{
+    font-family: bc-sklonar, sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+
+
+  .flatpickr-input{
+
+    font-family: bc-sklonar, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    text-transform: uppercase;
+    outline: 0;
+
+  }
 }
