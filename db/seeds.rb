@@ -150,39 +150,39 @@ require 'open-uri'
   puts "Proposals and participants created"
 
 
-expo_one = Expo.all.where(title: 'CINÉMA MON AMOUR - LES ANNÉES STUDIO')
-expo_two = Expo.all.where(title: 'Rencontre avec les éditions Maison Eliza')
-expo_three = Expo.all.where(title: 'Carte Blanche 13 bis X Roger-Viollet')
-expo_four = Expo.all.where(title: "Les ressources du Grand Paris sublimées au Pavillon de l'Arsenal")
-expo_five = Expo.all.where(title: "Musée")
-expo_six = Expo.all.where(title: "Avec « Desmemoria », Laetitia Tura donne à voir l’exil et sa mémoire, hier et aujourd’hui")
-expo_seven = Expo.all.where(title: "Exposition : A portée de train")
-expo_height = Expo.all.where(title: "Visite guidée de l’exposition « Silsila, le voyage des regards")
-expo_nine = Expo.all.where(title: "Radomir MILOVIĆ peintures - Galerie Boris")
-expo_ten = Expo.all.where(title: "Exposition \"Invitation au voyage\"")
-expo_eleven = Expo.all.where(title: "Toucher le feu. Femmes céramistes au Japon")
-expo_twelve = Expo.all.where(title: "DINH Q. LÊ Le fil de la mémoire et autres photographies")
-expo_thirteen = Expo.all.where(title: "Les Heures Sauvages")
-expo_fourteen = Expo.all.where(title: "PLANÈTE Z - Exposition de Jeanne Frank")
-expo_fifteen = Expo.all.where(title: "SOPHIE CALLE et son invité Jean-Paul Demoule - Les fantômes d'Orsay")
-expo_sixteen = Expo.all.where(title: "Trouble dans le portrait : une exposition de Christophe Beauregard")
-expo_seventeen = Expo.all.where(title: "Exposition 'Héroïnes romantiques'")
-expo_eighteen = Expo.all.where(title: "Exposition « Silsila, le voyage des regards » à l'ICI")
-expo_nineteen = Expo.all.where(title: "Les visites ateliers photographiques de la MEP")
-expo_twenty = Expo.all.where(title: "Visite guidée des collections permanentes du musée Cernuschi")
+expo_one = Expo.all.find_by(title: 'CINÉMA MON AMOUR - LES ANNÉES STUDIO')
+expo_two = Expo.all.find_by(title: 'Rencontre avec les éditions Maison Eliza')
+expo_three = Expo.all.find_by(title: 'Carte Blanche 13 bis X Roger-Viollet')
+expo_four = Expo.all.find_by(title: "Les ressources du Grand Paris sublimées au Pavillon de l'Arsenal")
+expo_five = Expo.all.find_by(title: "Musée")
+expo_six = Expo.all.find_by(title: "Avec « Desmemoria », Laetitia Tura donne à voir l’exil et sa mémoire, hier et aujourd’hui")
+expo_seven = Expo.all.find_by(title: "Exposition : A portée de train")
+expo_height = Expo.all.find_by(title: "Visite guidée de l’exposition « Silsila, le voyage des regards")
+expo_nine = Expo.all.find_by(title: "Radomir MILOVIĆ peintures - Galerie Boris")
+expo_ten = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
+expo_eleven = Expo.all.find_by(title: "Toucher le feu. Femmes céramistes au Japon")
+expo_twelve = Expo.all.find_by(title: "DINH Q. LÊ Le fil de la mémoire et autres photographies")
+expo_thirteen = Expo.all.find_by(title: "Les Heures Sauvages")
+expo_fourteen = Expo.all.find_by(title: "PLANÈTE Z - Exposition de Jeanne Frank")
+expo_fifteen = Expo.all.find_by(title: "SOPHIE CALLE et son invité Jean-Paul Demoule - Les fantômes d'Orsay")
+expo_sixteen = Expo.all.find_by(title: "Trouble dans le portrait : une exposition de Christophe Beauregard")
+expo_seventeen = Expo.all.find_by(title: "Exposition 'Héroïnes romantiques'")
+expo_eighteen = Expo.all.find_by(title: "Exposition « Silsila, le voyage des regards » à l'ICI")
+expo_nineteen = Expo.all.find_by(title: "Les visites ateliers photographiques de la MEP")
+expo_twenty = Expo.all.find_by(title: "Visite guidée des collections permanentes du musée Cernuschi")
 
-expo_twenty_one = Expo.all.where(title: "Atelier kombucha par Vivien Roussel, artiste, biodesigner et chercheur")
-expo_twenty_two = Expo.all.where(title: "Visite-soupe en compagnie de l'artiste Tiphaine Calmettes")
-expo_twenty_three = Expo.all.where(title: "Radio Daisy")
-expo_twenty_four = Expo.all.where(title: "« Taste Korea ! 2022 » Au cœur de la culture bouddhique coréenne")
-expo_twenty_five = Expo.all.where(title: "Exposition / Drawing An Aspiration - Charwei Tsai")
-expo_twenty_six = Expo.all.where(title: "L’horizon de Khéops, \"Un voyage en Egypte ancienne\"")
+expo_twenty_one = Expo.all.find_by(title: "Atelier kombucha par Vivien Roussel, artiste, biodesigner et chercheur")
+expo_twenty_two = Expo.all.find_by(title: "Visite-soupe en compagnie de l'artiste Tiphaine Calmettes")
+expo_twenty_three = Expo.all.find_by(title: "Radio Daisy")
+expo_twenty_four = Expo.all.find_by(title: "« Taste Korea ! 2022 » Au cœur de la culture bouddhique coréenne")
+expo_twenty_five = Expo.all.find_by(title: "Exposition / Drawing An Aspiration - Charwei Tsai")
+expo_twenty_six = Expo.all.find_by(title: "L’horizon de Khéops, \"Un voyage en Egypte ancienne\"")
 
-expo_twenty_seven = Expo.all.where(title: "Exposition \"Invitation au voyage\"")
-expo_twenty_eight = Expo.all.where(title: "Dé(s)compositions Alchimiques, atelier 6-12 ans")
-expo_twenty_nine = Expo.all.where(title: "Assemblage-paysage, un atelier pour toutes et tous")
-expo_thirty = Expo.all.where(title: "L’AVENTURE CHAMPOLLION, Dans le secret des hiéroglyphes")
-expo_thirty_one = Expo.all.where(title: "Exposition Garo 1964-1974, une histoire dans l'Histoire")
+expo_twenty_seven = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
+expo_twenty_eight = Expo.all.find_by(title: "Dé(s)compositions Alchimiques, atelier 6-12 ans")
+expo_twenty_nine = Expo.all.find_by(title: "Assemblage-paysage, un atelier pour toutes et tous")
+expo_thirty = Expo.all.find_by(title: "L’AVENTURE CHAMPOLLION, Dans le secret des hiéroglyphes")
+expo_thirty_one = Expo.all.find_by(title: "Exposition Garo 1964-1974, une histoire dans l'Histoire")
 
 
 puts 'variables ok'
@@ -190,7 +190,11 @@ puts 'variables ok'
 puts '2'
 expo_two.update!(title: "les éditions Maison Eliza",
                 tags: ["photo"])
-
+expo_two.photo.attach(
+  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808349/Maison_Eliza_Vignette-italie2_bwjxzz.jpg"),
+  filename: "les éditions Maison Eliza", # use the extension of the attached file here (found at the end of the url)
+  content_type: "jpg"
+)
 
 
 puts '3'
