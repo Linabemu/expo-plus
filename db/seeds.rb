@@ -192,7 +192,7 @@ expo_two&.update!(title: "les éditions Maison Eliza",
                 tags: ["photo"])
 expo_two&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808349/Maison_Eliza_Vignette-italie2_bwjxzz.jpg"),
-  filename: "les éditions Maison Eliza", # use the extension of the attached file here (found at the end of the url)
+  filename: expo_two.title, # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
 )
 
