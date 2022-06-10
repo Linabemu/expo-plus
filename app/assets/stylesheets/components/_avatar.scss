@@ -26,8 +26,10 @@
 }
 
 .avatar-xl {
-  width: 109px;
-  height: 109px;
+  min-width: 109px;
+  min-height: 109px;
+  max-width: 109px;
+  max-height: 109px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;

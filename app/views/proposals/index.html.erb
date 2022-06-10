@@ -22,7 +22,7 @@
     <% if @proposals.count > 0 %>
 
       <div data-controller="form-display">
-      <p class="caret-down proposal_action-button mt-1 mb-3" data-action="click->form-display#revealContent">Proposer une sortie</p>
+      <p class="caret-down proposal_action-button mt-3 mb-3" data-action="click->form-display#revealContent">Proposer une sortie</p>
         <span class="d-none" data-form-display-target="content">
           <%= render "shared/form_proposal" %>
         </span>
