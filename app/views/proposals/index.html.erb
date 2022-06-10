@@ -43,21 +43,22 @@
                 </div>
                 <div class="flex-grow-1">
                   <span class="review_title-small"><%= proposal.user.username%></span>
-                  <p class="paragraphe mb-3"><%=proposal.description %></p>
                   <div class="d-flex">
-                    <span class="proposal_sub-small flex-grow-1"><%=proposal.date_proposale.strftime("%d/%^b/%Y")%></span>
-                    <div>
-                      <span class="proposal_sub-small"> <%= proposal.participants.count %>/<%=proposal.max_participants%></span>
-                      <i class="fa-solid fa-user-group"></i>
+                    <span class="proposal_sub-small flex-grow-1 mt-1"><%=proposal.date_proposale.strftime("%d/%^b/%Y")%></span>
+                    <div class="mt-1">
+                      <span class="proposal_sub-small color"> <%= proposal.participants.count %>/<%=proposal.max_participants%></span>
+                      <i class="fa-solid fa-user-group" id="picto-participants"></i>
                     </div>
                   </div>
+                  <p class="paragraphe mb-3 mt-1", id="proposal-description"><%=proposal.description %></p>
+
                 </div>
               </div>
 
-              <div class="button-container">
+              <div class="button-container mt-4">
                 <div class="action-button">
                   <%= link_to expo_proposal_path(@expo, proposal), class: "button-participer" do %>
-                    <p>Cliquer pour participer</p>
+                    <p>Voir la proposition</p>
                   <% end %>
                 </div>
               </div>
