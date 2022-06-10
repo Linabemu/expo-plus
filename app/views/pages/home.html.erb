@@ -5,16 +5,18 @@
       <% @best_rated.first(5).each_with_index do |expo, index| %>
         <div class="carousel-item <%= 'active' if index.zero? %>">
           <%= link_to expo_path(expo), class: "position-relative" do %>
-          <div class="title_expo_carrousel_position">
-          <% if expo.title.length >= 10 %>
-            <p class="title_expo_carrousel"> <%= expo.title.upcase.split(' ').first %></p>
-            <br>
-            <p class="title_expo_carrousel"> <%= expo.title.upcase.split(' ').drop(1).join(' ') %></p>
-          <% else %>
-            <p class="title_expo_carrousel"> <%= expo.title.upcase%></p>
-          <% end %>
-          </div>
-            <%= cl_image_tag(expo.photo.key, height: '292px', quality: 50) %>
+            <div class="title_expo_carrousel_position">
+              <% if expo.title.length >= 10 %>
+                <p class="title_expo_carrousel"> <%= expo.title.upcase.split(' ').first %></p>
+                <br>
+                <p class="title_expo_carrousel"> <%= expo.title.upcase.split(' ').drop(1).join(' ') %></p>
+              <% else %>
+                <p class="title_expo_carrousel"> <%= expo.title.upcase%></p>
+              <% end %>
+            </div>
+            <div class="image-container-carroussel"  style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url(<%= cl_image_path(expo.photo.key) %>">
+              <%#= cl_image_tag(expo.photo.key, height: '292px', quality: 50, class:"") %>
+            </div>
           <% end %>
         </div>
       <% end %>
@@ -37,7 +39,7 @@
 
    <div class="horizontal-scroll d-flex">
       <%@upcoming.each do |expo| %>
-        <div class="card-small subtitle-bold"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(expo.photo.key) %>">
+        <div class="card-small subtitle-bold"  style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url(<%= cl_image_path(expo.photo.key) %>">
           <p>
             <%= link_to expo.title.upcase, expo_path(expo) %>
           </p>

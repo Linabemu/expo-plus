@@ -79,7 +79,7 @@
     </div>
     <div class="profil-horizontal-scroll d-flex mt-1">
       <% @wishes.each do |wish| %>
-        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(wish.expo.photo.key) %>">
+        <div class="card-small subtitle "  style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url(<%= cl_image_path(wish.expo.photo.key) %>">
           <p><%= link_to wish.expo.title.upcase, expo_path(wish.expo) %></p>
         </div>
       <% end %>
