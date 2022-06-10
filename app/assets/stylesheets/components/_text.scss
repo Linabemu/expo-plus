@@ -14,7 +14,7 @@
 
 
 .color{
-  color: #9747FF;
+  color: $purple;
 }
 
 .subtitle-bold a{
@@ -66,11 +66,13 @@ h6 {
   font-family: bc-sklonar, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 20px;
   text-transform: uppercase;
   color: $purple;
   margin: 0;
+  min-width: 120px;
+  text-align: right;
 
 }
 
