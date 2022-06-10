@@ -39,7 +39,7 @@
                   <h2 class="title"><%= expo.title  %></h2>
                   <div class="place">
                     <p class="subtitle"><%= expo.place.address_name  %></p>
-                    <p class="subtitle arrondissement"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
+                    <p class="subtitle-arrondissement-map"><%= expo.place.address_city  %> <%= expo.place.address_zipcode.split(//).last(2).join %></p>
                   </div>
                   <p class="subtitle">Du <%= (l expo.date_start, format: "%d %B") %> au <%= (l expo.date_end, format: "%d %B %Y") %></p>
                 </div>
