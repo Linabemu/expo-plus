@@ -188,9 +188,9 @@ expo_thirty_one = Expo.all.find_by(title: "Exposition Garo 1964-1974, une histoi
 puts 'variables ok'
 
 puts '2'
-expo_two.update!(title: "les éditions Maison Eliza",
+expo_two&.update!(title: "les éditions Maison Eliza",
                 tags: ["photo"])
-expo_two.photo.attach(
+expo_two&.photo&.attach(
   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808349/Maison_Eliza_Vignette-italie2_bwjxzz.jpg"),
   filename: "les éditions Maison Eliza", # use the extension of the attached file here (found at the end of the url)
   content_type: "jpg"
@@ -198,60 +198,60 @@ expo_two.photo.attach(
 
 
 puts '3'
-expo_three.update!(title: "13 bis X Roger-Viollet",
+expo_three&.update!(title: "13 bis X Roger-Viollet",
                   tags: ["photo"])
 
 puts '4'
-expo_four.update!(title: "Les ressources du Grand Paris",
+expo_four&.update!(title: "Les ressources du Grand Paris",
                   tags: ["art contemporain"])
 
 # puts '5'
-# expo_five.destroy
+expo_five&.destroy
 
 puts '6'
-expo_six.update!(title: "Desmemoria",
+expo_six&.update!(title: "Desmemoria",
                  tags: ["histoire", "voyages"])
 
 puts '7'
-expo_seven.update!(title: "A portée de train",
+expo_seven&.update!(title: "A portée de train",
                    tags: ["sciences et techniques", "voyages"])
 
 puts '9'
-expo_nine.update!(title: "Radomir Milovic",
+expo_nine&.update!(title: "Radomir Milovic",
                   tags: ["art contemporain", "beaux-arts"])
 
 puts '10'
-expo_ten.update!(title: "Invitation au voyage",
+expo_ten&.update!(title: "Invitation au voyage",
                  tags: ["voyages", "beaux-arts"])
 
-# expo_eleven.update!(title: "")
+# expo_eleven&.update!(title: "")
 
 puts '12'
-expo_twelve.update!(title: "DINH Q",
+expo_twelve&.update!(title: "DINH Q",
                     tags: ["voyages", "histoire", "photo"])
 
 puts '13'
-expo_thirteen.update!(title: "Les Heures Sauvages",
+expo_thirteen&.update!(title: "Les Heures Sauvages",
                       tags: ["art contemporain"])
 
 puts '14'
-expo_fourteen.update!(title: "Planète Z",
+expo_fourteen&.update!(title: "Planète Z",
                       tags: ["art contemporain"])
 
 puts '15'
-expo_fifteen.update!(title: "Les fantômes d'Orsay",
+expo_fifteen&.update!(title: "Les fantômes d'Orsay",
                      tags: ["art contemporain", "photo"])
 
 puts '16'
-expo_sixteen.update!(title: "Trouble dans le portrait",
+expo_sixteen&.update!(title: "Trouble dans le portrait",
                      tags: ["art contemporain", "photo"])
 
 puts '17'
-expo_seventeen.update!(title: "Héroïnes romantiques",
+expo_seventeen&.update!(title: "Héroïnes romantiques",
                        tags: ["beaux-arts"])
 
 puts '18'
-expo_eighteen.update!(title: "Silsila",
+expo_eighteen&.update!(title: "Silsila",
                       tags: ["beaux-arts", "voyages", "histoire"])
 
 # puts '19'
@@ -261,42 +261,42 @@ expo_eighteen.update!(title: "Silsila",
 # expo_twenty.destroy
 
 puts '21'
-expo_twenty_one.update!(title: "Vivien Roussel",
+expo_twenty_one&.update!(title: "Vivien Roussel",
                         tags: ["art contemporain"])
 
 puts '22'
-expo_twenty_two.update!(title: "Soupe Primordiale",
+expo_twenty_two&.update!(title: "Soupe Primordiale",
                         tags: ["art contemporain"])
 
 puts '23'
-expo_twenty_three.update!(title: "Radio Daisy",
+expo_twenty_three&.update!(title: "Radio Daisy",
                            tags: ["art contemporain", "beaux-arts"])
 
 puts '24'
-expo_twenty_four.update!(title: "Taste Korea 2022",
+expo_twenty_four&.update!(title: "Taste Korea 2022",
                          tags: ["art contemporain", "voyages"])
 
 puts '25'
-expo_twenty_five.update!(title: "Charwei Tsai",
+expo_twenty_five&.update!(title: "Charwei Tsai",
                         tags: ["art contemporain", "beaux-arts"])
 
 puts '26'
-expo_twenty_six.update!(title: "L’horizon de Khéops",
+expo_twenty_six&.update!(title: "L’horizon de Khéops",
                         tags: ["histoire", "beaux-arts"])
 
 puts '27'
-expo_twenty_seven.update!(title: "Invitation au voyage",
+expo_twenty_seven&.update!(title: "Invitation au voyage",
                           tags: ["art contemporain", "voyages"])
 
-expo_twenty_eight.update!(title: "Dé(s)compositions Alchimiques",
+expo_twenty_eight&.update!(title: "Dé(s)compositions Alchimiques",
                           tags: ["art contemporain", "sciences et techniques"])
 
 # expo_twenty_nine.destroy
 
-expo_thirty.update!(title: "L'Aventure Champollion",
+expo_thirty&.update!(title: "L'Aventure Champollion",
                     tags: ["histoire", "beaux-arts"])
 
-expo_thirty_one.update!(title: "Garo 1964-1974",
+expo_thirty_one&.update!(title: "Garo 1964-1974",
                         tags: ["voyages", "beaux-arts"])
 
 

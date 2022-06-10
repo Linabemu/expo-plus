@@ -19,6 +19,18 @@
 
 }
 
+.float-start {
+  display: flex !important;
+  justify-content: flex-start !important;
+  float: unset !important;
+}
+
+.float-end {
+  display: flex !important;
+  justify-content: flex-end !important;
+  float: unset !important;
+}
+
 .float-end .message-author {
   color: $purple;
   font-family: 'bebas-neue', sans-serif;
