@@ -16,7 +16,6 @@ class ExposController < ApplicationController
     # pour la search et les filtres on peut voir pour utiliser les formules ci-dessous mais en discuter avec Cyril si besoin car certaines ne fonctionneront pas forcément comme tel
     # ---------
     if params[:query].present? && params[:query] != nil
-
       # sql_query = <<~SQL
       #   expos.title ILIKE :mot
       #   OR expos.description ILIKE :mot
@@ -28,6 +27,11 @@ class ExposController < ApplicationController
     elsif params[:filters].present?
       @expos = Expo.where("tags && ARRAY[?]::varchar[]", params[:filters][:categories])
       @queries = params[:filters][:categories]
+
+      unless @queries
+        @queries = ['Toutes les meilleures expos']
+        @expos = Expo.all
+      end
     elsif session[:current_expo_id].present?
       @expos = Expo.where(id: session[:current_expo_id])
     else

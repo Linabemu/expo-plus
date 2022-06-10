@@ -56,9 +56,11 @@
   <!-- index  -->
   <div class="container-index">
     <div class="tag-container">
+    <% if @queries %>
       <% @queries.each do |query| %>
         <div class="tag-query subtitle"><%= query %></div>
       <% end %>
+    <% end %>
     </div>
     <% @expos.each do |expo| %>
       <div class="card-index">

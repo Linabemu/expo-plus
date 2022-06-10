@@ -27,6 +27,14 @@
   align-items: center;
 }
 
+.filters_categories, .filters_target{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .tag-item {
 
   display: inline-block;
