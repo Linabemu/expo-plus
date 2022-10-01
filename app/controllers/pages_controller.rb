@@ -4,19 +4,9 @@ class PagesController < ApplicationController
 
   def home
     @expos = Expo.all
-    @upcoming = []
-    @endend_soon = []
-
-    @expos.each do |expo|
-      @upcoming << expo if expo.date_start > Date.today
-      @endend_soon << expo if expo.date_start <= Date.today && (expo.date_end - Date.today).to_i < 15
-    end
-
-    @best_rated = []
-    expositions = Expo.includes(:reviews).all
-    expositions.each do |expo|
-      @best_rated << expo if  expo.average_rating && (expo.average_rating > 4)
-    end
+    @upcoming = @expos.select { |expo| expo.date_start > Date.today }
+    @endend_soon = @expos.select { |expo| expo.date_start <= Date.today && (expo.date_end - Date.today).to_i < 15 }
+    @best_rated = @expos.select { |expo| expo.average_rating && (expo.average_rating > 4) }
     session[:all_filter_params] = nil
   end
 
