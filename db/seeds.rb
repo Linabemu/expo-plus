@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 require 'json'
 require 'open-uri'
 
@@ -59,9 +51,9 @@ require 'open-uri'
 
   puts "Creating expos…"
 
-  records.take(30).each do |record|
+  records.take(50).each do |record|
 
-    if record["fields"]["address_name"].nil? || record["fields"]["address_street"].nil? || record["fields"]["address_city"].nil? || record["fields"]["address_zipcode"].nil? || record["geometry"]["coordinates"][1].nil? || record["geometry"]["coordinates"][0].nil? || record["fields"]["address_name"].nil?
+    if record["fields"]["address_name"].nil? || record["fields"]["address_street"].nil? || record["fields"]["address_city"].nil? || record["fields"]["address_zipcode"].nil? || record["geometry"]["coordinates"][1].nil? || record["geometry"]["coordinates"][0].nil? || record["fields"]["address_name"].nil? || record["fields"]["date_start"].nil? || record["fields"]["date_end"].nil?
       next
     end
 
@@ -122,284 +114,284 @@ require 'open-uri'
 
 
 
-expo_one = Expo.all.find_by(title: 'CINÉMA MON AMOUR - LES ANNÉES STUDIO')
-expo_two = Expo.all.find_by(title: 'Rencontre avec les éditions Maison Eliza')
-expo_three = Expo.all.find_by(title: 'Carte Blanche 13 bis X Roger-Viollet')
-expo_four = Expo.all.find_by(title: "Les ressources du Grand Paris sublimées au Pavillon de l'Arsenal")
-expo_five = Expo.all.find_by(title: "Musée")
-expo_six = Expo.all.find_by(title: "Avec « Desmemoria », Laetitia Tura donne à voir l’exil et sa mémoire, hier et aujourd’hui")
-expo_seven = Expo.all.find_by(title: "Exposition : A portée de train")
-expo_height = Expo.all.find_by(title: "Visite guidée de l’exposition « Silsila, le voyage des regards")
-expo_nine = Expo.all.find_by(title: "Radomir MILOVIĆ peintures - Galerie Boris")
-expo_ten = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
-expo_eleven = Expo.all.find_by(title: "Toucher le feu. Femmes céramistes au Japon")
-expo_twelve = Expo.all.find_by(title: "DINH Q. LÊ Le fil de la mémoire et autres photographies")
-expo_thirteen = Expo.all.find_by(title: "Les Heures Sauvages")
-expo_fourteen = Expo.all.find_by(title: "PLANÈTE Z - Exposition de Jeanne Frank")
-expo_fifteen = Expo.all.find_by(title: "SOPHIE CALLE et son invité Jean-Paul Demoule - Les fantômes d'Orsay")
-expo_sixteen = Expo.all.find_by(title: "Trouble dans le portrait : une exposition de Christophe Beauregard")
-expo_seventeen = Expo.all.find_by(title: "Exposition 'Héroïnes romantiques'")
-expo_eighteen = Expo.all.find_by(title: "Exposition « Silsila, le voyage des regards » à l'ICI")
-expo_nineteen = Expo.all.find_by(title: "Les visites ateliers photographiques de la MEP")
-expo_twenty = Expo.all.find_by(title: "Visite guidée des collections permanentes du musée Cernuschi")
+# expo_one = Expo.all.find_by(title: 'CINÉMA MON AMOUR - LES ANNÉES STUDIO')
+# expo_two = Expo.all.find_by(title: 'Rencontre avec les éditions Maison Eliza')
+# expo_three = Expo.all.find_by(title: 'Carte Blanche 13 bis X Roger-Viollet')
+# expo_four = Expo.all.find_by(title: "Les ressources du Grand Paris sublimées au Pavillon de l'Arsenal")
+# expo_five = Expo.all.find_by(title: "Musée")
+# expo_six = Expo.all.find_by(title: "Avec « Desmemoria », Laetitia Tura donne à voir l’exil et sa mémoire, hier et aujourd’hui")
+# expo_seven = Expo.all.find_by(title: "Exposition : A portée de train")
+# expo_height = Expo.all.find_by(title: "Visite guidée de l’exposition « Silsila, le voyage des regards")
+# expo_nine = Expo.all.find_by(title: "Radomir MILOVIĆ peintures - Galerie Boris")
+# expo_ten = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
+# expo_eleven = Expo.all.find_by(title: "Toucher le feu. Femmes céramistes au Japon")
+# expo_twelve = Expo.all.find_by(title: "DINH Q. LÊ Le fil de la mémoire et autres photographies")
+# expo_thirteen = Expo.all.find_by(title: "Les Heures Sauvages")
+# expo_fourteen = Expo.all.find_by(title: "PLANÈTE Z - Exposition de Jeanne Frank")
+# expo_fifteen = Expo.all.find_by(title: "SOPHIE CALLE et son invité Jean-Paul Demoule - Les fantômes d'Orsay")
+# expo_sixteen = Expo.all.find_by(title: "Trouble dans le portrait : une exposition de Christophe Beauregard")
+# expo_seventeen = Expo.all.find_by(title: "Exposition 'Héroïnes romantiques'")
+# expo_eighteen = Expo.all.find_by(title: "Exposition « Silsila, le voyage des regards » à l'ICI")
+# expo_nineteen = Expo.all.find_by(title: "Les visites ateliers photographiques de la MEP")
+# expo_twenty = Expo.all.find_by(title: "Visite guidée des collections permanentes du musée Cernuschi")
 
-expo_twenty_one = Expo.all.find_by(title: "Atelier kombucha par Vivien Roussel, artiste, biodesigner et chercheur")
-expo_twenty_two = Expo.all.find_by(title: "Visite-soupe en compagnie de l'artiste Tiphaine Calmettes")
-expo_twenty_three = Expo.all.find_by(title: "Radio Daisy")
-expo_twenty_four = Expo.all.find_by(title: "« Taste Korea ! 2022 » Au cœur de la culture bouddhique coréenne")
-expo_twenty_five = Expo.all.find_by(title: "Exposition / Drawing An Aspiration - Charwei Tsai")
-expo_twenty_six = Expo.all.find_by(title: "L’horizon de Khéops, \"Un voyage en Egypte ancienne\"")
+# expo_twenty_one = Expo.all.find_by(title: "Atelier kombucha par Vivien Roussel, artiste, biodesigner et chercheur")
+# expo_twenty_two = Expo.all.find_by(title: "Visite-soupe en compagnie de l'artiste Tiphaine Calmettes")
+# expo_twenty_three = Expo.all.find_by(title: "Radio Daisy")
+# expo_twenty_four = Expo.all.find_by(title: "« Taste Korea ! 2022 » Au cœur de la culture bouddhique coréenne")
+# expo_twenty_five = Expo.all.find_by(title: "Exposition / Drawing An Aspiration - Charwei Tsai")
+# expo_twenty_six = Expo.all.find_by(title: "L’horizon de Khéops, \"Un voyage en Egypte ancienne\"")
 
-expo_twenty_seven = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
-expo_twenty_eight = Expo.all.find_by(title: "Dé(s)compositions Alchimiques, atelier 6-12 ans")
-expo_twenty_nine = Expo.all.find_by(title: "Assemblage-paysage, un atelier pour toutes et tous")
-expo_thirty = Expo.all.find_by(title: "L’AVENTURE CHAMPOLLION, Dans le secret des hiéroglyphes")
-expo_thirty_one = Expo.all.find_by(title: "Exposition Garo 1964-1974, une histoire dans l'Histoire")
-
-
-puts 'variables ok'
-
-puts '2'
-expo_two&.update!(title: "les éditions Maison Eliza",
-                tags: ["photo"])
-expo_two&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808345/Maison_Eliza_Porcelaine_ja1kqh.jpg"),
-  filename: expo_two.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
+# expo_twenty_seven = Expo.all.find_by(title: "Exposition \"Invitation au voyage\"")
+# expo_twenty_eight = Expo.all.find_by(title: "Dé(s)compositions Alchimiques, atelier 6-12 ans")
+# expo_twenty_nine = Expo.all.find_by(title: "Assemblage-paysage, un atelier pour toutes et tous")
+# expo_thirty = Expo.all.find_by(title: "L’AVENTURE CHAMPOLLION, Dans le secret des hiéroglyphes")
+# expo_thirty_one = Expo.all.find_by(title: "Exposition Garo 1964-1974, une histoire dans l'Histoire")
 
 
-puts '3'
-expo_three&.update!(title: "13 bis X Roger-Viollet",
-                  tags: ["photo"])
+# puts 'variables ok'
 
-puts '4'
-expo_four&.update!(title: "Les ressources du Grand Paris",
-                  tags: ["art contemporain"])
-expo_four&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/pav_arsenal_ressources-0a294_ktom0y.jpg"),
-  filename: expo_four.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-# puts '5'
-expo_five&.destroy
-
-puts '6'
-expo_six&.update!(title: "Desmemoria",
-                 tags: ["histoire", "voyages"])
-expo_six&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789449/laetitia-tura_n0ijpa.jpg"),
-  filename: expo_six.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '7'
-expo_seven&.update!(title: "A portée de train",
-                   tags: ["sciences et techniques", "voyages"])
-  expo_seven&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654851090/train_vvbrw5.png"),
-  filename: expo_seven.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '9'
-expo_nine&.update!(title: "Radomir Milovic",
-                  tags: ["art contemporain", "beaux-arts"])
-expo_nine&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790204/radomir-milovic_iepbqq.jpg"),
-  filename: expo_nine.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '10'
-expo_ten&.update!(title: "Invitation au voyage",
-                 tags: ["voyages", "beaux-arts"])
-  expo_ten&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808347/invit_voyage_mg_0054_bey1ma.jpg"),
-  filename: expo_ten.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-# expo_eleven&.update!(title: "")
-
-puts '12'
-expo_twelve&.update!(title: "DINH Q",
-                    tags: ["voyages", "histoire", "photo"])
-expo_twelve&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789413/dinh-q-le_w3frzo.jpg"),
-  filename: expo_twelve.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '13'
-expo_thirteen&.update!(title: "Les Heures Sauvages",
-                      tags: ["art contemporain"])
-expo_thirteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790158/Les-heures-sauvages_smjcrv.jpg"),
-  filename: expo_thirteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '14'
-expo_fourteen&.update!(title: "Planète Z",
-                      tags: ["art contemporain"])
-expo_fourteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790180/planete-z2_hyvkcq.jpg"),
-  filename: expo_fourteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '15'
-expo_fifteen&.update!(title: "Les fantômes d'Orsay",
-                     tags: ["art contemporain", "photo"])
-  expo_fifteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790250/sophie-calle_wmjrmy.jpg"),
-  filename: expo_fifteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '16'
-expo_sixteen&.update!(title: "Trouble dans le portrait",
-                     tags: ["art contemporain", "photo"])
-  expo_sixteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808323/C-Beauregard_A-8470243_cshrqu.jpg"),
-  filename: expo_sixteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '17'
-expo_seventeen&.update!(title: "Héroïnes romantiques",
-                       tags: ["beaux-arts"])
-  expo_seventeen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789430/heroines-romantiques_b69ao2.jpg"),
-  filename: expo_seventeen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '18'
-expo_eighteen&.update!(title: "Silsila",
-                      tags: ["beaux-arts", "voyages", "histoire"])
-expo_eighteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654792241/Silsila_le_voyage_des_regards_c9djjj.jpg"),
-  filename: expo_eighteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-# puts '19'
-# expo_nineteen.destroy
-expo_nineteen&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/MEP_0220421-12835-1c6wtt0_tu0obb.jpg"),
-  filename: expo_nineteen.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '20'
-expo_twenty&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808376/Cernuschi_ryicr5.jpg"),
-  filename: expo_twenty.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-# expo_twenty.destroy
-
-puts '21'
-expo_twenty_one&.update!(title: "Vivien Roussel",
-                        tags: ["art contemporain"])
-expo_twenty_one&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808202/vivian-roussel_b5_dzs5t9.jpg"),
-  filename: expo_twenty_one.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '22'
-expo_twenty_two&.update!(title: "Soupe Primordiale",
-                        tags: ["art contemporain"])
-expo_twenty_two&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808212/soupe_primordiale-3_bdksaz.jpg"),
-  filename: expo_twenty_two.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '23'
-expo_twenty_three&.update!(title: "Radio Daisy",
-                           tags: ["art contemporain", "beaux-arts"])
-  expo_twenty_three&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808389/radio-daisy_WEB_ekentt.webp"),
-  filename: expo_twenty_three.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '24'
-expo_twenty_four&.update!(title: "Taste Korea 2022",
-                         tags: ["art contemporain", "voyages"])
-  expo_twenty_four&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808245/korea_xcvz4m.png"),
-  filename: expo_twenty_four.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '25'
-expo_twenty_five&.update!(title: "Charwei Tsai",
-                        tags: ["art contemporain", "beaux-arts"])
-expo_twenty_five&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808283/Charwei-Tsai_dvrfe8.jpg"),
-  filename: expo_twenty_five.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '26'
-expo_twenty_six&.update!(title: "L’horizon de Khéops",
-                        tags: ["histoire", "beaux-arts"])
-expo_twenty_six&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808330/hor_wub9hl.jpg"),
-  filename: expo_twenty_six.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-puts '27'
-expo_twenty_seven&.update!(title: "Invitation au voyage",
-                          tags: ["art contemporain", "voyages"])
-expo_twenty_seven&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808347/invit_voyage_mg_0054_bey1ma.jpg"),
-  filename: expo_twenty_seven.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-expo_twenty_eight&.update!(title: "Dé(s)compositions Alchimiques",
-                          tags: ["art contemporain", "sciences et techniques"])
-expo_twenty_eight&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808328/descompositions_alchimiques1lyfxc7_qetyg8.jpg"),
-  filename: expo_twenty_eight.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-# expo_twenty_nine.destroy
-expo_twenty_nine&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808277/assemblage_paysage_kevbtc.jpg"),
-  filename: expo_twenty_nine.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-expo_thirty&.update!(title: "L'Aventure Champollion",
-                    tags: ["histoire", "beaux-arts"])
-expo_thirty&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808295/Champollion_7vzy3g_pj3ot6.jpg"),
-  filename: expo_thirty.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-)
-
-expo_thirty_one&.update!(title: "Garo 1964-1974",
-                        tags: ["voyages", "beaux-arts"])
-expo_thirty_one&.photo&.attach(
-  io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808318/garo-couv-2_vedegw.jpg"),
-  filename: expo_thirty_one.title, # use the extension of the attached file here (found at the end of the url)
-  content_type: "jpg"
-  )
+# puts '2'
+# expo_two&.update!(title: "les éditions Maison Eliza",
+#                 tags: ["photo"])
+# expo_two&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808345/Maison_Eliza_Porcelaine_ja1kqh.jpg"),
+#   filename: expo_two.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
 
 
+# puts '3'
+# expo_three&.update!(title: "13 bis X Roger-Viollet",
+#                   tags: ["photo"])
 
-  other_expo = Expo.all.select { |e| e.title != "Les ressources du Grand Paris" && e.title != "Charwei Tsai" ? e : nil }
+# puts '4'
+# expo_four&.update!(title: "Les ressources du Grand Paris",
+#                   tags: ["art contemporain"])
+# expo_four&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/pav_arsenal_ressources-0a294_ktom0y.jpg"),
+#   filename: expo_four.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# # puts '5'
+# expo_five&.destroy
+
+# puts '6'
+# expo_six&.update!(title: "Desmemoria",
+#                  tags: ["histoire", "voyages"])
+# expo_six&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789449/laetitia-tura_n0ijpa.jpg"),
+#   filename: expo_six.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '7'
+# expo_seven&.update!(title: "A portée de train",
+#                    tags: ["sciences et techniques", "voyages"])
+#   expo_seven&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654851090/train_vvbrw5.png"),
+#   filename: expo_seven.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '9'
+# expo_nine&.update!(title: "Radomir Milovic",
+#                   tags: ["art contemporain", "beaux-arts"])
+# expo_nine&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790204/radomir-milovic_iepbqq.jpg"),
+#   filename: expo_nine.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '10'
+# expo_ten&.update!(title: "Invitation au voyage",
+#                  tags: ["voyages", "beaux-arts"])
+#   expo_ten&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808347/invit_voyage_mg_0054_bey1ma.jpg"),
+#   filename: expo_ten.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# # expo_eleven&.update!(title: "")
+
+# puts '12'
+# expo_twelve&.update!(title: "DINH Q",
+#                     tags: ["voyages", "histoire", "photo"])
+# expo_twelve&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789413/dinh-q-le_w3frzo.jpg"),
+#   filename: expo_twelve.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '13'
+# expo_thirteen&.update!(title: "Les Heures Sauvages",
+#                       tags: ["art contemporain"])
+# expo_thirteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790158/Les-heures-sauvages_smjcrv.jpg"),
+#   filename: expo_thirteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '14'
+# expo_fourteen&.update!(title: "Planète Z",
+#                       tags: ["art contemporain"])
+# expo_fourteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790180/planete-z2_hyvkcq.jpg"),
+#   filename: expo_fourteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '15'
+# expo_fifteen&.update!(title: "Les fantômes d'Orsay",
+#                      tags: ["art contemporain", "photo"])
+#   expo_fifteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654790250/sophie-calle_wmjrmy.jpg"),
+#   filename: expo_fifteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '16'
+# expo_sixteen&.update!(title: "Trouble dans le portrait",
+#                      tags: ["art contemporain", "photo"])
+#   expo_sixteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808323/C-Beauregard_A-8470243_cshrqu.jpg"),
+#   filename: expo_sixteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '17'
+# expo_seventeen&.update!(title: "Héroïnes romantiques",
+#                        tags: ["beaux-arts"])
+#   expo_seventeen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654789430/heroines-romantiques_b69ao2.jpg"),
+#   filename: expo_seventeen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '18'
+# expo_eighteen&.update!(title: "Silsila",
+#                       tags: ["beaux-arts", "voyages", "histoire"])
+# expo_eighteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654792241/Silsila_le_voyage_des_regards_c9djjj.jpg"),
+#   filename: expo_eighteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# # puts '19'
+# # expo_nineteen.destroy
+# expo_nineteen&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808360/MEP_0220421-12835-1c6wtt0_tu0obb.jpg"),
+#   filename: expo_nineteen.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '20'
+# expo_twenty&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808376/Cernuschi_ryicr5.jpg"),
+#   filename: expo_twenty.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# # expo_twenty.destroy
+
+# puts '21'
+# expo_twenty_one&.update!(title: "Vivien Roussel",
+#                         tags: ["art contemporain"])
+# expo_twenty_one&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808202/vivian-roussel_b5_dzs5t9.jpg"),
+#   filename: expo_twenty_one.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '22'
+# expo_twenty_two&.update!(title: "Soupe Primordiale",
+#                         tags: ["art contemporain"])
+# expo_twenty_two&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808212/soupe_primordiale-3_bdksaz.jpg"),
+#   filename: expo_twenty_two.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '23'
+# expo_twenty_three&.update!(title: "Radio Daisy",
+#                            tags: ["art contemporain", "beaux-arts"])
+#   expo_twenty_three&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808389/radio-daisy_WEB_ekentt.webp"),
+#   filename: expo_twenty_three.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '24'
+# expo_twenty_four&.update!(title: "Taste Korea 2022",
+#                          tags: ["art contemporain", "voyages"])
+#   expo_twenty_four&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808245/korea_xcvz4m.png"),
+#   filename: expo_twenty_four.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '25'
+# expo_twenty_five&.update!(title: "Charwei Tsai",
+#                         tags: ["art contemporain", "beaux-arts"])
+# expo_twenty_five&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808283/Charwei-Tsai_dvrfe8.jpg"),
+#   filename: expo_twenty_five.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '26'
+# expo_twenty_six&.update!(title: "L’horizon de Khéops",
+#                         tags: ["histoire", "beaux-arts"])
+# expo_twenty_six&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808330/hor_wub9hl.jpg"),
+#   filename: expo_twenty_six.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# puts '27'
+# expo_twenty_seven&.update!(title: "Invitation au voyage",
+#                           tags: ["art contemporain", "voyages"])
+# expo_twenty_seven&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808347/invit_voyage_mg_0054_bey1ma.jpg"),
+#   filename: expo_twenty_seven.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# expo_twenty_eight&.update!(title: "Dé(s)compositions Alchimiques",
+#                           tags: ["art contemporain", "sciences et techniques"])
+# expo_twenty_eight&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808328/descompositions_alchimiques1lyfxc7_qetyg8.jpg"),
+#   filename: expo_twenty_eight.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# # expo_twenty_nine.destroy
+# expo_twenty_nine&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808277/assemblage_paysage_kevbtc.jpg"),
+#   filename: expo_twenty_nine.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# expo_thirty&.update!(title: "L'Aventure Champollion",
+#                     tags: ["histoire", "beaux-arts"])
+# expo_thirty&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808295/Champollion_7vzy3g_pj3ot6.jpg"),
+#   filename: expo_thirty.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+# )
+
+# expo_thirty_one&.update!(title: "Garo 1964-1974",
+#                         tags: ["voyages", "beaux-arts"])
+# expo_thirty_one&.photo&.attach(
+#   io: URI.open("https://res.cloudinary.com/dpaxgliqd/image/upload/v1654808318/garo-couv-2_vedegw.jpg"),
+#   filename: expo_thirty_one.title, # use the extension of the attached file here (found at the end of the url)
+#   content_type: "jpg"
+#   )
+
+
+
+other_expo = Expo.all.select { |e| e.title != "Les ressources du Grand Paris" && e.title != "Charwei Tsai" ? e : nil }
 
 Review.create(rating: 4, comment: "la meilleure expo de l'année", user: User.all.sample, expo: other_expo[0])
 Review.create!(rating: 5, comment: "trop beau !!!", user: User.all.sample, expo: other_expo[1])
@@ -445,47 +437,47 @@ Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: other_e
 Review.create!(rating: 3, comment: "Bravo", user: User.all.sample, expo: other_expo[13])
 puts "Reviews OK"
 
-Review.create!(rating: 5, comment: "Waouh", user: user2, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
-Review.create(rating: 4, comment: "la meilleure expo de l'année", user: user3, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
-Review.create!(rating: 5, comment: "trop beau !!!", user: user4, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+# Review.create!(rating: 5, comment: "Waouh", user: user2, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+# Review.create(rating: 4, comment: "la meilleure expo de l'année", user: user3, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
+# Review.create!(rating: 5, comment: "trop beau !!!", user: user4, expo: Expo.all.find_by(title: "Les ressources du Grand Paris"))
 
-Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
-Review.create!(rating: 4, comment: "Bravo", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
-puts "Reviews OK"
-
-
-puts "creating proposals and participants"
-# User.all.each do |user|
-#   date_seed = "2022-07-30".to_time
-#   Proposal.create!(confirmed: false, max_participants: 4, user_id: user.id, expo_id: Expo.all.sample(1).first.id, description: "blablablablablablablabla puis aussi blablblablablabla I'm a god", date_proposale: date_seed)
-# end
-
-# User.all.each do |user|
-#   i = 0
-#   3.times do
-#     Participant.create!(user_id: user.id, proposal_id: Proposal.all.where.not(user: user)[i].id)
-#     i += 1
-#   end
-# end
+# Review.create!(rating: 3, comment: "Super", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
+# Review.create!(rating: 4, comment: "Bravo", user: User.all.sample, expo: Expo.all.find_by(title: "Charwei Tsai"))
+# puts "Reviews OK"
 
 
-  date_tanguy = "2022-06-11".to_time
-  date_naomi = "2022-06-12".to_time
-  date_naomi_july = "2022-07-22".to_time
+# puts "creating proposals and participants"
+# # User.all.each do |user|
+# #   date_seed = "2022-07-30".to_time
+# #   Proposal.create!(confirmed: false, max_participants: 4, user_id: user.id, expo_id: Expo.all.sample(1).first.id, description: "blablablablablablablabla puis aussi blablblablablabla I'm a god", date_proposale: date_seed)
+# # end
 
-  prop1 = Proposal.create!(confirmed: false, max_participants: 4, user_id: user6.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Bonjour, avec ma femme nous allons à cette exposition samedi prochain autour de 10h. Soyez les bienvenus !", date_proposale: date_tanguy)
+# # User.all.each do |user|
+# #   i = 0
+# #   3.times do
+# #     Participant.create!(user_id: user.id, proposal_id: Proposal.all.where.not(user: user)[i].id)
+# #     i += 1
+# #   end
+# # end
 
-  prop2 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi)
 
-   prop3 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "L'Aventure Champollion").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
+#   date_tanguy = "2022-06-11".to_time
+#   date_naomi = "2022-06-12".to_time
+#   date_naomi_july = "2022-07-22".to_time
 
-  prop4 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Dé(s)compositions Alchimiques").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
+#   prop1 = Proposal.create!(confirmed: false, max_participants: 4, user_id: user6.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Bonjour, avec ma femme nous allons à cette exposition samedi prochain autour de 10h. Soyez les bienvenus !", date_proposale: date_tanguy)
+
+#   prop2 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Les ressources du Grand Paris").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi)
+
+#    prop3 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "L'Aventure Champollion").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
+
+#   prop4 = Proposal.create!(confirmed: false, max_participants: 2, user_id: user5.id, expo_id: Expo.all.find_by(title: "Dé(s)compositions Alchimiques").id, description: "Hello, super motivée pour aller à cette exposition ce dimanche, personne pour m'accompagner ?", date_proposale: date_naomi_july)
 
 
-  Wish.create!(user_id: user5.id, expo_id: other_expo[1].id)
-  Wish.create!(user_id: user5.id, expo_id: other_expo[2].id)
-  Wish.create!(user_id: user5.id, expo_id: other_expo[3].id)
-  Wish.create!(user_id: user5.id, expo_id: other_expo[4].id)
-  Wish.create!(user_id: user5.id, expo_id: other_expo[5].id)
+#   Wish.create!(user_id: user5.id, expo_id: other_expo[1].id)
+#   Wish.create!(user_id: user5.id, expo_id: other_expo[2].id)
+#   Wish.create!(user_id: user5.id, expo_id: other_expo[3].id)
+#   Wish.create!(user_id: user5.id, expo_id: other_expo[4].id)
+#   Wish.create!(user_id: user5.id, expo_id: other_expo[5].id)
 
-puts "Proposals and participants created"
+# puts "Proposals and participants created"

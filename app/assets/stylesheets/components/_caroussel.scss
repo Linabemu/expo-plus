@@ -23,7 +23,7 @@
   font-weight: 400;
   font-size: 36px;
   padding : 30px 30px 0 25px;
-  // line-height: 43px;
+  line-height: 50px;
   color: white;
   margin-bottom: 6px;
   z-index: 1;
@@ -38,6 +38,11 @@
   color: $purple;
   margin-bottom: 6px;
   text-align: right;
+  line-height: 40px;
+}
+
+.title_expo_carrousel span {
+  background: rgba(204, 204, 204, 0.7)
 }
 
 .title_expo_carrousel_position {
